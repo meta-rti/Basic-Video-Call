@@ -42,6 +42,6 @@ dependencies {
     implementation project(path: ':logger')
 
     //wuji Rtc sdk
-    implementation 'com.wuji.rtc:rtc_sdk:1.0.5'
+    implementation 'com.wuji.rtc:rtc_sdk:1.0.8'
 
 }
