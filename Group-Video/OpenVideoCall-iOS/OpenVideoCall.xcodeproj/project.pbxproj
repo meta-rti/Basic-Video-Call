@@ -1,0 +1,565 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		070275CE1D66A9DC00ABBC23 /* MediaCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070275CD1D66A9DC00ABBC23 /* MediaCharacter.swift */; };
+		073BDB5A1D64742A00B62E14 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073BDB591D64742A00B62E14 /* MainViewController.swift */; };
+		073BDB5C1D64743C00B62E14 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 073BDB5B1D64743C00B62E14 /* SettingsViewController.swift */; };
+		0786497F1D65A4C6004AD88E /* DimensionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786497E1D65A4C6004AD88E /* DimensionCell.swift */; };
+		07B7253A1D76C99A00B459E5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B725391D76C99A00B459E5 /* Message.swift */; };
+		07C2CF581D6ADB3300C84349 /* EncryptionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF571D6ADB3300C84349 /* EncryptionType.swift */; };
+		07C2CF5A1D6ADDCA00C84349 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF591D6ADDCA00C84349 /* RoomViewController.swift */; };
+		07C2CF601D6AE5E700C84349 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF5F1D6AE5E700C84349 /* MessageViewController.swift */; };
+		07C2CF621D6AE63000C84349 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF611D6AE63000C84349 /* MessageCell.swift */; };
+		07C2CF681D6AF13300C84349 /* CollectionIndexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF631D6AF13300C84349 /* CollectionIndexModel.swift */; };
+		07C2CF6A1D6AF13300C84349 /* VideoSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF651D6AF13300C84349 /* VideoSession.swift */; };
+		07C2CF6B1D6AF13300C84349 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF661D6AF13300C84349 /* VideoView.swift */; };
+		07C2CF721D6AF34800C84349 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF701D6AF34800C84349 /* CommonExtensions.swift */; };
+		07C2CF771D6AF3F400C84349 /* KeyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CF761D6AF3F400C84349 /* KeyCenter.swift */; };
+		07F52EB51D62F39D006DDCD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F52EB41D62F39D006DDCD4 /* AppDelegate.swift */; };
+		07F52EBA1D62F39D006DDCD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F52EB81D62F39D006DDCD4 /* Main.storyboard */; };
+		07F52EBC1D62F39D006DDCD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F52EBB1D62F39D006DDCD4 /* Assets.xcassets */; };
+		07F52EBF1D62F39D006DDCD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F52EBD1D62F39D006DDCD4 /* LaunchScreen.storyboard */; };
+		3832FA5B227FC56200E50E69 /* FileCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832FA5A227FC56200E50E69 /* FileCenter.swift */; };
+		A3211CB6258AFFBB004A59B5 /* audioTest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3211CB5258AFFBB004A59B5 /* audioTest.mp3 */; };
+		A3A344D22589BBBC007385C8 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A344D12589BBBC007385C8 /* WujiRTCFramework.framework */; };
+		A3A344D52589BC1D007385C8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D5D24079B3900483870 /* CoreTelephony.framework */; };
+		A3A344D72589BC2C007385C8 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A344D62589BC2C007385C8 /* GLKit.framework */; };
+		A3A344D82589BC39007385C8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D5F24079B4300483870 /* libc++.tbd */; };
+		A3A344D92589BC44007385C8 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D29C581E9E1E0A00C3583C /* libresolv.tbd */; };
+		A3A344DB2589BC4F007385C8 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A344DA2589BC4F007385C8 /* MetalKit.framework */; };
+		A3A344DC2589BC5B007385C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2747D01FB45D00005D3DBA /* SystemConfiguration.framework */; };
+		A3A344DD2589BC65007385C8 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D5424079B1100483870 /* VideoToolbox.framework */; };
+		A76C26F523878C8F0047E150 /* WJEVideoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26F023878C8F0047E150 /* WJEVideoLayout.swift */; };
+		A76C26F623878C8F0047E150 /* WJEVideoConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26F123878C8F0047E150 /* WJEVideoConstraints.swift */; };
+		A76C26F723878C8F0047E150 /* WJEEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26F223878C8F0047E150 /* WJEEventsObserver.swift */; };
+		A76C26F823878C8F0047E150 /* WJEView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26F323878C8F0047E150 /* WJEView.swift */; };
+		A76C26F923878C8F0047E150 /* WJEVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26F423878C8F0047E150 /* WJEVideoContainer.swift */; };
+		A76C26FB2387964B0047E150 /* StatisticsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26FA2387964A0047E150 /* StatisticsInfo.swift */; };
+		A76C26FD2387B7130047E150 /* WujiExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26FC2387B7130047E150 /* WujiExtension.swift */; };
+		A7A3C65A228ACFB4005BB816 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3C659228ACFB4005BB816 /* Settings.swift */; };
+		A7FC1EF12295701500F850F2 /* RoomOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC1EF02295701500F850F2 /* RoomOptionsViewController.swift */; };
+		A7FC1EF522963CA200F850F2 /* LastmileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC1EF422963CA200F850F2 /* LastmileViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		070275CD1D66A9DC00ABBC23 /* MediaCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCharacter.swift; sourceTree = "<group>"; };
+		073BDB591D64742A00B62E14 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		073BDB5B1D64743C00B62E14 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0786497E1D65A4C6004AD88E /* DimensionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimensionCell.swift; sourceTree = "<group>"; };
+		07B725391D76C99A00B459E5 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		07C2CF571D6ADB3300C84349 /* EncryptionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptionType.swift; sourceTree = "<group>"; };
+		07C2CF591D6ADDCA00C84349 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		07C2CF5F1D6AE5E700C84349 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		07C2CF611D6AE63000C84349 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		07C2CF631D6AF13300C84349 /* CollectionIndexModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionIndexModel.swift; sourceTree = "<group>"; };
+		07C2CF651D6AF13300C84349 /* VideoSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSession.swift; sourceTree = "<group>"; };
+		07C2CF661D6AF13300C84349 /* VideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = VideoView.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		07C2CF701D6AF34800C84349 /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = CommonExtensions.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		07C2CF761D6AF3F400C84349 /* KeyCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyCenter.swift; sourceTree = "<group>"; };
+		07D29C581E9E1E0A00C3583C /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		07F52EB11D62F39D006DDCD4 /* OpenVideoCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenVideoCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07F52EB41D62F39D006DDCD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07F52EB91D62F39D006DDCD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		07F52EBB1D62F39D006DDCD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		07F52EBE1D62F39D006DDCD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		07F52EC01D62F39D006DDCD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F2747D01FB45D00005D3DBA /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3832FA5A227FC56200E50E69 /* FileCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCenter.swift; sourceTree = "<group>"; };
+		385F30952123D0D1005D5301 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		38D619332250BC4A004A6C87 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		A3211CB5258AFFBB004A59B5 /* audioTest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audioTest.mp3; path = ../../SharedFiles/audioTest.mp3; sourceTree = "<group>"; };
+		A3A344D12589BBBC007385C8 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = OpenVideoCall/WujiRTCFramework.framework; sourceTree = "<group>"; };
+		A3A344D62589BC2C007385C8 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A3A344DA2589BC4F007385C8 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		A76C26F023878C8F0047E150 /* WJEVideoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoLayout.swift; sourceTree = "<group>"; };
+		A76C26F123878C8F0047E150 /* WJEVideoConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoConstraints.swift; sourceTree = "<group>"; };
+		A76C26F223878C8F0047E150 /* WJEEventsObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEEventsObserver.swift; sourceTree = "<group>"; };
+		A76C26F323878C8F0047E150 /* WJEView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEView.swift; sourceTree = "<group>"; };
+		A76C26F423878C8F0047E150 /* WJEVideoContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoContainer.swift; sourceTree = "<group>"; };
+		A76C26FA2387964A0047E150 /* StatisticsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsInfo.swift; sourceTree = "<group>"; };
+		A76C26FC2387B7130047E150 /* WujiExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WujiExtension.swift; sourceTree = "<group>"; };
+		A7733D5224079B0B00483870 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		A7733D5424079B1100483870 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		A7733D5624079B1600483870 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A7733D5824079B1F00483870 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		A7733D5B24079B3000483870 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		A7733D5D24079B3900483870 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		A7733D5F24079B4300483870 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		A7A3C659228ACFB4005BB816 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		A7FC1EF02295701500F850F2 /* RoomOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomOptionsViewController.swift; sourceTree = "<group>"; };
+		A7FC1EF422963CA200F850F2 /* LastmileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastmileViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07F52EAE1D62F39D006DDCD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3A344DD2589BC65007385C8 /* VideoToolbox.framework in Frameworks */,
+				A3A344D52589BC1D007385C8 /* CoreTelephony.framework in Frameworks */,
+				A3A344DC2589BC5B007385C8 /* SystemConfiguration.framework in Frameworks */,
+				A3A344D72589BC2C007385C8 /* GLKit.framework in Frameworks */,
+				A3A344D92589BC44007385C8 /* libresolv.tbd in Frameworks */,
+				A3A344DB2589BC4F007385C8 /* MetalKit.framework in Frameworks */,
+				A3A344D82589BC39007385C8 /* libc++.tbd in Frameworks */,
+				A3A344D22589BBBC007385C8 /* WujiRTCFramework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07C2CFA81D6C211700C84349 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				073BDB591D64742A00B62E14 /* MainViewController.swift */,
+				073BDB5B1D64743C00B62E14 /* SettingsViewController.swift */,
+				A7FC1EF422963CA200F850F2 /* LastmileViewController.swift */,
+				07C2CF591D6ADDCA00C84349 /* RoomViewController.swift */,
+				07C2CF5F1D6AE5E700C84349 /* MessageViewController.swift */,
+				A7FC1EF02295701500F850F2 /* RoomOptionsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		07C2CFA91D6C213100C84349 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A76C26FC2387B7130047E150 /* WujiExtension.swift */,
+				A76C26FA2387964A0047E150 /* StatisticsInfo.swift */,
+				07C2CF761D6AF3F400C84349 /* KeyCenter.swift */,
+				3832FA5A227FC56200E50E69 /* FileCenter.swift */,
+				070275CD1D66A9DC00ABBC23 /* MediaCharacter.swift */,
+				07B725391D76C99A00B459E5 /* Message.swift */,
+				A7A3C659228ACFB4005BB816 /* Settings.swift */,
+				07C2CF571D6ADB3300C84349 /* EncryptionType.swift */,
+				07C2CF631D6AF13300C84349 /* CollectionIndexModel.swift */,
+				07C2CF701D6AF34800C84349 /* CommonExtensions.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		07C2CFAA1D6C214100C84349 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07F52EB81D62F39D006DDCD4 /* Main.storyboard */,
+				0786497E1D65A4C6004AD88E /* DimensionCell.swift */,
+				07C2CF611D6AE63000C84349 /* MessageCell.swift */,
+				07C2CF651D6AF13300C84349 /* VideoSession.swift */,
+				07C2CF661D6AF13300C84349 /* VideoView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		07D29C571E9E1E0A00C3583C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3A344DA2589BC4F007385C8 /* MetalKit.framework */,
+				A3A344D62589BC2C007385C8 /* GLKit.framework */,
+				A3A344D12589BBBC007385C8 /* WujiRTCFramework.framework */,
+				A7733D5F24079B4300483870 /* libc++.tbd */,
+				A7733D5D24079B3900483870 /* CoreTelephony.framework */,
+				A7733D5B24079B3000483870 /* CoreMotion.framework */,
+				A7733D5824079B1F00483870 /* CoreMedia.framework */,
+				A7733D5624079B1600483870 /* AVFoundation.framework */,
+				A7733D5424079B1100483870 /* VideoToolbox.framework */,
+				A7733D5224079B0B00483870 /* AudioToolbox.framework */,
+				38D619332250BC4A004A6C87 /* CoreML.framework */,
+				385F30952123D0D1005D5301 /* Accelerate.framework */,
+				0F2747D01FB45D00005D3DBA /* SystemConfiguration.framework */,
+				07D29C581E9E1E0A00C3583C /* libresolv.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07F52EA81D62F39D006DDCD4 = {
+			isa = PBXGroup;
+			children = (
+				07F52EB31D62F39D006DDCD4 /* OpenVideoCall */,
+				07F52EB21D62F39D006DDCD4 /* Products */,
+				07D29C571E9E1E0A00C3583C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		07F52EB21D62F39D006DDCD4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07F52EB11D62F39D006DDCD4 /* OpenVideoCall.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07F52EB31D62F39D006DDCD4 /* OpenVideoCall */ = {
+			isa = PBXGroup;
+			children = (
+				07C2CFA81D6C211700C84349 /* Controllers */,
+				07C2CFAA1D6C214100C84349 /* Views */,
+				07C2CFA91D6C213100C84349 /* Models */,
+				A76C26EF23878C8F0047E150 /* WJEVideoLayout */,
+				A76C26BF2386832F0047E150 /* Supporting Files */,
+			);
+			path = OpenVideoCall;
+			sourceTree = "<group>";
+		};
+		A76C26BF2386832F0047E150 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3211CB5258AFFBB004A59B5 /* audioTest.mp3 */,
+				07F52EB41D62F39D006DDCD4 /* AppDelegate.swift */,
+				07F52EBB1D62F39D006DDCD4 /* Assets.xcassets */,
+				07F52EBD1D62F39D006DDCD4 /* LaunchScreen.storyboard */,
+				07F52EC01D62F39D006DDCD4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A76C26EF23878C8F0047E150 /* WJEVideoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				A76C26F023878C8F0047E150 /* WJEVideoLayout.swift */,
+				A76C26F123878C8F0047E150 /* WJEVideoConstraints.swift */,
+				A76C26F223878C8F0047E150 /* WJEEventsObserver.swift */,
+				A76C26F323878C8F0047E150 /* WJEView.swift */,
+				A76C26F423878C8F0047E150 /* WJEVideoContainer.swift */,
+			);
+			path = WJEVideoLayout;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07F52EB01D62F39D006DDCD4 /* OpenVideoCall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07F52EC31D62F39D006DDCD4 /* Build configuration list for PBXNativeTarget "OpenVideoCall" */;
+			buildPhases = (
+				07F52EAD1D62F39D006DDCD4 /* Sources */,
+				07F52EAE1D62F39D006DDCD4 /* Frameworks */,
+				07F52EAF1D62F39D006DDCD4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OpenVideoCall;
+			productName = OpenVideoCall;
+			productReference = 07F52EB11D62F39D006DDCD4 /* OpenVideoCall.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07F52EA91D62F39D006DDCD4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 1220;
+				ORGANIZATIONNAME = Agora;
+				TargetAttributes = {
+					07F52EB01D62F39D006DDCD4 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = Q79KRGY3Q9;
+						LastSwiftMigration = 1000;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = 07F52EAC1D62F39D006DDCD4 /* Build configuration list for PBXProject "OpenVideoCall" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+				Base,
+			);
+			mainGroup = 07F52EA81D62F39D006DDCD4;
+			productRefGroup = 07F52EB21D62F39D006DDCD4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07F52EB01D62F39D006DDCD4 /* OpenVideoCall */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07F52EAF1D62F39D006DDCD4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07F52EBF1D62F39D006DDCD4 /* LaunchScreen.storyboard in Resources */,
+				A3211CB6258AFFBB004A59B5 /* audioTest.mp3 in Resources */,
+				07F52EBC1D62F39D006DDCD4 /* Assets.xcassets in Resources */,
+				07F52EBA1D62F39D006DDCD4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07F52EAD1D62F39D006DDCD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A76C26FD2387B7130047E150 /* WujiExtension.swift in Sources */,
+				A7FC1EF522963CA200F850F2 /* LastmileViewController.swift in Sources */,
+				A76C26F923878C8F0047E150 /* WJEVideoContainer.swift in Sources */,
+				A76C26F623878C8F0047E150 /* WJEVideoConstraints.swift in Sources */,
+				07C2CF681D6AF13300C84349 /* CollectionIndexModel.swift in Sources */,
+				A7FC1EF12295701500F850F2 /* RoomOptionsViewController.swift in Sources */,
+				07C2CF581D6ADB3300C84349 /* EncryptionType.swift in Sources */,
+				07B7253A1D76C99A00B459E5 /* Message.swift in Sources */,
+				A7A3C65A228ACFB4005BB816 /* Settings.swift in Sources */,
+				A76C26FB2387964B0047E150 /* StatisticsInfo.swift in Sources */,
+				07F52EB51D62F39D006DDCD4 /* AppDelegate.swift in Sources */,
+				07C2CF5A1D6ADDCA00C84349 /* RoomViewController.swift in Sources */,
+				07C2CF771D6AF3F400C84349 /* KeyCenter.swift in Sources */,
+				07C2CF6A1D6AF13300C84349 /* VideoSession.swift in Sources */,
+				0786497F1D65A4C6004AD88E /* DimensionCell.swift in Sources */,
+				070275CE1D66A9DC00ABBC23 /* MediaCharacter.swift in Sources */,
+				07C2CF721D6AF34800C84349 /* CommonExtensions.swift in Sources */,
+				3832FA5B227FC56200E50E69 /* FileCenter.swift in Sources */,
+				073BDB5A1D64742A00B62E14 /* MainViewController.swift in Sources */,
+				07C2CF621D6AE63000C84349 /* MessageCell.swift in Sources */,
+				07C2CF601D6AE5E700C84349 /* MessageViewController.swift in Sources */,
+				A76C26F723878C8F0047E150 /* WJEEventsObserver.swift in Sources */,
+				073BDB5C1D64743C00B62E14 /* SettingsViewController.swift in Sources */,
+				07C2CF6B1D6AF13300C84349 /* VideoView.swift in Sources */,
+				A76C26F823878C8F0047E150 /* WJEView.swift in Sources */,
+				A76C26F523878C8F0047E150 /* WJEVideoLayout.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		07F52EB81D62F39D006DDCD4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07F52EB91D62F39D006DDCD4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		07F52EBD1D62F39D006DDCD4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07F52EBE1D62F39D006DDCD4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07F52EC11D62F39D006DDCD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07F52EC21D62F39D006DDCD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		07F52EC41D62F39D006DDCD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenVideoCall",
+				);
+				INFOPLIST_FILE = OpenVideoCall/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenVideoCall",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		07F52EC51D62F39D006DDCD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenVideoCall",
+				);
+				INFOPLIST_FILE = OpenVideoCall/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OpenVideoCall",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07F52EAC1D62F39D006DDCD4 /* Build configuration list for PBXProject "OpenVideoCall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07F52EC11D62F39D006DDCD4 /* Debug */,
+				07F52EC21D62F39D006DDCD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07F52EC31D62F39D006DDCD4 /* Build configuration list for PBXNativeTarget "OpenVideoCall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07F52EC41D62F39D006DDCD4 /* Debug */,
+				07F52EC51D62F39D006DDCD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07F52EA91D62F39D006DDCD4 /* Project object */;
+}
