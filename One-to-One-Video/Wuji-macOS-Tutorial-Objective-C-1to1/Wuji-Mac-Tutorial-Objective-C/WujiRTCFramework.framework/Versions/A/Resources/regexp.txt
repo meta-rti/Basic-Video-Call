@@ -1,0 +1,27 @@
+# VS-code regular expressions for checking optional selectors
+
+# 6 arguments
+\[ *strongSelf.delegate[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ]) *\]
+if (![strongSelf.delegate respondsToSelector:@selector($1:$3:$5:$7:$9:$11:)]) return;\n$0
+
+
+# 5 arguments
+\[ *strongSelf.delegate[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ]) *\]
+if (![strongSelf.delegate respondsToSelector:@selector($1:$3:$5:$7:$9:)]) return;\n$0
+
+
+# 4 arguments
+\[ *strongSelf.delegate[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ]) *\]
+if (![strongSelf.delegate respondsToSelector:@selector($1:$3:$5:$7:)]) return;\n$0
+
+# 3 arguments
+\[ *strongSelf.delegate[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ]) *\]
+if (![strongSelf.delegate respondsToSelector:@selector($1:$3:$5:)]) return;\n$0
+
+# 2 arguments
+\[ *strongSelf.delegate[ \n]+(\w+):([^\]:]*[^\n ])[ \n]+(\w+):([^\]:]*[^\n ]) *\]
+if (![strongSelf.delegate respondsToSelector:@selector($1:$3:)]) return;\n$0
+
+# 1 arguments
+\[ *strongSelf.delegate[ \n]+(\w+):([^\]:]*[^\n ]) *\]
+if (![strongSelf.delegate respondsToSelector:@selector($1:)]) return;\n$0
