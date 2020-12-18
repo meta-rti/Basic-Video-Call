@@ -39,7 +39,7 @@
 		A3211CAB258A0778004A59B5 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211CAA258A0778004A59B5 /* MetalKit.framework */; };
 		A3211CAC258A0785004A59B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99B921885C4D00BFD852 /* SystemConfiguration.framework */; };
 		A3211CAD258A0790004A59B5 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99BB21885C5200BFD852 /* VideoToolbox.framework */; };
-		A3211CB2258A08DE004A59B5 /* audioTest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3211CB1258A08DE004A59B5 /* audioTest.mp3 */; };
+		A36D4846258C8C0C00E09213 /* audioTest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A36D4845258C8C0C00E09213 /* audioTest.mp3 */; };
 		A3913987258B58FD002474B4 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211CAE258A0799004A59B5 /* WujiRTCFramework.framework */; };
 		A74240122375441600794648 /* WJEAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74240112375441600794648 /* WJEAlert.swift */; };
 		A7424014237550C400794648 /* WJEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7424013237550C400794648 /* WJEButton.swift */; };
@@ -93,7 +93,7 @@
 		A3211CA6258A074B004A59B5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3211CAA258A0778004A59B5 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		A3211CAE258A0799004A59B5 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = OpenVideoCall/WujiRTCFramework.framework; sourceTree = "<group>"; };
-		A3211CB1258A08DE004A59B5 /* audioTest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audioTest.mp3; path = "../../BasicVideoCall/Group-Video/SharedFiles/audioTest.mp3"; sourceTree = "<group>"; };
+		A36D4845258C8C0C00E09213 /* audioTest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audioTest.mp3; path = ../../SharedFiles/audioTest.mp3; sourceTree = "<group>"; };
 		A74240112375441600794648 /* WJEAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJEAlert.swift; sourceTree = "<group>"; };
 		A7424013237550C400794648 /* WJEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJEButton.swift; sourceTree = "<group>"; };
 		A74240162375639F00794648 /* StatisticsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsInfo.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		A7E4DB9E2341F894001C20F7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A3211CB1258A08DE004A59B5 /* audioTest.mp3 */,
+				A36D4845258C8C0C00E09213 /* audioTest.mp3 */,
 				07C2CFBB1D6C26F300C84349 /* Assets.xcassets */,
 				07C2CFB71D6C26F300C84349 /* AppDelegate.swift */,
 				07C2CFC01D6C26F300C84349 /* Info.plist */,
@@ -311,7 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07C2CFBC1D6C26F300C84349 /* Assets.xcassets in Resources */,
-				A3211CB2258A08DE004A59B5 /* audioTest.mp3 in Resources */,
+				A36D4846258C8C0C00E09213 /* audioTest.mp3 in Resources */,
 				A742402B23794C0600794648 /* WindowItem.xib in Resources */,
 				07C2CFBF1D6C26F300C84349 /* Main.storyboard in Resources */,
 			);
