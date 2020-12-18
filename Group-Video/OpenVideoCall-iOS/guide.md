@@ -129,7 +129,7 @@ class MainViewController: UIViewController {
 
 The `MainViewController` class has two private variables.
 
-The `videoProfile` variable is initialized with the default Agora video profile using `WujiVideoProfile.defaultProfile()`.
+The `videoProfile` variable is initialized with the default Wuji video profile using `WujiVideoProfile.defaultProfile()`.
 
 The `encryptionType` is initialized to `EncryptionType.xts128`. When a new `encryptionType` is set, set the `encryptionButton` text to the new encryption type using `encryptionButton?.setTitle()`.
 
@@ -345,7 +345,7 @@ Variable|Description
 `encryptionType`|The encryption type for the room
 `videoProfile`|The video profile for the room
 `delegate`|The delegate for the `RoomViewController` class
-`WujiRtcEngineKit`|The Agora RTC Engine SDK object
+`WujiRtcEngineKit`|The Wuji RTC Engine SDK object
 
 ``` Swift    
     //MARK: public var
@@ -357,7 +357,7 @@ Variable|Description
     
     ...
     
-    var agoraKit: WujiRtcEngineKit!
+    var wujiKit: WujiRtcEngineKit!
     
     ...
 ```
@@ -498,13 +498,13 @@ The `currentAlert` is not set by default and is available for use to display ale
 
 The `audioMuted` and `videoMuted` variables are set to `false` by default, and manage the audio and video streams, respectively.
 
-When `audioMuted` is set, the `muteAudioButton` image is updated, and the audio stream is muted/unmuted using `agoraKit.muteLocalAudioStream()`.
+When `audioMuted` is set, the `muteAudioButton` image is updated, and the audio stream is muted/unmuted using `wujiKit.muteLocalAudioStream()`.
 
 When `videoMuted` is set:
 
 - The `muteVideoButton` image is updated.
 - The `cameraButton` and `speakerButton` are set to hidden/not hidden. 
-- The video stream is stopped/started using `agoraKit.muteLocalVideoStream()` and `setVideoMuted()`.
+- The video stream is stopped/started using `wujiKit.muteLocalVideoStream()` and `setVideoMuted()`.
 - The video view of the current user is set to hidden/not hidden using `updateSelfViewVisiable()`.
 
 ``` Swift
@@ -512,7 +512,7 @@ When `videoMuted` is set:
     fileprivate var audioMuted = false {
         didSet {
             muteAudioButton?.setImage(UIImage(named: audioMuted ? "btn_mute_blue" : "btn_mute"), for: UIControlState())
-            agoraKit.muteLocalAudioStream(audioMuted)
+            wujiKit.muteLocalAudioStream(audioMuted)
         }
     }
     fileprivate var videoMuted = false {
@@ -521,7 +521,7 @@ When `videoMuted` is set:
             cameraButton?.isHidden = videoMuted
             speakerButton?.isHidden = !videoMuted
             
-            agoraKit.muteLocalVideoStream(videoMuted)
+            wujiKit.muteLocalVideoStream(videoMuted)
             setVideoMuted(videoMuted, forUid: 0)
             
             updateSelfViewVisiable()
@@ -529,7 +529,7 @@ When `videoMuted` is set:
     }
 ```
 
-The `speakerEnabled` variable is set to `true` by default. When this variable is set, the `speakerButton` image is updated and the speakerphone is enabled/disabled using `agoraKit.setEnableSpeakerphone()`. 
+The `speakerEnabled` variable is set to `true` by default. When this variable is set, the `speakerButton` image is updated and the speakerphone is enabled/disabled using `wujiKit.setEnableSpeakerphone()`. 
 
 ``` Swift
     //MARK: speaker
@@ -538,14 +538,14 @@ The `speakerEnabled` variable is set to `true` by default. When this variable is
             speakerButton?.setImage(UIImage(named: speakerEnabled ? "btn_speaker_blue" : "btn_speaker"), for: UIControlState())
             speakerButton?.setImage(UIImage(named: speakerEnabled ? "btn_speaker" : "btn_speaker_blue"), for: .highlighted)
             
-            agoraKit.setEnableSpeakerphone(speakerEnabled)
+            wujiKit.setEnableSpeakerphone(speakerEnabled)
         }
     }
 ```
 
 The `isFiltering` variable is set to `false` by default. When this variable is set:
 
-- The creation of `agoraKit` is verified.
+- The creation of `wujiKit` is verified.
 - If filtering is enabled, set the video preprocessing using `AGVideoPreProcessing.registerVideoPreprocessing()` and update the `filterButton` with the blue image. 
 - If filtering is not enabled, update the `filterButton` with the white image.
 
@@ -553,15 +553,15 @@ The `isFiltering` variable is set to `false` by default. When this variable is s
     //MARK: filter
     fileprivate var isFiltering = false {
         didSet {
-            guard let agoraKit = agoraKit else {
+            guard let wujiKit = wujiKit else {
                 return
             }
             
             if isFiltering {
-                AGVideoPreProcessing.registerVideoPreprocessing(agoraKit)
+                AGVideoPreProcessing.registerVideoPreprocessing(wujiKit)
                 filterButton?.setImage(UIImage(named: "btn_filter_blue"), for: UIControlState())
             } else {
-                AGVideoPreProcessing.deregisterVideoPreprocessing(agoraKit)
+                AGVideoPreProcessing.deregisterVideoPreprocessing(wujiKit)
                 filterButton?.setImage(UIImage(named: "btn_filter"), for: UIControlState())
             }
         }
@@ -594,7 +594,7 @@ The `isInputing` variable is set to `false` as the default. When this is set:
     }
 ```
 
-Initialize `cryptoLoader` using `WujiRtcCryptoLoader()`. This object manages Agora encryption.
+Initialize `cryptoLoader` using `WujiRtcCryptoLoader()`. This object manages Wuji encryption.
 
 ``` Swift    
     //MARK: crypto loader
@@ -608,7 +608,7 @@ The `viewDidLoad()` method initializes the `RoomViewController`:
 1. Set the `roomNameLabel` text.
 2. Set the `backgroundTap` gesture recognizer to fail on double-tap using `backgroundTap.require()`.
 3. Add the keyboard event listener using `addKeyboardObserver()`.
-4. Load the Agora RTC engine SDK using `loadWujiKit()`.
+4. Load the Wuji RTC engine SDK using `loadWujiKit()`.
 
 ``` Swift
     //MARK: - life cycle
@@ -727,7 +727,7 @@ The `doMuteAudioPressed()` method is invoked by the `muteAudioButton` UI button 
 
 ##### Camera, Speaker, Filter, and Close Methods
 
-The `doCameraPressed()` method is invoked by the `cameraButton` UI button action and switches the camera view using `agoraKit.switchCamera()`.
+The `doCameraPressed()` method is invoked by the `cameraButton` UI button action and switches the camera view using `wujiKit.switchCamera()`.
 
 The `doSpeakerPressed()` method is invoked by the `speakerButton` UI button action and updates `speakerEnabled`.
     
@@ -737,7 +737,7 @@ The `doClosePressed()` method is invoked by the red hangup UI button action and 
 
 ``` Swift
     @IBAction func doCameraPressed(_ sender: UIButton) {
-        agoraKit.switchCamera()
+        wujiKit.switchCamera()
     }
     
     @IBAction func doSpeakerPressed(_ sender: UIButton) {
@@ -1031,9 +1031,9 @@ The `alert()` method appends an alert message to the chat message box using `cha
     }
 ```
 
-### Create RoomViewController Agora Methods and Delegates
+### Create RoomViewController Wuji Methods and Delegates
 
-The methods applying the Agora SDK are placed within a private extension for the `RoomViewController`.
+The methods applying the Wuji SDK are placed within a private extension for the `RoomViewController`.
 
 ``` Swift
 //MARK: - engine
@@ -1046,41 +1046,41 @@ private extension RoomViewController {
 - [Create the addLocalSession() Method](#create-the-addlocalsession-method)
 - [Create the leaveChannel() Method](#create-the-leavechannel-method)
 - [Create the send() Method](#create-the-send-method)
-- [Create the AgoraRtcEngineDelegate](#create-the-agorartcenginedelegate)
+- [Create the WujiRtcEngineDelegate](#create-the-wujirtcenginedelegate)
 
 
 #### Create the loadWujiKit Method
 
-The `loadWujiKit()` method initializes the Agora RTC engine using `WujiRtcEngineKit.sharedEngine()`:
+The `loadWujiKit()` method initializes the Wuji RTC engine using `WujiRtcEngineKit.sharedEngine()`:
 
 1. Set the channel profile to `.communication`, enable video, and set the `videoProfile`.
 
-2. Invoke `addLocalSession()` and start the preview using `agoraKit.startPreview()`.
+2. Invoke `addLocalSession()` and start the preview using `wujiKit.startPreview()`.
 
-3. If `encryptionSecret` is not empty, set the encryption using `agoraKit.setEncryptionMode()` and `agoraKit.setEncryptionSecret()`.
+3. If `encryptionSecret` is not empty, set the encryption using `wujiKit.setEncryptionMode()` and `wujiKit.setEncryptionSecret()`.
 
-4. Join the channel `roomName` using `agoraKit.joinChannel()`:
+4. Join the channel `roomName` using `wujiKit.joinChannel()`:
 
 - If the `code` is equal to `0`, the channel join is successful. Disable the idle timer using `setIdleTimerActive`.
 - If the channel join is not successful, display an error message alert using `self.alert()`.
 
-5. Complete the method with `agoraKit.createDataStream()` to create a data stream for the joined channel.
+5. Complete the method with `wujiKit.createDataStream()` to create a data stream for the joined channel.
 
 ``` Swift
     func loadWujiKit() {
-        agoraKit = WujiRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: self)
-        agoraKit.setChannelProfile(.communication)
-        agoraKit.enableVideo()
-        agoraKit.setVideoProfile(videoProfile, swapWidthAndHeight: false)
+        wujiKit = WujiRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: self)
+        wujiKit.setChannelProfile(.communication)
+        wujiKit.enableVideo()
+        wujiKit.setVideoProfile(videoProfile, swapWidthAndHeight: false)
         
         addLocalSession()
-        agoraKit.startPreview()
+        wujiKit.startPreview()
         if let encryptionType = encryptionType, let encryptionSecret = encryptionSecret, !encryptionSecret.isEmpty {
-            agoraKit.setEncryptionMode(encryptionType.modeString())
-            agoraKit.setEncryptionSecret(encryptionSecret)
+            wujiKit.setEncryptionMode(encryptionType.modeString())
+            wujiKit.setEncryptionSecret(encryptionSecret)
         }
         
-        let code = agoraKit.joinChannel(byToken: nil, channelId: roomName, info: nil, uid: 0, joinSuccess: nil)
+        let code = wujiKit.joinChannel(byToken: nil, channelId: roomName, info: nil, uid: 0, joinSuccess: nil)
         
         if code == 0 {
             setIdleTimerActive(false)
@@ -1090,13 +1090,13 @@ The `loadWujiKit()` method initializes the Agora RTC engine using `WujiRtcEngine
             })
         }
         
-        agoraKit.createDataStream(&dataChannelId, reliable: true, ordered: true)
+        wujiKit.createDataStream(&dataChannelId, reliable: true, ordered: true)
     }
 ```
 
 #### Create the addLocalSession Method
 
-The `addLocalSession()` method appends the local video session to `videoSessions` and sets up the local video view using `agoraKit.setupLocalVideo()`.
+The `addLocalSession()` method appends the local video session to `videoSessions` and sets up the local video view using `wujiKit.setupLocalVideo()`.
 
 If `MediaInfo` is available for the `videoProfile`, set the media info property for the local session using `localSession.mediaInfo`.
 
@@ -1104,7 +1104,7 @@ If `MediaInfo` is available for the `videoProfile`, set the media info property 
     func addLocalSession() {
         let localSession = VideoSession.localSession()
         videoSessions.append(localSession)
-        agoraKit.setupLocalVideo(localSession.canvas)
+        wujiKit.setupLocalVideo(localSession.canvas)
         
         if let mediaInfo = MediaInfo(videoProfile: videoProfile) {
             localSession.mediaInfo = mediaInfo
@@ -1116,8 +1116,8 @@ If `MediaInfo` is available for the `videoProfile`, set the media info property 
 
 The `leaveChannel()` method enables the user to leave the video session.
 
-1. Clear the local video and leave the channel by applying `nil` as the parameter for `agoraKit.setupLocalVideo()` and `agoraKit.leaveChannel()`.
-2. Stop the video preview using `agoraKit.stopPreview()` and set `isFiltering` to `false`.
+1. Clear the local video and leave the channel by applying `nil` as the parameter for `wujiKit.setupLocalVideo()` and `wujiKit.leaveChannel()`.
+2. Stop the video preview using `wujiKit.stopPreview()` and set `isFiltering` to `false`.
 3. Loop through `videoSessions` and remove its `hostingView` from the superview using `removeFromSuperview()`. 
 4. Clear the video sessions array using `videoSessions.removeAll()`.
 5. Set the idle timer to active using `setIdleTimerActive()`.
@@ -1125,9 +1125,9 @@ The `leaveChannel()` method enables the user to leave the video session.
 
 ``` Swift
     func leaveChannel() {
-        agoraKit.setupLocalVideo(nil)
-        agoraKit.leaveChannel(nil)
-        agoraKit.stopPreview()
+        wujiKit.setupLocalVideo(nil)
+        wujiKit.leaveChannel(nil)
+        wujiKit.stopPreview()
         isFiltering = false
         
         for session in videoSessions {
@@ -1142,26 +1142,26 @@ The `leaveChannel()` method enables the user to leave the video session.
 
 #### Create the send Method
 
-The `send()` method sends a new message to the stream using `agoraKit.sendStreamMessage()`.
+The `send()` method sends a new message to the stream using `wujiKit.sendStreamMessage()`.
 
 Append the message to the chat message view using `chatMessageVC?.append()`.
 
 ``` Swift
     func send(text: String) {
         if dataChannelId > 0, let data = text.data(using: String.Encoding.utf8) {
-            agoraKit.sendStreamMessage(dataChannelId, data: data)
+            wujiKit.sendStreamMessage(dataChannelId, data: data)
             chatMessageVC?.append(chat: text, fromUid: 0)
         }
     }
 ```
 
-#### Create the AgoraRtcEngineDelegate
+#### Create the WujiRtcEngineDelegate
 
-The `AgoraRtcEngineDelegate` methods are added through an extension for the `RoomViewController`.
+The `WujiRtcEngineDelegate` methods are added through an extension for the `RoomViewController`.
 
 ``` Swift
 //MARK: - engine delegate
-extension RoomViewController: AgoraRtcEngineDelegate {
+extension RoomViewController: WujiRtcEngineDelegate {
     
     ...
     
@@ -1197,10 +1197,10 @@ The `rtcEngineConnectionDidLost()` method displays an alert with the error messa
 
 ##### Create the errorCode Event Listener
 
-The `didOccurError` event listener is triggered when the Agora RTC engine generates an error. Use this for logging and debugging.
+The `didOccurError` event listener is triggered when the Wuji RTC engine generates an error. Use this for logging and debugging.
 
 ``` Swift
-    func rtcEngine(_ engine: WujiRtcEngineKit, didOccurError errorCode: AgoraErrorCode) {
+    func rtcEngine(_ engine: WujiRtcEngineKit, didOccurError errorCode: WujiErrorCode) {
         //
     }
 ```
@@ -1213,7 +1213,7 @@ The `firstRemoteVideoDecodedOfUid` event listener is triggered when the first re
 
 2. Set the session dimensions using `userSession.size` and update the media info using `userSession.updateMediaInfo()`.
 
-3. Complete the method by setting up the remote video using `agoraKit.setupRemoteVideo()`.
+3. Complete the method by setting up the remote video using `wujiKit.setupRemoteVideo()`.
 
 ``` Swift
     func rtcEngine(_ engine: WujiRtcEngineKit, firstRemoteVideoDecodedOfUid uid: UInt, size: CGSize, elapsed: Int) {
@@ -1221,7 +1221,7 @@ The `firstRemoteVideoDecodedOfUid` event listener is triggered when the first re
         let sie = size.fixedSize(with: containerView.bounds.size)
         userSession.size = sie
         userSession.updateMediaInfo(resolution: size)
-        agoraKit.setupRemoteVideo(userSession.canvas)
+        wujiKit.setupRemoteVideo(userSession.canvas)
     }
 ```
 
@@ -1253,7 +1253,7 @@ Loop through `videoSessions` to retrieve the video session of the offline user:
 
 ``` Swift
     //user offline
-    func rtcEngine(_ engine: WujiRtcEngineKit, didOfflineOfUid uid: UInt, reason: AgoraUserOfflineReason) {
+    func rtcEngine(_ engine: WujiRtcEngineKit, didOfflineOfUid uid: UInt, reason: WujiUserOfflineReason) {
         var indexToDelete: Int?
         for (index, session) in videoSessions.enumerated() {
             if session.uid == uid {
@@ -1286,13 +1286,13 @@ Set the video to off using `setVideoMuted()`.
 
 ##### Create the remoteVideoStats Event Listener
 
-The `remoteVideoStats` event is triggered when a metric changes for the Agora RTC engine.
+The `remoteVideoStats` event is triggered when a metric changes for the Wuji RTC engine.
 
 Retrieve the video session for the user using `fetchSession()` and update the `resolution`, `height`, and `fps` using `session.updateMediaInfo()`.
 
 ``` Swift
     //remote stat
-    func rtcEngine(_ engine: WujiRtcEngineKit, remoteVideoStats stats: AgoraRtcRemoteVideoStats) {
+    func rtcEngine(_ engine: WujiRtcEngineKit, remoteVideoStats stats: WujiRtcRemoteVideoStats) {
         if let session = fetchSession(of: stats.uid) {
             session.updateMediaInfo(resolution: CGSize(width: CGFloat(stats.width), height: CGFloat(stats.height)), fps: Int(stats.receivedFrameRate))
         }
@@ -1472,7 +1472,7 @@ extension ChatMessageViewController: UITableViewDataSource {
 
 - [Create Variables, Protocols, and IBAction Methods](#create-variables-protocols-and-ibaction-methods)
 - [Create Delegate and DataSource Methods](#create-delegate-and-datasource-methods)
-- [Create Agora Methods](#create-agora-methods)
+- [Create Wuji Methods](#create-wuji-methods)
 
 #### Create Variables, Protocols, and IBAction Methods
 
@@ -1570,7 +1570,7 @@ extension SettingsViewController: UITableViewDelegate {
 }
 ```
 
-#### Create Agora Methods
+#### Create Wuji Methods
 
 The `WujiVideoProfile` extension adds a `list()` method, which returns an array of `WujiVideoProfile` objects using `WujiVideoProfile.validProfileList()`.
 
