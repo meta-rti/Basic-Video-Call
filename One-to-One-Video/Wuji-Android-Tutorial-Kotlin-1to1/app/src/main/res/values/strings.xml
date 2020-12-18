@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Wuji-Android-Tutorial-Kotlin-1to1</string>
+    <string name="wuji_app_id">123</string>
+    <string name="wuji_access_token"></string>
+</resources>
