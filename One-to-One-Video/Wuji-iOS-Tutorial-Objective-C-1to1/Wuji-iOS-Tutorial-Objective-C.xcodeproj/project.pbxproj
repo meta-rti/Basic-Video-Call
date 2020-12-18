@@ -167,7 +167,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = Wuji.io;
+				ORGANIZATIONNAME = Wuji.co;
 				TargetAttributes = {
 					1A8E8D371D396CAA002FA67C = {
 						CreatedOnToolsVersion = 7.3.1;

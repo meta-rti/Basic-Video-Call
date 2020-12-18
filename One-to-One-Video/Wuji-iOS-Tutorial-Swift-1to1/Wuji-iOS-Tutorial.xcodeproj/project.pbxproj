@@ -204,7 +204,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1150;
 				LastUpgradeCheck = 1220;
-				ORGANIZATIONNAME = Wuji.io;
+				ORGANIZATIONNAME = Wuji.co;
 				TargetAttributes = {
 					1ABDEE3D1D383BE4007DE451 = {
 						CreatedOnToolsVersion = 7.3.1;
