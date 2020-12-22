@@ -5,7 +5,7 @@ Meta:
   project: OpenVideoCall
   # | 代表这里是字符串
   description: |
-    This tutorial describes how to add video chat to your iOS applications using Swift and the Agora Video SDK.
+    This tutorial describes how to add video chat to your iOS applications using Swift and the Wuji Video SDK.
     
 
     With this sample app, you can:
@@ -29,21 +29,21 @@ QuickStart:
     - title: Obtain an App ID
       content: |
         $_{APPID}
-        5. Open `OpenVideoCall.xcodeproj` and edit the `KeyCenter.swift` file. In the `agoraKit` declaration, update `<#Your App Id#>` with your app ID, and assign the token variable with the temp Access Token generated from dashboard.
+        5. Open `OpenVideoCall.xcodeproj` and edit the `KeyCenter.swift` file. In the `wujiKit` declaration, update `<#Your App Id#>` with your app ID, and assign the token variable with the temp Access Token generated from dashboard.
 
             ``` Swift
             static let AppId: String = <#Your App Id#>
             // assign token to nil if you have not enabled app certificate
             static var Token: String? = <#Temp Access Token#>
             ```
-    - title: Integrate the Agora Video SDK
+    - title: Integrate the Wuji Video SDK
       content: |
     
         $_{IOS_RUN}
 
 Resources:
-  document: https://docs.agora.io/en/
-  issue: https://github.com/AgoraIO/Basic-Video-Call/issues
+  document: https://docs.wuji.co/en/
+  issue: https://github.com/WUjiCO/Basic-Video-Call/issues
 
 License:
   type: MIT
