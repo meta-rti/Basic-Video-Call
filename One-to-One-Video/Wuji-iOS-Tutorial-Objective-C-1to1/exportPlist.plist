@@ -8,7 +8,7 @@
 	<false/>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>io.agora.Agora-iOS-Tutorial-Objective-C</key>
+		<key>com.match.date.welo.PRTC-iOS</key>
 		<string>App</string>
 	</dict>
 </dict>

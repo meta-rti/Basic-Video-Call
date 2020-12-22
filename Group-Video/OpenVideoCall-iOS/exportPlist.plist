@@ -8,7 +8,7 @@
 	<false/>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>io.agora.OpenVideoCall</key>
+		<key>co.wuji.OpenVideoCall</key>
 		<string>App</string>
 	</dict>
 </dict>
