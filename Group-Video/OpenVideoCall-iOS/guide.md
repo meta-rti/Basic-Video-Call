@@ -22,17 +22,14 @@ Open the `info.plist` file. Enable the camera and microphone privacy settings fo
 
 Under the **Build Phases** tab, add the following frameworks and libraries to your project:
 
-- `SystemConfiguration.framework`
-- `libresolv.tbd`
-- `WujiRtcEngineKit.framework`
 - `CoreTelephony.framework`
-- `CoreMedia.framework`
-- `VideoToolbox.framework`
-- `AudioToolbox.framework`
+- `GLKit.framework`
 - `libc++.tbd`
-- `WujiRtcCryptoLoader.framework`
-- `AVFoundation.framework`
-- `libcrypto.a`
+- `libresolv.tbd`
+- `MetalKit.framework`
+- `SystemConfiguration.framework`
+- `VideoToolbox.framework`
+- `WujiRTCFramework.framework`
 
 ![buildPhasesTab.jpg](images/buildPhasesTab.jpg)
 

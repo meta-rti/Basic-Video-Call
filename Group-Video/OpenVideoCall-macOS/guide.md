@@ -16,14 +16,14 @@
 
 Under the **Build Phases** tab, add the following frameworks and libraries to your project:
 
+- `CoreTelephony.framework`
+- `GLKit.framework`
+- `libc++.tbd`
+- `libresolv.tbd`
+- `MetalKit.framework`
 - `SystemConfiguration.framework`
-- `libresolv.tbdroomview- `CoreWLAN.framework`
-- `CoreAudio.framework`
-- `CoreMedia.framework`
-- `AudioToolbox.framework`
-- `WujiRtcEngineKit.framework`
 - `VideoToolbox.framework`
-- `AVFoundation.framework`
+- `WujiRTCFramework.framework`
 
 ![buildPhases.jpg](images/buildPhases.jpg)
 
