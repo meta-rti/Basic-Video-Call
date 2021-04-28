@@ -6,7 +6,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "io.agora.kotlin.tutorials1v1vcall"
+        applicationId "io.wuji.kotlin.tutorials1v1vcall"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -33,14 +33,17 @@ android {
 }
 
 repositories {
-    jcenter()
+    flatDir {
+        dirs 'libs'
+    }
 }
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //wuji Rtc sdk
-    implementation 'com.wuji.rtc:rtc_sdk:1.0.8'
+    //wuji sdk
+    implementation(name:'wuji_rtc_sdk', ext:'aar')
 }
