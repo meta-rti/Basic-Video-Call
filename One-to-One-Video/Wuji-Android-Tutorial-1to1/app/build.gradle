@@ -13,6 +13,11 @@ android {
         versionCode 1
         versionName "1.0"
 
+        ndk {
+            // 设置支持的SO库架构
+            abiFilters 'arm64-v8a' //'armeabi', 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+        }
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -41,7 +46,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation project(path: ':logger')
 
-    //wuji Rtc sdk
-    implementation 'com.wuji.rtc:rtc_sdk:1.0.8'
+
+    //wuji sdk
+    implementation(name:'wuji_rtc_sdk', ext:'aar')
 
 }
