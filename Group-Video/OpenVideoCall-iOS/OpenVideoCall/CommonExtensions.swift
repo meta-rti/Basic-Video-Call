@@ -9,15 +9,15 @@
 import UIKit
 
 extension UIColor {
-    static var AGTextGray: UIColor {
+    static var WJTextGray: UIColor {
         return UIColor(red: 102.0 / 255.0, green: 102.0 / 255.0, blue: 102.0 / 255.0, alpha: 1)
     }
     
-    static var AGGray: UIColor {
+    static var WJGray: UIColor {
         return UIColor(red: 204.0 / 255.0, green: 204.0 / 255.0, blue: 204.0 / 255.0, alpha: 1)
     }
     
-    static var AGBlue: UIColor {
+    static var WJBlue: UIColor {
         return UIColor(red: 0, green: 106.0 / 255.0, blue: 216.0 / 255.0, alpha: 1)
     }
     

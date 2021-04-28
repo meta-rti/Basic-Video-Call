@@ -147,28 +147,28 @@ private extension SettingsViewController {
     }
     
     func loadDevice(of type: Settings.DeviceType) {
-        var agType: WujiMediaDeviceType
+        var wjType: WujiMediaDeviceType
         var localId: String?
         var localDevices: [WujiRtcDeviceInfo]?
         var localButton: NSPopUpButton
         
         switch type {
         case .record(let id):
-            agType = .audioRecording
+            wjType = .audioRecording
             localId = id
-            localDevices = wujiKit.enumerateDevices(agType)! as NSArray as? [WujiRtcDeviceInfo]
+            localDevices = wujiKit.enumerateDevices(wjType)! as NSArray as? [WujiRtcDeviceInfo]
             recordDevices = localDevices
             localButton = recordDevicePopUpButton
         case .speaker(let id):
-            agType = .audioPlayout
+            wjType = .audioPlayout
             localId = id
-            localDevices = wujiKit.enumerateDevices(agType)! as NSArray as? [WujiRtcDeviceInfo]
+            localDevices = wujiKit.enumerateDevices(wjType)! as NSArray as? [WujiRtcDeviceInfo]
             speakerDevices = localDevices
             localButton = speakerDevicePopUpButton
         case .camera(let id):
-//            agType = .videoCapture
+//            wjType = .videoCapture
             localId = id
-//            localDevices = wujiKit.enumerateDevices(agType)! as NSArray as? [WujiRtcDeviceInfo]
+//            localDevices = wujiKit.enumerateDevices(wjType)! as NSArray as? [WujiRtcDeviceInfo]
 //            cameraDevices = localDevices
             localButton = cameraPopUpButton
         }

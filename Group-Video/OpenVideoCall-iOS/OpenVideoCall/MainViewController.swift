@@ -95,8 +95,8 @@ class MainViewController: UIViewController {
 private extension MainViewController {
     func updateViews() {
         // view elements initialization
-        self.encryptionButton.layer.borderColor = UIColor.AGGray.cgColor    
-        self.testNetworkButton.layer.borderColor = UIColor.AGGray.cgColor
+        self.encryptionButton.layer.borderColor = UIColor.WJGray.cgColor
+        self.testNetworkButton.layer.borderColor = UIColor.WJGray.cgColor
         
         let placeholderColor = UIColor(red: 196.0 / 255.0, green: 196.0 / 255.0, blue: 198.0 / 255.0, alpha: 1)
         let attributes = [NSAttributedString.Key.foregroundColor : placeholderColor]

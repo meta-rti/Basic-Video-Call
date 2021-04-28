@@ -276,10 +276,9 @@
 			};
 			buildConfigurationList = 07F52EAC1D62F39D006DDCD4 /* Build configuration list for PBXProject "OpenVideoCall" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);

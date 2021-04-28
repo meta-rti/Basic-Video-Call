@@ -8,7 +8,7 @@
 
 import Cocoa
 
-typealias AGETextAlignment = NSTextAlignment
+typealias WJETextAlignment = NSTextAlignment
 
 class WJEButton: NSButton {
     enum WJETrackingAreaType {
@@ -20,7 +20,7 @@ class WJEButton: NSButton {
         self.wantsLayer = true
     }
     
-    func setTitle(_ title: String, with color: NSColor, alignment: AGETextAlignment = .center) {
+    func setTitle(_ title: String, with color: NSColor, alignment: WJETextAlignment = .center) {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = alignment
         let attributes = [NSAttributedString.Key.paragraphStyle: paragraph,

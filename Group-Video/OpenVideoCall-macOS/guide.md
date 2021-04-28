@@ -748,8 +748,8 @@ The `windows` variable is initialized using `WindowList()`.
 The `isFiltering` variable is set to `false` by default. When this variable is set:
 
 - The creation of `wujiKit` is verified.
-- If filtering is enabled, set the video preprocessing using `AGVideoPreProcessing.registerVideoPreprocessing()` and update the `filterButton` with the blue image. 
-- If filtering is not enabled, unregister the video preprocessing using `AGVideoPreProcessing.deregisterVideoPreprocessing()` and update the `filterButton` with the white image.
+- If filtering is enabled, set the video preprocessing using `WJVideoPreProcessing.registerVideoPreprocessing()` and update the `filterButton` with the blue image. 
+- If filtering is not enabled, unregister the video preprocessing using `WJVideoPreProcessing.deregisterVideoPreprocessing()` and update the `filterButton` with the white image.
 
 ``` Swift
     fileprivate var isFiltering = false {
@@ -759,10 +759,10 @@ The `isFiltering` variable is set to `false` by default. When this variable is s
             }
             
             if isFiltering {
-                AGVideoPreProcessing.registerVideoPreprocessing(wujiKit)
+                WJVideoPreProcessing.registerVideoPreprocessing(wujiKit)
                 filterButton?.image = NSImage(named: "btn_filter_blue")
             } else {
-                AGVideoPreProcessing.deregisterVideoPreprocessing(wujiKit)
+                WJVideoPreProcessing.deregisterVideoPreprocessing(wujiKit)
                 filterButton?.image = NSImage(named: "btn_filter")
             }
         }

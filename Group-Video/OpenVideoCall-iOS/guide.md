@@ -543,7 +543,7 @@ The `speakerEnabled` variable is set to `true` by default. When this variable is
 The `isFiltering` variable is set to `false` by default. When this variable is set:
 
 - The creation of `wujiKit` is verified.
-- If filtering is enabled, set the video preprocessing using `AGVideoPreProcessing.registerVideoPreprocessing()` and update the `filterButton` with the blue image. 
+- If filtering is enabled, set the video preprocessing using `WJVideoPreProcessing.registerVideoPreprocessing()` and update the `filterButton` with the blue image. 
 - If filtering is not enabled, update the `filterButton` with the white image.
 
 ``` Swift
@@ -555,10 +555,10 @@ The `isFiltering` variable is set to `false` by default. When this variable is s
             }
             
             if isFiltering {
-                AGVideoPreProcessing.registerVideoPreprocessing(wujiKit)
+                WJVideoPreProcessing.registerVideoPreprocessing(wujiKit)
                 filterButton?.setImage(UIImage(named: "btn_filter_blue"), for: UIControlState())
             } else {
-                AGVideoPreProcessing.deregisterVideoPreprocessing(wujiKit)
+                WJVideoPreProcessing.deregisterVideoPreprocessing(wujiKit)
                 filterButton?.setImage(UIImage(named: "btn_filter"), for: UIControlState())
             }
         }

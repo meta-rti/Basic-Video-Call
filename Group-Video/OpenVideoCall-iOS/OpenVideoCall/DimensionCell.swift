@@ -14,8 +14,8 @@ class DimensionCell: UICollectionViewCell {
     
     func update(with dimension: CGSize, isSelected: Bool) {
         dimensionLabel.text = "\(Int(dimension.width))x\(Int(dimension.height))"
-        dimensionLabel.textColor = isSelected ? UIColor.white : UIColor.AGTextGray
-        dimensionLabel.backgroundColor = isSelected ? UIColor.AGBlue : UIColor.white
-        dimensionLabel.layer.borderColor = isSelected ? UIColor.AGBlue.cgColor : UIColor.AGGray.cgColor
+        dimensionLabel.textColor = isSelected ? UIColor.white : UIColor.WJTextGray
+        dimensionLabel.backgroundColor = isSelected ? UIColor.WJBlue : UIColor.white
+        dimensionLabel.layer.borderColor = isSelected ? UIColor.WJBlue.cgColor : UIColor.WJGray.cgColor
     }
 }
