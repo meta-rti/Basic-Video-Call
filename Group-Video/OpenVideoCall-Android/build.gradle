@@ -17,8 +17,6 @@ allprojects {
         google()
         jcenter()
 
-        //wuji Rtc sdk
-        maven { url 'https://dl.bintray.com/aryas/maven' }
     }
 }
 

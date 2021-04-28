@@ -5,6 +5,8 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.tencent.mmkv.MMKV;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,6 +49,7 @@ public class WJApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        MMKV.initialize(this);
         createRtcEngine();
     }
 

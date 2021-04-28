@@ -21,11 +21,13 @@ import org.slf4j.LoggerFactory;
 
 import io.wuji.openvcall.R;
 import io.wuji.openvcall.model.ConstantApp;
+import io.wuji.openvcall.utils.SPUtils;
 
 
 public class MainActivity extends BaseActivity {
 
     private final static Logger log = LoggerFactory.getLogger(MainActivity.class);
+    public final static String SPKEYCHANNELNAME = "channelName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +80,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        encryptionSpinner.setSelection(vSettings().mEncryptionModeIndex);
-
-        String lastChannelName = vSettings().mChannelName;
+        String lastChannelName = SPUtils.getInstance().getString(SPKEYCHANNELNAME,"");
         if (!TextUtils.isEmpty(lastChannelName)) {
             v_channel.setText(lastChannelName);
             v_channel.setSelection(lastChannelName.length());
@@ -124,6 +124,7 @@ public class MainActivity extends BaseActivity {
         EditText v_channel = (EditText) findViewById(R.id.channel_name);
         String channel = v_channel.getText().toString();
         vSettings().mChannelName = channel;
+        SPUtils.getInstance().setString(SPKEYCHANNELNAME,channel);
 
         EditText v_encryption_key = (EditText) findViewById(R.id.encryption_key);
         String encryption = v_encryption_key.getText().toString();

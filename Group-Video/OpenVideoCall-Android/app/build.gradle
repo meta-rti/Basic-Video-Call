@@ -26,6 +26,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
+repositories  {
+    flatDir {
+        dirs 'libs'
+    }
+}
 
 dependencies {
 
@@ -43,6 +48,8 @@ dependencies {
     }
 
 
-    //wuji Rtc sdk
-    implementation 'com.wuji.rtc:rtc_sdk:1.0.8'
+    implementation(name:'wuji_rtc_sdk', ext:'aar')
+
+    //mmkv       https://github.com/Tencent/MMKV
+    implementation 'com.tencent:mmkv-static:1.2.2'
 }
