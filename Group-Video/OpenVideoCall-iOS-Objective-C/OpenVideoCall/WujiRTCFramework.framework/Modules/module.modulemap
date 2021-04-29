@@ -1,6 +1,0 @@
-framework module WujiRTCFramework {
-  umbrella header "WujiRTCFramework.h"
-
-  export *
-  module * { export * }
-}
