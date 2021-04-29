@@ -101,7 +101,7 @@
     _isEarPhone = isEarPhone;
     self.speakerPhoneButton.selected = _isEarPhone;
     // switch playout audio route
-    [self.wujiKit setEnableSpeakerphone:!_isEarPhone];
+    [self.wujiKit setEnableSpeakerphone:_isEarPhone];
 }
 
 - (void)setIsVideoMuted:(BOOL)isVideoMuted {
@@ -394,7 +394,7 @@
         // release canvas's view
         deleteSession.canvas.view = nil;
         
-        [self.wujiKit setupRemoteVideo:deleteSession];
+        [self.wujiKit setupRemoteVideo:deleteSession.canvas];
     }
 }
 

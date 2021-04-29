@@ -136,8 +136,8 @@ extension SettingsViewController: UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        frameRatePickerView.subviews[1].backgroundColor = UIColor.lightGray
-        frameRatePickerView.subviews[2].backgroundColor = UIColor.lightGray
+        frameRatePickerView.subviews[0].backgroundColor = UIColor.lightGray
+        frameRatePickerView.subviews[1].backgroundColor = UIColor.clear
         let frameRate = frameRateList[row].description
         return NSAttributedString(string: frameRate, attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
     }

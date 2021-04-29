@@ -139,8 +139,8 @@
 }
 
 - (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    self.frameRatePickerView.subviews[1].backgroundColor = [UIColor lightGrayColor];
-    self.frameRatePickerView.subviews[2].backgroundColor = [UIColor lightGrayColor];
+    self.frameRatePickerView.subviews[0].backgroundColor = [UIColor lightGrayColor];
+    self.frameRatePickerView.subviews[1].backgroundColor = [UIColor clearColor];
     NSString *frameRate = [self descriptionOfFrameRate:[self.frameRateList[row] integerValue]];
     return [[NSAttributedString alloc] initWithString:frameRate
                                            attributes:@{NSForegroundColorAttributeName: [UIColor blackColor]}];

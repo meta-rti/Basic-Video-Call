@@ -89,7 +89,7 @@ class RoomViewController: UIViewController {
             }
             speakerPhoneButton.isSelected = !isSpeakerPhone
             // switch playout audio route
-            wujiKit.setEnableSpeakerphone(isSpeakerPhone)
+            wujiKit.setEnableSpeakerphone(!isSpeakerPhone)
         }
     }
     
