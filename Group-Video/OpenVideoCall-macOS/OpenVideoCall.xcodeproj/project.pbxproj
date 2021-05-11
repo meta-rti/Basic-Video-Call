@@ -39,8 +39,9 @@
 		A3211CAB258A0778004A59B5 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211CAA258A0778004A59B5 /* MetalKit.framework */; };
 		A3211CAC258A0785004A59B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99B921885C4D00BFD852 /* SystemConfiguration.framework */; };
 		A3211CAD258A0790004A59B5 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99BB21885C5200BFD852 /* VideoToolbox.framework */; };
+		A365D676264A269800E2B4F2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99B521885C4000BFD852 /* Accelerate.framework */; };
 		A36D4846258C8C0C00E09213 /* audioTest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A36D4845258C8C0C00E09213 /* audioTest.mp3 */; };
-		A3913987258B58FD002474B4 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211CAE258A0799004A59B5 /* WujiRTCFramework.framework */; };
+		A3C92939263BB3E400926437 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C92938263BB3E400926437 /* WujiRTCFramework.framework */; };
 		A74240122375441600794648 /* WJEAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74240112375441600794648 /* WJEAlert.swift */; };
 		A7424014237550C400794648 /* WJEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7424013237550C400794648 /* WJEButton.swift */; };
 		A74240172375639F00794648 /* StatisticsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74240162375639F00794648 /* StatisticsInfo.swift */; };
@@ -92,8 +93,8 @@
 		A3211CA4258A073D004A59B5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A3211CA6258A074B004A59B5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3211CAA258A0778004A59B5 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-		A3211CAE258A0799004A59B5 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = OpenVideoCall/WujiRTCFramework.framework; sourceTree = "<group>"; };
 		A36D4845258C8C0C00E09213 /* audioTest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audioTest.mp3; path = ../../SharedFiles/audioTest.mp3; sourceTree = "<group>"; };
+		A3C92938263BB3E400926437 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = OpenVideoCall/WujiRTCFramework.framework; sourceTree = "<group>"; };
 		A74240112375441600794648 /* WJEAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJEAlert.swift; sourceTree = "<group>"; };
 		A7424013237550C400794648 /* WJEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJEButton.swift; sourceTree = "<group>"; };
 		A74240162375639F00794648 /* StatisticsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsInfo.swift; sourceTree = "<group>"; };
@@ -114,11 +115,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A365D676264A269800E2B4F2 /* Accelerate.framework in Frameworks */,
+				A3C92939263BB3E400926437 /* WujiRTCFramework.framework in Frameworks */,
 				A3211CA8258A075A004A59B5 /* libc++.tbd in Frameworks */,
 				A3211CAD258A0790004A59B5 /* VideoToolbox.framework in Frameworks */,
 				A3211CA7258A074B004A59B5 /* GLKit.framework in Frameworks */,
 				A3211CA5258A073D004A59B5 /* CoreTelephony.framework in Frameworks */,
-				A3913987258B58FD002474B4 /* WujiRTCFramework.framework in Frameworks */,
 				A3211CAB258A0778004A59B5 /* MetalKit.framework in Frameworks */,
 				A3211CAC258A0785004A59B5 /* SystemConfiguration.framework in Frameworks */,
 				A3211CA9258A076B004A59B5 /* libresolv.tbd in Frameworks */,
@@ -211,7 +213,7 @@
 		389D99B021885C1C00BFD852 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3211CAE258A0799004A59B5 /* WujiRTCFramework.framework */,
+				A3C92938263BB3E400926437 /* WujiRTCFramework.framework */,
 				A3211CAA258A0778004A59B5 /* MetalKit.framework */,
 				A3211CA6258A074B004A59B5 /* GLKit.framework */,
 				A3211CA4258A073D004A59B5 /* CoreTelephony.framework */,

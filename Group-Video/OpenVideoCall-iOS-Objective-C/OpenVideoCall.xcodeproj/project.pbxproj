@@ -20,6 +20,7 @@
 		076C59A61DDDBF3100F813E2 /* VideoViewLayouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 076C59A41DDDBF3100F813E2 /* VideoViewLayouter.m */; };
 		076C59A91DDDC9FD00F813E2 /* VideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 076C59A81DDDC9FD00F813E2 /* VideoView.m */; };
 		3832FA5F227FC9DA00E50E69 /* FileCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3832FA5E227FC9DA00E50E69 /* FileCenter.m */; };
+		A31EA530264A2413003457E8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 385F305A2122CB13005D5301 /* Accelerate.framework */; };
 		A3211C8F2589F20D004A59B5 /* audioTest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3211C8E2589F20D004A59B5 /* audioTest.mp3 */; };
 		A397888B25889EA10082FE15 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 076C59B31DDDDE7600F813E2 /* libc++.tbd */; };
 		A397889225889FA60082FE15 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D29C5C1E9E1EFE00C3583C /* libresolv.tbd */; };
@@ -120,6 +121,7 @@
 				A39788A02588AEAE0082FE15 /* GLKit.framework in Frameworks */,
 				A397889D2588AEAD0082FE15 /* CoreTelephony.framework in Frameworks */,
 				A39788A62588AEB30082FE15 /* SystemConfiguration.framework in Frameworks */,
+				A31EA530264A2413003457E8 /* Accelerate.framework in Frameworks */,
 				A397889225889FA60082FE15 /* libresolv.tbd in Frameworks */,
 				A397888B25889EA10082FE15 /* libc++.tbd in Frameworks */,
 			);

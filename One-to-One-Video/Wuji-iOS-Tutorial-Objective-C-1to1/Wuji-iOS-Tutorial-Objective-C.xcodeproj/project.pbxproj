@@ -14,6 +14,7 @@
 		1A8E8D461D396CAA002FA67C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8E8D441D396CAA002FA67C /* Main.storyboard */; };
 		1A8E8D481D396CAA002FA67C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A8E8D471D396CAA002FA67C /* Assets.xcassets */; };
 		1A8E8D4B1D396CAA002FA67C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8E8D491D396CAA002FA67C /* LaunchScreen.storyboard */; };
+		A31EA532264A29E8003457E8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758118F24078D24007EDAD3 /* Accelerate.framework */; };
 		A3211CFA258B1C3D004A59B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758118324078CF8007EDAD3 /* CoreTelephony.framework */; };
 		A3211CFC258B1C4A004A59B5 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211CFB258B1C4A004A59B5 /* GLKit.framework */; };
 		A3211CFD258B1C58004A59B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A758117D24078CE0007EDAD3 /* libc++.tbd */; };
@@ -67,6 +68,7 @@
 				A3211CFC258B1C4A004A59B5 /* GLKit.framework in Frameworks */,
 				A3211D00258B1C6D004A59B5 /* Metal.framework in Frameworks */,
 				A3211D02258B1C73004A59B5 /* MetalKit.framework in Frameworks */,
+				A31EA532264A29E8003457E8 /* Accelerate.framework in Frameworks */,
 				A3211CFA258B1C3D004A59B5 /* CoreTelephony.framework in Frameworks */,
 				A3211CFE258B1C62004A59B5 /* libresolv.tbd in Frameworks */,
 			);
