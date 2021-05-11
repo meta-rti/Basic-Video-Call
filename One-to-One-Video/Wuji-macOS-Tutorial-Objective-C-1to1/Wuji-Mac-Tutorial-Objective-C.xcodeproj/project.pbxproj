@@ -23,8 +23,21 @@
 		A30AC473258B69DA0071F9FD /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D3D240798AB00483870 /* libresolv.tbd */; };
 		A30AC474258B69E80071F9FD /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D41240798CD00483870 /* VideoToolbox.framework */; };
 		A365D677264A299700E2B4F2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D372407988500483870 /* Accelerate.framework */; };
-		A3C9293B263BB7CD00926437 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C9293A263BB7CD00926437 /* WujiRTCFramework.framework */; };
+		A365D67C264A2E4A00E2B4F2 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A365D67B264A2E4A00E2B4F2 /* WujiRTCFramework.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A365D67A264A2DF300E2B4F2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A2BC66C1D5A9C2100C9AD11 /* Wuji-Mac-Tutorial-Objective-C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wuji-Mac-Tutorial-Objective-C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,11 +53,11 @@
 		1A2BC69E1D5B058C00C9AD11 /* DeviceSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceSelectionViewController.h; sourceTree = "<group>"; };
 		1A2BC69F1D5B05A800C9AD11 /* DeviceSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceSelectionViewController.m; sourceTree = "<group>"; };
 		1A309D621D5CE05500021BB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A365D67B264A2E4A00E2B4F2 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = "Wuji-Mac-Tutorial-Objective-C/WujiRTCFramework.framework"; sourceTree = "<group>"; };
 		A3913979258B57EA002474B4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A391397B258B57F3002474B4 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3913981258B580A002474B4 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		A3913983258B580E002474B4 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-		A3C9293A263BB7CD00926437 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = "Wuji-Mac-Tutorial-Objective-C/WujiRTCFramework.framework"; sourceTree = "<group>"; };
 		A7733D372407988500483870 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A7733D392407989500483870 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		A7733D3B2407989D00483870 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -58,7 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A3C9293B263BB7CD00926437 /* WujiRTCFramework.framework in Frameworks */,
+				A365D67C264A2E4A00E2B4F2 /* WujiRTCFramework.framework in Frameworks */,
 				A30AC474258B69E80071F9FD /* VideoToolbox.framework in Frameworks */,
 				A30AC46E258B69AD0071F9FD /* MetalKit.framework in Frameworks */,
 				A30AC472258B69D50071F9FD /* libc++.tbd in Frameworks */,
@@ -121,7 +134,7 @@
 		A7733D362407988500483870 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3C9293A263BB7CD00926437 /* WujiRTCFramework.framework */,
+				A365D67B264A2E4A00E2B4F2 /* WujiRTCFramework.framework */,
 				A3913983258B580E002474B4 /* MetalKit.framework */,
 				A3913981258B580A002474B4 /* Metal.framework */,
 				A391397B258B57F3002474B4 /* GLKit.framework */,
@@ -146,6 +159,7 @@
 				1A2BC6681D5A9C2100C9AD11 /* Sources */,
 				1A2BC6691D5A9C2100C9AD11 /* Frameworks */,
 				1A2BC66A1D5A9C2100C9AD11 /* Resources */,
+				A365D67A264A2DF300E2B4F2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
