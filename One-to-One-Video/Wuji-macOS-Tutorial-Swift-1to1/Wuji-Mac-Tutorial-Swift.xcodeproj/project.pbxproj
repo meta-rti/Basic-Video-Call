@@ -13,6 +13,7 @@
 		1A04662B1D5E75A2004987C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A0466291D5E75A2004987C6 /* Main.storyboard */; };
 		1A04664C1D5E7892004987C6 /* AppID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A04664B1D5E7892004987C6 /* AppID.swift */; };
 		1A04664F1D5EA139004987C6 /* DeviceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A04664E1D5EA139004987C6 /* DeviceSelectionViewController.swift */; };
+		A31EA535264A2F21003457E8 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31EA534264A2F21003457E8 /* Accelerate.framework */; };
 		A36D4835258C546300E09213 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36D4833258C546300E09213 /* Metal.framework */; };
 		A36D4836258C546300E09213 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A36D4834258C546300E09213 /* MetalKit.framework */; };
 		A36D4838258C547300E09213 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A36D4837258C546900E09213 /* libc++.tbd */; };
@@ -61,6 +62,7 @@
 		1A04662C1D5E75A2004987C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A04664B1D5E7892004987C6 /* AppID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppID.swift; sourceTree = "<group>"; };
 		1A04664E1D5EA139004987C6 /* DeviceSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSelectionViewController.swift; sourceTree = "<group>"; };
+		A31EA534264A2F21003457E8 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A36D4833258C546300E09213 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		A36D4834258C546300E09213 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		A36D4837258C546900E09213 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -87,6 +89,7 @@
 				A36D4838258C547300E09213 /* libc++.tbd in Frameworks */,
 				A36D483E258C549800E09213 /* GLKit.framework in Frameworks */,
 				A36D483C258C548C00E09213 /* SystemConfiguration.framework in Frameworks */,
+				A31EA535264A2F21003457E8 /* Accelerate.framework in Frameworks */,
 				A36D4842258C54B600E09213 /* CoreTelephony.framework in Frameworks */,
 				A3913995258C5217002474B4 /* WujiRTCFramework.framework in Frameworks */,
 			);
@@ -136,6 +139,7 @@
 		1A0466491D5E7718004987C6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A31EA534264A2F21003457E8 /* Accelerate.framework */,
 				A36D4841258C54B600E09213 /* CoreTelephony.framework */,
 				A36D483F258C549E00E09213 /* VideoToolbox.framework */,
 				A36D483D258C549800E09213 /* GLKit.framework */,
