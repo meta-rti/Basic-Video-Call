@@ -1359,13 +1359,13 @@ typedef NS_ENUM(NSInteger, WujiLocalVideoStreamError) {
   /** 5: the local video encoding fails. */
   WujiLocalVideoStreamErrorEncodeFailure = 5,
   /** 11: (macOS only) The shared window is minimized when you call
-      [startScreenCaptureByWindowId]([AgoraRtcEngineKit startScreenCaptureByWindowId:rectangle:parameters:]) to share a window.
+      [startScreenCaptureByWindowId]([WujiRtcEngineKit startScreenCaptureByWindowId:rectangle:parameters:]) to share a window.
       @since v3.1.0
   */
   WujiLocalVideoStreamErrorScreenCaptureWindowMinimized = 11,
   /** 12: (macOS only) The error code indicates that a window shared by the window ID has been closed, or a full-screen
      window shared by the window ID has exited full-screen mode. After exiting
-     full-screen mode, remote users cannot see the shared window. To prevent remote users from seeing a black screen, Agora recommends
+     full-screen mode, remote users cannot see the shared window. To prevent remote users from seeing a black screen, Wuji recommends
      that you immediately stop screen sharing.
      <p>Common scenarios for reporting this error code:</p>
      <li>When the local user closes the shared window, the SDK reports this error code.</li>

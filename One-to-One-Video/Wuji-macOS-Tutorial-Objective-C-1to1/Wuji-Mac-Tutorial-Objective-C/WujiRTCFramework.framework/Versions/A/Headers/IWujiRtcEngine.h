@@ -253,7 +253,7 @@ enum LOCAL_VIDEO_STREAM_ERROR {
     /** 12: The error code indicates that a window shared by the window ID has been closed, or a full-screen window
      * shared by the window ID has exited full-screen mode.
      * After exiting full-screen mode, remote users cannot see the shared window. To prevent remote users from seeing a
-     * black screen, Agora recommends that you immediately stop screen sharing.
+     * black screen, Wuji recommends that you immediately stop screen sharing.
      *
      * Common scenarios for reporting this error code:
      * - When the local user closes the shared window, the SDK reports this error code.
