@@ -3,7 +3,7 @@
 //  Wuji iOS Tutorial
 //
 //  Created by CavanSu on 2020/12/17.
-//  Copyright © 2020 Wuji.io. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co.io. All rights reserved.
 //
 
 import UIKit

@@ -3,7 +3,7 @@
 //  Wuji-iOS-Tutorial-Tests
 //
 //  Created by 3 on 2020/12/17.
-//  Copyright © 2020 Wuji.io. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co.io. All rights reserved.
 //
 
 import XCTest

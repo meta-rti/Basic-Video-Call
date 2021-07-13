@@ -2,7 +2,7 @@
 //  The Wuji RTM SDK
 //
 //
-//  Copyright (c) 2020 Wuji.io. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 #pragma once
 
