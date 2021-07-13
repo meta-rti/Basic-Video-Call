@@ -3,7 +3,7 @@
 //  WujiRTCFramework
 //
 //  Created by anita on 2020/9/2.
-//  Copyright © 2020 liuming. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

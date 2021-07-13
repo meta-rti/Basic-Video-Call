@@ -2,7 +2,7 @@
 //  WujiConstants.h
 //  WujiRtcEngineKit
 //
-//  Copyright (c) 2018 Wuji. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 #import <Foundation/Foundation.h>
 #if defined (TARGET_OS_IPHONE) && TARGET_OS_IPHONE

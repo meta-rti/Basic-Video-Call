@@ -2,7 +2,7 @@
 //  WujiRtcChannel.h
 //  WujiRtcChannel
 //
-//  Copyright (c) 2019 Wuji. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 
 #import "WujiRtcEngineKit.h"

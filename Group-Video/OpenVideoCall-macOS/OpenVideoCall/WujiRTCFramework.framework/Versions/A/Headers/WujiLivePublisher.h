@@ -3,7 +3,7 @@
 //  WujiLiveKit
 //
 //  Created by Sting Feng on 2015-8-11.
-//  Copyright (c) 2015 Wuji. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
