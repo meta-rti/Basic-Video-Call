@@ -3,7 +3,7 @@
 //  WJEAlert
 //
 //  Created by 3 on 2020/12/16.
-//  Copyright © 2020年 Wuji. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 
 import Cocoa

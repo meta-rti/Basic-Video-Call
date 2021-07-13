@@ -3,7 +3,7 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Copyright © 2020年 Wuji. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 
 import UIKit
@@ -63,7 +63,7 @@ class LastmileViewController: UITableViewController {
 extension LastmileViewController: WujiRtcEngineDelegate {
     /// Reports the last mile network quality of the local user once every two seconds before the user joins a channel.
     /// - Parameters:
-    ///   - engine: the Copyright © 2020年 Wuji. All rights reserved. engine
+    ///   - engine: the Portions Copyright (c) 2020 wuji-co. All rights reserved. engine
     ///   - quality: An enum describing the network quality. Possible values are: Unknown = 0, Excellent = 1, Good = 2, Poor = 3, Bad = 4, VBad = 5, Down = 6, Unsupported = 7, Detecting = 8.
     func rtcEngine(_ engine: WujiRtcEngineKit, lastmileQuality quality: WujiNetworkQuality) {
         qualityLabel.text = quality.description()

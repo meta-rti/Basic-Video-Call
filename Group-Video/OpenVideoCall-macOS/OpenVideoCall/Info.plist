@@ -27,7 +27,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Use camera to start video call</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2016年 Wuji. All rights reserved.</string>
+	<string>Portions Copyright (c) 2020 wuji-co. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>
 	<string>Main</string>
 	<key>NSMicrophoneUsageDescription</key>

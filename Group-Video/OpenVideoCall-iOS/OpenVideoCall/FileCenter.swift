@@ -3,20 +3,20 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Copyright © 2020年 Wuji. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 
 import Foundation
 
 class FileCenter {
     static func logDirectory() -> String {
-        let directory = documentDirectory() + "/Copyright © 2020年 Wuji. All rights reserved.Logs"
+        let directory = documentDirectory() + "/Portions Copyright (c) 2020 wuji-co. All rights reserved.Logs"
         checkAndCreateDirectory(at: directory)
         return directory
     }
     
     static func logFilePath() -> String {
-        return logDirectory() + "/Copyright © 2020年 Wuji. All rights reserved.-rtc.log"
+        return logDirectory() + "/Portions Copyright (c) 2020 wuji-co. All rights reserved.-rtc.log"
     }
     
     static func audioFilePath() -> String {

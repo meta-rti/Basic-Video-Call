@@ -3,7 +3,7 @@
 //  Wuji Mac Tutorial Swift
 //
 //  Created by 3 on 2020/12/18.
-//  Copyright © 2016 Wuji.io. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 
 let AppID: String = <#Your App Id#>

@@ -3,7 +3,7 @@
 //  OpenLive
 //
 //  Created by 3 on 2020/12/16.
-//  Copyright © 2020年 Wuji. All rights reserved.
+//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
 //
 
 import UIKit
@@ -40,7 +40,7 @@ class VideoSession: NSObject {
         hostingView = VideoView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         hostingView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Setup the canvas to show an Copyright © 2020年 Wuji. All rights reserved. video stream.
+        // Setup the canvas to show an Portions Copyright (c) 2020 wuji-co. All rights reserved. video stream.
         canvas = WujiRtcVideoCanvas()
         canvas.uid = uid
         canvas.view = hostingView.videoView
