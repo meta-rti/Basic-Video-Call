@@ -2,7 +2,7 @@
 //  WujiRtcCryptoLoader.h
 //  WujiRtcCryptoLoader
 //
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Copyright © 2018 Wuji. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

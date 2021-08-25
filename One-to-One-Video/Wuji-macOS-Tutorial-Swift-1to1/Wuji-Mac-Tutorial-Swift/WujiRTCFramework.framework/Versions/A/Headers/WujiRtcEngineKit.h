@@ -2,7 +2,7 @@
 //  WujiRtcEngineKit.h
 //  WujiRtcEngineKit
 //
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Copyright (c) 2018 Wuji. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

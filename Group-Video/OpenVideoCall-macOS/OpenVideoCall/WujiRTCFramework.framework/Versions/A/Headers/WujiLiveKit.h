@@ -3,7 +3,7 @@
 //  WujiLiveKit
 //
 //  Created by Junhao Wang
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Copyright (c) 2017 Wuji. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

@@ -2,7 +2,7 @@
 //  WujiRtcCryptoCppLoader.h
 //  WujiRtcCryptoLoader
 //
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Copyright © 2019 Wuji IO. All rights reserved.
 //
 
 #ifndef WujiRtcCryptoCppLoader_h
