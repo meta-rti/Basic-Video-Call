@@ -117,6 +117,7 @@
         [self.remoteVideo removeFromSuperview];
         [self.localVideo removeFromSuperview];
     }];
+    [WujiRtcEngineKit destroy];
 }
 
 

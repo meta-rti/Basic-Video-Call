@@ -105,6 +105,7 @@ class VideoChatViewController: NSViewController {
         remoteVideo.removeFromSuperview()
         localVideo.removeFromSuperview()
         delegate?.VideoChatNeedClose(self)
+        WujiRtcEngineKit.destroy()
         WujiKit = nil
         view.window!.close()
     }

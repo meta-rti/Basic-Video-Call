@@ -103,6 +103,7 @@
 
 - (void)leaveChannel {
     [self.wujiKit leaveChannel:nil];
+    [WujiRtcEngineKit destroy];
     [self.wujiKit setupLocalVideo:nil];
     [self.remoteVideo removeFromSuperview];
     [self.localVideo removeFromSuperview];

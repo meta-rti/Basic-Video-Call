@@ -127,6 +127,7 @@ fileprivate extension ContentView {
     func leaveChannel() {
         // leave channel and end chat
         rtcEngine.leaveChannel(nil)
+        WujiRtcEngineKit.destroy()
     }
 }
 

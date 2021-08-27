@@ -135,6 +135,7 @@ class VideoChatViewController: UIViewController {
     func leaveChannel() {
         // leave channel and end chat
         wujiKit.leaveChannel(nil)
+        WujiRtcEngineKit.destroy()
         
         isRemoteVideoRender = false
         isLocalVideoRender = false

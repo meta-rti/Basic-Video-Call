@@ -244,6 +244,7 @@ private extension RoomViewController {
         wujiKit.setupLocalVideo(nil)
         // Step 2, leave channel and end group chat
         wujiKit.leaveChannel(nil)
+        WujiRtcEngineKit.destroy()
         // Step 3, please attention, stop preview after leave channel
         wujiKit.stopPreview()
         
