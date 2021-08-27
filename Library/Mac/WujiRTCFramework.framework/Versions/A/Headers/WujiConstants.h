@@ -78,7 +78,7 @@ __attribute__ ((visibility("default"))) extern CGSize const WujiVideoDimension96
 /** 1280 * 720 (Hardware dependent)
  */
 __attribute__ ((visibility("default"))) extern CGSize const WujiVideoDimension1280x720;
-//#if TARGET_OS_MAC && !TARGET_OS_IPHONE
+#if TARGET_OS_MAC && !TARGET_OS_IPHONE
 /** 1920 * 1080 (Hardware dependent, macOS only)
  */
 __attribute__ ((visibility("default"))) extern CGSize const WujiVideoDimension1920x1080;
@@ -88,4 +88,4 @@ __attribute__ ((visibility("default"))) extern CGSize const WujiVideoDimension25
 /** 3840 * 2160 (Hardware dependent, macOS only)
  */
 __attribute__ ((visibility("default"))) extern CGSize const WujiVideoDimension3840x2160;
-//#endif
+#endif

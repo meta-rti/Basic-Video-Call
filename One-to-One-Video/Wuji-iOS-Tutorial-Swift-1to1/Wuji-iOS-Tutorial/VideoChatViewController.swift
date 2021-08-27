@@ -153,6 +153,8 @@ class VideoChatViewController: UIViewController {
             removeFromParent(remoteVideo)
             remoteVideo = nil
         } else {
+            initializeWujiEngine()
+            setupVideo()
             setupLocalVideo()
             joinChannel()
         }

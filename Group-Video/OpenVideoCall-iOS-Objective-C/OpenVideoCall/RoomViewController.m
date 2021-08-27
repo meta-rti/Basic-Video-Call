@@ -291,7 +291,6 @@
     [self.wujiKit leaveChannel:nil];
     // Step 3, please attention, stop preview after leave channel
     [self.wujiKit stopPreview];
-    [WujiRtcEngineKit destroy];
     
     // Step 4, remove all render views
     for (VideoSession *session in self.videoSessions) {
