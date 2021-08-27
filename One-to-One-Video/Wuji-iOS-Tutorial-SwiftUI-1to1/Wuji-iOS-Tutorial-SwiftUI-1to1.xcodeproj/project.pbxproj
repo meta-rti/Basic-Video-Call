@@ -17,7 +17,6 @@
 		38101C772386AADD005484F9 /* VideoSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38101C732386AADD005484F9 /* VideoSessionView.swift */; };
 		38101C792386AB0C005484F9 /* AppID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38101C782386AB0C005484F9 /* AppID.swift */; };
 		38101C8E2386C8D2005484F9 /* VideoEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38101C8D2386C8D2005484F9 /* VideoEngine.swift */; };
-		A3913963258B4974002474B4 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3913962258B4974002474B4 /* WujiRTCFramework.framework */; };
 		A3913965258B4BFB002474B4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D342407958100483870 /* SystemConfiguration.framework */; };
 		A3913966258B4C02002474B4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D302407956500483870 /* libc++.tbd */; };
 		A3913967258B4C08002474B4 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D322407957200483870 /* libresolv.tbd */; };
@@ -26,6 +25,7 @@
 		A391396C258B4C23002474B4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D2E2407955D00483870 /* CoreTelephony.framework */; };
 		A391396D258B4C2F002474B4 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D242407952F00483870 /* VideoToolbox.framework */; };
 		A391396F258B4C45002474B4 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A391396E258B4C45002474B4 /* GLKit.framework */; };
+		A3E8CDA326D890DC0052ADBB /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CDA226D890DC0052ADBB /* WujiRTCFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,10 +41,10 @@
 		38101C732386AADD005484F9 /* VideoSessionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSessionView.swift; sourceTree = "<group>"; };
 		38101C782386AB0C005484F9 /* AppID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppID.swift; sourceTree = "<group>"; };
 		38101C8D2386C8D2005484F9 /* VideoEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoEngine.swift; sourceTree = "<group>"; };
-		A3913962258B4974002474B4 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = "Wuji-iOS-Tutorial-SwiftUI-1to1/WujiRTCFramework.framework"; sourceTree = "<group>"; };
 		A3913968258B4C18002474B4 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		A391396A258B4C1E002474B4 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		A391396E258B4C45002474B4 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		A3E8CDA226D890DC0052ADBB /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = ../../Library/iOS/WujiRTCFramework.framework; sourceTree = "<group>"; };
 		A75811AA2407950B007EDAD3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		A75811AC24079513007EDAD3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A7733D242407952F00483870 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
@@ -64,13 +64,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A391396D258B4C2F002474B4 /* VideoToolbox.framework in Frameworks */,
+				A3E8CDA326D890DC0052ADBB /* WujiRTCFramework.framework in Frameworks */,
 				A391396F258B4C45002474B4 /* GLKit.framework in Frameworks */,
 				A3913966258B4C02002474B4 /* libc++.tbd in Frameworks */,
 				A3913965258B4BFB002474B4 /* SystemConfiguration.framework in Frameworks */,
 				A391396C258B4C23002474B4 /* CoreTelephony.framework in Frameworks */,
 				A3913969258B4C18002474B4 /* Metal.framework in Frameworks */,
 				A391396B258B4C1E002474B4 /* MetalKit.framework in Frameworks */,
-				A3913963258B4974002474B4 /* WujiRTCFramework.framework in Frameworks */,
 				A3913967258B4C08002474B4 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,10 +132,10 @@
 		A75811A92407950A007EDAD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3E8CDA226D890DC0052ADBB /* WujiRTCFramework.framework */,
 				A391396E258B4C45002474B4 /* GLKit.framework */,
 				A391396A258B4C1E002474B4 /* MetalKit.framework */,
 				A3913968258B4C18002474B4 /* Metal.framework */,
-				A3913962258B4974002474B4 /* WujiRTCFramework.framework */,
 				A7733D342407958100483870 /* SystemConfiguration.framework */,
 				A7733D322407957200483870 /* libresolv.tbd */,
 				A7733D302407956500483870 /* libc++.tbd */,
@@ -375,6 +375,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Wuji-iOS-Tutorial-SwiftUI-1to1",
 					"$(PROJECT_DIR)/Wuji-iOS-Tutorial-SwiftUI-1to1",
+					"\"$(SRCROOT)/../../Library/iOS\"",
 				);
 				INFOPLIST_FILE = "Wuji-iOS-Tutorial-SwiftUI-1to1/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -404,6 +405,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Wuji-iOS-Tutorial-SwiftUI-1to1",
 					"$(PROJECT_DIR)/Wuji-iOS-Tutorial-SwiftUI-1to1",
+					"\"$(SRCROOT)/../../Library/iOS\"",
 				);
 				INFOPLIST_FILE = "Wuji-iOS-Tutorial-SwiftUI-1to1/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

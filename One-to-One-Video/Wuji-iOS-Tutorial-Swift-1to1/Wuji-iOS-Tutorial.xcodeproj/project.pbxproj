@@ -13,7 +13,6 @@
 		1ABDEE471D383BE4007DE451 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE451D383BE4007DE451 /* Main.storyboard */; };
 		1ABDEE491D383BE4007DE451 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE481D383BE4007DE451 /* Assets.xcassets */; };
 		1ABDEE4C1D383BE4007DE451 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABDEE4A1D383BE4007DE451 /* LaunchScreen.storyboard */; };
-		A3913937258B40C8002474B4 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3913936258B40C8002474B4 /* WujiRTCFramework.framework */; };
 		A3913940258B433F002474B4 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A391393F258B433F002474B4 /* CoreTelephony.framework */; };
 		A3913942258B4348002474B4 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3913941258B4348002474B4 /* GLKit.framework */; };
 		A3913944258B4361002474B4 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A3913943258B4353002474B4 /* libc++.tbd */; };
@@ -22,6 +21,7 @@
 		A391394C258B4393002474B4 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A391394B258B4393002474B4 /* MetalKit.framework */; };
 		A391394E258B43A3002474B4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A391394D258B43A3002474B4 /* SystemConfiguration.framework */; };
 		A3913950258B43AB002474B4 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A391394F258B43AB002474B4 /* VideoToolbox.framework */; };
+		A3E8CDA126D8906D0052ADBB /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CDA026D8906D0052ADBB /* WujiRTCFramework.framework */; };
 		A72BB7DE22F2B67E008F563D /* Log.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A72BB7DC22F2B67E008F563D /* Log.storyboard */; };
 		A72BB7DF22F2B67E008F563D /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A72BB7DD22F2B67E008F563D /* LogViewController.swift */; };
 		A77E577724ADDBE300DD7670 /* Wuji_iOS_Tutorial_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77E577624ADDBE300DD7670 /* Wuji_iOS_Tutorial_Tests.swift */; };
@@ -47,7 +47,6 @@
 		1ABDEE481D383BE4007DE451 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1ABDEE4B1D383BE4007DE451 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1ABDEE4D1D383BE4007DE451 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A3913936258B40C8002474B4 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = "Wuji-iOS-Tutorial/WujiRTCFramework.framework"; sourceTree = "<group>"; };
 		A391393F258B433F002474B4 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A3913941258B4348002474B4 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3913943258B4353002474B4 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -56,6 +55,7 @@
 		A391394B258B4393002474B4 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		A391394D258B43A3002474B4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A391394F258B43AB002474B4 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		A3E8CDA026D8906D0052ADBB /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = ../../Library/iOS/WujiRTCFramework.framework; sourceTree = "<group>"; };
 		A72BB7DC22F2B67E008F563D /* Log.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Log.storyboard; sourceTree = "<group>"; };
 		A72BB7DD22F2B67E008F563D /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		A77E577424ADDBE300DD7670 /* Wuji-iOS-Tutorial-Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Wuji-iOS-Tutorial-Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3913940258B433F002474B4 /* CoreTelephony.framework in Frameworks */,
+				A3E8CDA126D8906D0052ADBB /* WujiRTCFramework.framework in Frameworks */,
 				A3913942258B4348002474B4 /* GLKit.framework in Frameworks */,
 				A3913950258B43AB002474B4 /* VideoToolbox.framework in Frameworks */,
 				A3913947258B4386002474B4 /* libresolv.tbd in Frameworks */,
@@ -76,7 +77,6 @@
 				A391394A258B438D002474B4 /* Metal.framework in Frameworks */,
 				A391394C258B4393002474B4 /* MetalKit.framework in Frameworks */,
 				A391394E258B43A3002474B4 /* SystemConfiguration.framework in Frameworks */,
-				A3913937258B40C8002474B4 /* WujiRTCFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +136,7 @@
 		A7581191240790EA007EDAD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3E8CDA026D8906D0052ADBB /* WujiRTCFramework.framework */,
 				A391394F258B43AB002474B4 /* VideoToolbox.framework */,
 				A391394D258B43A3002474B4 /* SystemConfiguration.framework */,
 				A391394B258B4393002474B4 /* MetalKit.framework */,
@@ -144,7 +145,6 @@
 				A3913943258B4353002474B4 /* libc++.tbd */,
 				A3913941258B4348002474B4 /* GLKit.framework */,
 				A391393F258B433F002474B4 /* CoreTelephony.framework */,
-				A3913936258B40C8002474B4 /* WujiRTCFramework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -440,6 +440,7 @@
 					"$(PROJECT_DIR)/Wuji-iOS-Tutorial",
 					"$(PROJECT_DIR)/../../libs",
 					"$(PROJECT_DIR)/Wuji-iOS-Tutorial",
+					"\"$(SRCROOT)/../../Library/iOS\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Wuji-iOS-Tutorial/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -473,6 +474,7 @@
 					"$(PROJECT_DIR)/Wuji-iOS-Tutorial",
 					"$(PROJECT_DIR)/../../libs",
 					"$(PROJECT_DIR)/Wuji-iOS-Tutorial",
+					"\"$(SRCROOT)/../../Library/iOS\"",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Wuji-iOS-Tutorial/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
