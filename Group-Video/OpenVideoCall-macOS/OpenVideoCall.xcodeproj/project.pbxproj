@@ -27,6 +27,7 @@
 		07C2CFF41D6C299400C84349 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CFF01D6C299400C84349 /* VideoView.swift */; };
 		07C2D0001D6C2DD900C84349 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CFFF1D6C2DD900C84349 /* Message.swift */; };
 		3832FA63227FCDCA00E50E69 /* FileCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832FA62227FCDCA00E50E69 /* FileCenter.swift */; };
+		A31281B226D88B6B00E20DDC /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31281B126D88B6A00E20DDC /* WujiRTCFramework.framework */; };
 		A3211C9F258A0710004A59B5 /* WJEVideoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9A258A0710004A59B5 /* WJEVideoLayout.swift */; };
 		A3211CA0258A0710004A59B5 /* WJEEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9B258A0710004A59B5 /* WJEEventsObserver.swift */; };
 		A3211CA1258A0710004A59B5 /* WJEVideoConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9C258A0710004A59B5 /* WJEVideoConstraints.swift */; };
@@ -41,7 +42,6 @@
 		A3211CAD258A0790004A59B5 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99BB21885C5200BFD852 /* VideoToolbox.framework */; };
 		A365D676264A269800E2B4F2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99B521885C4000BFD852 /* Accelerate.framework */; };
 		A36D4846258C8C0C00E09213 /* audioTest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A36D4845258C8C0C00E09213 /* audioTest.mp3 */; };
-		A3C92939263BB3E400926437 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C92938263BB3E400926437 /* WujiRTCFramework.framework */; };
 		A74240122375441600794648 /* WJEAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74240112375441600794648 /* WJEAlert.swift */; };
 		A7424014237550C400794648 /* WJEButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7424013237550C400794648 /* WJEButton.swift */; };
 		A74240172375639F00794648 /* StatisticsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74240162375639F00794648 /* StatisticsInfo.swift */; };
@@ -85,6 +85,7 @@
 		389D99B721885C4600BFD852 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		389D99B921885C4D00BFD852 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		389D99BB21885C5200BFD852 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		A31281B126D88B6A00E20DDC /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = ../../Library/Mac/WujiRTCFramework.framework; sourceTree = "<group>"; };
 		A3211C9A258A0710004A59B5 /* WJEVideoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoLayout.swift; sourceTree = "<group>"; };
 		A3211C9B258A0710004A59B5 /* WJEEventsObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEEventsObserver.swift; sourceTree = "<group>"; };
 		A3211C9C258A0710004A59B5 /* WJEVideoConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoConstraints.swift; sourceTree = "<group>"; };
@@ -94,7 +95,6 @@
 		A3211CA6258A074B004A59B5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3211CAA258A0778004A59B5 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		A36D4845258C8C0C00E09213 /* audioTest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audioTest.mp3; path = ../../SharedFiles/audioTest.mp3; sourceTree = "<group>"; };
-		A3C92938263BB3E400926437 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = OpenVideoCall/WujiRTCFramework.framework; sourceTree = "<group>"; };
 		A74240112375441600794648 /* WJEAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJEAlert.swift; sourceTree = "<group>"; };
 		A7424013237550C400794648 /* WJEButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJEButton.swift; sourceTree = "<group>"; };
 		A74240162375639F00794648 /* StatisticsInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsInfo.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A365D676264A269800E2B4F2 /* Accelerate.framework in Frameworks */,
-				A3C92939263BB3E400926437 /* WujiRTCFramework.framework in Frameworks */,
+				A31281B226D88B6B00E20DDC /* WujiRTCFramework.framework in Frameworks */,
 				A3211CA8258A075A004A59B5 /* libc++.tbd in Frameworks */,
 				A3211CAD258A0790004A59B5 /* VideoToolbox.framework in Frameworks */,
 				A3211CA7258A074B004A59B5 /* GLKit.framework in Frameworks */,
@@ -213,7 +213,7 @@
 		389D99B021885C1C00BFD852 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3C92938263BB3E400926437 /* WujiRTCFramework.framework */,
+				A31281B126D88B6A00E20DDC /* WujiRTCFramework.framework */,
 				A3211CAA258A0778004A59B5 /* MetalKit.framework */,
 				A3211CA6258A074B004A59B5 /* GLKit.framework */,
 				A3211CA4258A073D004A59B5 /* CoreTelephony.framework */,
@@ -496,6 +496,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenVideoCall",
+					"\"$(SRCROOT)/../../Library/Mac\"",
 				);
 				INFOPLIST_FILE = OpenVideoCall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -527,6 +528,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenVideoCall",
+					"\"$(SRCROOT)/../../Library/Mac\"",
 				);
 				INFOPLIST_FILE = OpenVideoCall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
