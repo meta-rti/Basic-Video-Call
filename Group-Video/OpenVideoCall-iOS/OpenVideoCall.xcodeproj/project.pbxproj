@@ -27,7 +27,6 @@
 		07F52EBF1D62F39D006DDCD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07F52EBD1D62F39D006DDCD4 /* LaunchScreen.storyboard */; };
 		3832FA5B227FC56200E50E69 /* FileCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832FA5A227FC56200E50E69 /* FileCenter.swift */; };
 		A3211CB6258AFFBB004A59B5 /* audioTest.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A3211CB5258AFFBB004A59B5 /* audioTest.mp3 */; };
-		A3A344D22589BBBC007385C8 /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A344D12589BBBC007385C8 /* WujiRTCFramework.framework */; };
 		A3A344D52589BC1D007385C8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D5D24079B3900483870 /* CoreTelephony.framework */; };
 		A3A344D72589BC2C007385C8 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A344D62589BC2C007385C8 /* GLKit.framework */; };
 		A3A344D82589BC39007385C8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D5F24079B4300483870 /* libc++.tbd */; };
@@ -35,6 +34,7 @@
 		A3A344DB2589BC4F007385C8 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3A344DA2589BC4F007385C8 /* MetalKit.framework */; };
 		A3A344DC2589BC5B007385C8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2747D01FB45D00005D3DBA /* SystemConfiguration.framework */; };
 		A3A344DD2589BC65007385C8 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D5424079B1100483870 /* VideoToolbox.framework */; };
+		A3E8CD9D26D88E180052ADBB /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CD9C26D88E170052ADBB /* WujiRTCFramework.framework */; };
 		A76C26F523878C8F0047E150 /* WJEVideoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26F023878C8F0047E150 /* WJEVideoLayout.swift */; };
 		A76C26F623878C8F0047E150 /* WJEVideoConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26F123878C8F0047E150 /* WJEVideoConstraints.swift */; };
 		A76C26F723878C8F0047E150 /* WJEEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76C26F223878C8F0047E150 /* WJEEventsObserver.swift */; };
@@ -74,9 +74,9 @@
 		385F30952123D0D1005D5301 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		38D619332250BC4A004A6C87 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		A3211CB5258AFFBB004A59B5 /* audioTest.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audioTest.mp3; path = ../../SharedFiles/audioTest.mp3; sourceTree = "<group>"; };
-		A3A344D12589BBBC007385C8 /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = OpenVideoCall/WujiRTCFramework.framework; sourceTree = "<group>"; };
 		A3A344D62589BC2C007385C8 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3A344DA2589BC4F007385C8 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		A3E8CD9C26D88E170052ADBB /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = ../../Library/iOS/WujiRTCFramework.framework; sourceTree = "<group>"; };
 		A76C26F023878C8F0047E150 /* WJEVideoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoLayout.swift; sourceTree = "<group>"; };
 		A76C26F123878C8F0047E150 /* WJEVideoConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoConstraints.swift; sourceTree = "<group>"; };
 		A76C26F223878C8F0047E150 /* WJEEventsObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEEventsObserver.swift; sourceTree = "<group>"; };
@@ -105,10 +105,10 @@
 				A3A344D52589BC1D007385C8 /* CoreTelephony.framework in Frameworks */,
 				A3A344DC2589BC5B007385C8 /* SystemConfiguration.framework in Frameworks */,
 				A3A344D72589BC2C007385C8 /* GLKit.framework in Frameworks */,
+				A3E8CD9D26D88E180052ADBB /* WujiRTCFramework.framework in Frameworks */,
 				A3A344D92589BC44007385C8 /* libresolv.tbd in Frameworks */,
 				A3A344DB2589BC4F007385C8 /* MetalKit.framework in Frameworks */,
 				A3A344D82589BC39007385C8 /* libc++.tbd in Frameworks */,
-				A3A344D22589BBBC007385C8 /* WujiRTCFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +160,9 @@
 		07D29C571E9E1E0A00C3583C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A3E8CD9C26D88E170052ADBB /* WujiRTCFramework.framework */,
 				A3A344DA2589BC4F007385C8 /* MetalKit.framework */,
 				A3A344D62589BC2C007385C8 /* GLKit.framework */,
-				A3A344D12589BBBC007385C8 /* WujiRTCFramework.framework */,
 				A7733D5F24079B4300483870 /* libc++.tbd */,
 				A7733D5D24079B3900483870 /* CoreTelephony.framework */,
 				A7733D5B24079B3000483870 /* CoreMotion.framework */,
@@ -485,6 +485,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenVideoCall",
+					"\"$(SRCROOT)/../../Library/iOS\"",
 				);
 				INFOPLIST_FILE = OpenVideoCall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -518,6 +519,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenVideoCall",
+					"\"$(SRCROOT)/../../Library/iOS\"",
 				);
 				INFOPLIST_FILE = OpenVideoCall/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;

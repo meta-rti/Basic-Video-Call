@@ -8,7 +8,7 @@
 
 
 struct KeyCenter {
-    static let AppId: String =  "123"
+    static let AppId: String =  <#Your App Id#>
     // assign token to nil if you have not enabled app certificate
-    static var Token: String? = ""
+    static var Token: String? = <#Temp Access Token#>
 }
