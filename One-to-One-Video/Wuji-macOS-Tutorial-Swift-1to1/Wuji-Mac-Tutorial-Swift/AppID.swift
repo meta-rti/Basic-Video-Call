@@ -7,6 +7,7 @@
 //
 
 let AppID: String = <#Your App Id#>
+
 /* assign Token to nil if you have not enabled app certificate
  * before you deploy your own token server, you can easily generate a temp token for dev use
  */
