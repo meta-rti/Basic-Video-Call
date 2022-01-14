@@ -459,7 +459,7 @@ enum JOIN_CHANNEL_ERR {
    2: **RESERVED FOR FUTURE USE**
    */
   JOIN_CHANNEL_ERR_REJECTED =
-      2,  // Usually occurs when the user is already in the channel
+  2,  // Usually occurs when the user is already in the channel
 
   /**
    3: The user fails to join the channel because the argument is invalid.
@@ -1220,7 +1220,7 @@ struct SendMessageOptions {
   bool enableHistoricalMessaging;
 
   SendMessageOptions()
-      : enableOfflineMessaging(false), enableHistoricalMessaging(false) {}
+    : enableOfflineMessaging(false), enableHistoricalMessaging(false) {}
 };
 
 /**
@@ -1775,7 +1775,8 @@ class IChannelEventHandler {
    @param errorCode The error code. See #JOIN_CHANNEL_ERR.
    */
   virtual void onJoinFailure(JOIN_CHANNEL_ERR errorCode) {
-    (JOIN_CHANNEL_ERR) errorCode;
+    //errorCode = JOIN_CHANNEL_ERR_OK;
+    //(JOIN_CHANNEL_ERR) errorCode;
   }
 
   /**
@@ -1785,7 +1786,7 @@ class IChannelEventHandler {
    @param errorCode The error code. See #LEAVE_CHANNEL_ERR.
    */
   virtual void onLeave(LEAVE_CHANNEL_ERR errorCode) {
-    (LEAVE_CHANNEL_ERR) errorCode;
+    //(LEAVE_CHANNEL_ERR) errorCode;
   }
 
   /**
@@ -1796,8 +1797,6 @@ class IChannelEventHandler {
    "IMessage".
    */
   virtual void onMessageReceived(const char* userId, const IMessage* message) {
-    (const char*)userId;
-    (IMessage*)message;
   }
   /**
    Occurs when receiving a channel image message.
@@ -1808,7 +1807,6 @@ class IChannelEventHandler {
    */
   virtual void onImageMessageReceived(const char* userId,
                                       const IImageMessage* message) {
-    (IImageMessage*)message;
   }
 
   /**
@@ -1820,7 +1818,6 @@ class IChannelEventHandler {
    */
   virtual void onFileMessageReceived(const char* userId,
                                      const IFileMessage* message) {
-    (IFileMessage*)message;
   }
 
   /**
@@ -1832,8 +1829,6 @@ class IChannelEventHandler {
    */
   virtual void onSendMessageResult(long long messageId,
                                    CHANNEL_MESSAGE_ERR_CODE state) {
-    (long long)messageId;
-    (CHANNEL_MESSAGE_ERR_CODE) state;
   }
 
   /**
@@ -1850,7 +1845,6 @@ class IChannelEventHandler {
    @param member The user joining the channel. See IChannelMember.
    */
   virtual void onMemberJoined(IChannelMember* member) {
-    (IChannelMember*)member;
   }
 
   /**
@@ -1866,7 +1860,7 @@ class IChannelEventHandler {
 
    @param member The channel member that leaves the channel. See IChannelMember.
    */
-  virtual void onMemberLeft(IChannelMember* member) { (IChannelMember*)member; }
+  virtual void onMemberLeft(IChannelMember* member) {}
 
   /**
    Returns the result of the \ref wuji::rtm::IChannel::getMembers "getMembers"
@@ -1882,8 +1876,6 @@ class IChannelEventHandler {
   virtual void onGetMembers(IChannelMember** members,
                             int userCount,
                             GET_MEMBERS_ERR errorCode) {
-    (IChannelMember**)members;
-    (int)userCount;
   }
 
   /**
@@ -1901,8 +1893,6 @@ class IChannelEventHandler {
    */
   virtual void onAttributesUpdated(const IRtmChannelAttribute* attributes[],
                                    int numberOfAttributes) {
-    (const IRtmChannelAttribute**)attributes;
-    (int)numberOfAttributes;
   }
 
   /**
@@ -1921,7 +1911,7 @@ class IChannelEventHandler {
 
    @param memberCount Member count of this channel.
    */
-  virtual void onMemberCountUpdated(int memberCount) { (int)memberCount; }
+  virtual void onMemberCountUpdated(int memberCount) { }
 };
 
 /**
@@ -2076,7 +2066,6 @@ class IRtmServiceEventHandler {
    wuji::rtm::LOGIN_ERR_CODE "LOGIN_ERR_CODE" for the error codes.
    */
   virtual void onLoginFailure(LOGIN_ERR_CODE errorCode) {
-    (LOGIN_ERR_CODE) errorCode;
   }
 
   /**
@@ -2088,8 +2077,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onRenewTokenResult(const char* token,
                                   RENEW_TOKEN_ERR_CODE errorCode) {
-    (const char*)token;
-    (RENEW_TOKEN_ERR_CODE) errorCode;
   }
 
   /**
@@ -2115,7 +2102,6 @@ class IRtmServiceEventHandler {
    wuji::rtm::LOGOUT_ERR_CODE "LOGOUT_ERR_CODE" for the error codes.
    */
   virtual void onLogout(LOGOUT_ERR_CODE errorCode) {
-    (LOGOUT_ERR_CODE) errorCode;
   }
 
   /**
@@ -2139,8 +2125,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onSendMessageResult(long long messageId,
                                    PEER_MESSAGE_ERR_CODE errorCode) {
-    (long long)messageId;
-    (PEER_MESSAGE_ERR_CODE) errorCode;
   }
 
   /**
@@ -2152,8 +2136,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onMessageReceivedFromPeer(const char* peerId,
                                          const IMessage* message) {
-    (char*)peerId;
-    (IMessage*)message;
   }
 
   /**
@@ -2165,8 +2147,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onImageMessageReceivedFromPeer(const char* peerId,
                                               const IImageMessage* message) {
-    (char*)peerId;
-    (IImageMessage*)message;
   }
 
   /**
@@ -2178,8 +2158,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onFileMessageReceivedFromPeer(const char* peerId,
                                              const IFileMessage* message) {
-    (char*)peerId;
-    (IFileMessage*)message;
   }
 
   /**
@@ -2196,10 +2174,8 @@ class IRtmServiceEventHandler {
    wuji::rtm::MediaOperationProgress "MediaOperationProgress".
    */
   virtual void onMediaUploadingProgress(
-      long long requestId,
-      const MediaOperationProgress& progress) {
-    (long long)requestId;
-    (MediaOperationProgress) progress;
+    long long requestId,
+    const MediaOperationProgress& progress) {
   }
 
   /**
@@ -2216,10 +2192,8 @@ class IRtmServiceEventHandler {
    wuji::rtm::MediaOperationProgress "MediaOperationProgress".
    */
   virtual void onMediaDownloadingProgress(
-      long long requestId,
-      const MediaOperationProgress& progress) {
-    (long long)requestId;
-    (MediaOperationProgress) progress;
+    long long requestId,
+    const MediaOperationProgress& progress) {
   }
 
   /**
@@ -2234,9 +2208,6 @@ class IRtmServiceEventHandler {
   virtual void onFileMediaUploadResult(long long requestId,
                                        IFileMessage* fileMessage,
                                        UPLOAD_MEDIA_ERR_CODE code) {
-    (long long)requestId;
-    (IFileMessage*)fileMessage;
-    (UPLOAD_MEDIA_ERR_CODE) code;
   }
 
   /**
@@ -2252,9 +2223,6 @@ class IRtmServiceEventHandler {
   virtual void onImageMediaUploadResult(long long requestId,
                                         IImageMessage* imageMessage,
                                         UPLOAD_MEDIA_ERR_CODE code) {
-    (long long)requestId;
-    (IImageMessage*)imageMessage;
-    (UPLOAD_MEDIA_ERR_CODE) code;
   }
 
   /**
@@ -2266,8 +2234,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onMediaDownloadToFileResult(long long requestId,
                                            DOWNLOAD_MEDIA_ERR_CODE code) {
-    (long long)requestId;
-    (DOWNLOAD_MEDIA_ERR_CODE) code;
   }
 
   /**
@@ -2287,10 +2253,6 @@ class IRtmServiceEventHandler {
                                              const char* memory,
                                              long long length,
                                              DOWNLOAD_MEDIA_ERR_CODE code) {
-    (long long)requestId;
-    (const char*)memory;
-    (long long)length;
-    (DOWNLOAD_MEDIA_ERR_CODE) code;
   }
 
   /**
@@ -2303,8 +2265,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onMediaCancelResult(long long requestId,
                                    CANCEL_MEDIA_ERR_CODE code) {
-    (long long)requestId;
-    (CANCEL_MEDIA_ERR_CODE) code;
   }
 
   /**
@@ -2317,14 +2277,10 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #QUERY_PEERS_ONLINE_STATUS_ERR.
    */
   virtual void onQueryPeersOnlineStatusResult(
-      long long requestId,
-      const PeerOnlineStatus* peersStatus,
-      int peerCount,
-      QUERY_PEERS_ONLINE_STATUS_ERR errorCode) {
-    (long long)requestId;
-    (const PeerOnlineStatus*)peersStatus;
-    (int)peerCount;
-    (QUERY_PEERS_ONLINE_STATUS_ERR) errorCode;
+    long long requestId,
+    const PeerOnlineStatus* peersStatus,
+    int peerCount,
+    QUERY_PEERS_ONLINE_STATUS_ERR errorCode) {
   }
 
   /**
@@ -2338,10 +2294,8 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #PEER_SUBSCRIPTION_STATUS_ERR.
    */
   virtual void onSubscriptionRequestResult(
-      long long requestId,
-      PEER_SUBSCRIPTION_STATUS_ERR errorCode) {
-    (long long)requestId;
-    (PEER_SUBSCRIPTION_STATUS_ERR) errorCode;
+    long long requestId,
+    PEER_SUBSCRIPTION_STATUS_ERR errorCode) {
   }
 
   /**
@@ -2355,13 +2309,10 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #QUERY_PEERS_BY_SUBSCRIPTION_OPTION_ERR.
    */
   virtual void onQueryPeersBySubscriptionOptionResult(
-      long long requestId,
-      const char* peerIds[],
-      int peerCount,
-      QUERY_PEERS_BY_SUBSCRIPTION_OPTION_ERR errorCode) {
-    (const char**)peerIds;
-    (int)peerCount;
-    (QUERY_PEERS_BY_SUBSCRIPTION_OPTION_ERR) errorCode;
+    long long requestId,
+    const char* peerIds[],
+    int peerCount,
+    QUERY_PEERS_BY_SUBSCRIPTION_OPTION_ERR errorCode) {
   }
 
   /**
@@ -2381,8 +2332,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onPeersOnlineStatusChanged(const PeerOnlineStatus peersStatus[],
                                           int peerCount) {
-    (const PeerOnlineStatus*)peersStatus;
-    (int)peerCount;
   }
 
   /**
@@ -2393,10 +2342,8 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #ATTRIBUTE_OPERATION_ERR.
    */
   virtual void onSetLocalUserAttributesResult(
-      long long requestId,
-      ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
+    long long requestId,
+    ATTRIBUTE_OPERATION_ERR errorCode) {
   }
 
   /**
@@ -2408,10 +2355,8 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #ATTRIBUTE_OPERATION_ERR.
    */
   virtual void onAddOrUpdateLocalUserAttributesResult(
-      long long requestId,
-      ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
+    long long requestId,
+    ATTRIBUTE_OPERATION_ERR errorCode) {
   }
 
   /**
@@ -2423,10 +2368,8 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #ATTRIBUTE_OPERATION_ERR.
    */
   virtual void onDeleteLocalUserAttributesResult(
-      long long requestId,
-      ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
+    long long requestId,
+    ATTRIBUTE_OPERATION_ERR errorCode) {
   }
 
   /**
@@ -2438,10 +2381,8 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #ATTRIBUTE_OPERATION_ERR.
    */
   virtual void onClearLocalUserAttributesResult(
-      long long requestId,
-      ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
+    long long requestId,
+    ATTRIBUTE_OPERATION_ERR errorCode) {
   }
 
   /**
@@ -2460,10 +2401,6 @@ class IRtmServiceEventHandler {
                                          const RtmAttribute* attributes,
                                          int numberOfAttributes,
                                          ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (const RtmAttribute*)attributes;
-    (int)numberOfAttributes;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
   }
 
   /**
@@ -2475,8 +2412,6 @@ class IRtmServiceEventHandler {
    */
   virtual void onSetChannelAttributesResult(long long requestId,
                                             ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
   }
 
   /**
@@ -2488,10 +2423,8 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #ATTRIBUTE_OPERATION_ERR.
    */
   virtual void onAddOrUpdateChannelAttributesResult(
-      long long requestId,
-      ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
+    long long requestId,
+    ATTRIBUTE_OPERATION_ERR errorCode) {
   }
 
   /**
@@ -2503,10 +2436,8 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #ATTRIBUTE_OPERATION_ERR.
    */
   virtual void onDeleteChannelAttributesResult(
-      long long requestId,
-      ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
+    long long requestId,
+    ATTRIBUTE_OPERATION_ERR errorCode) {
   }
 
   /**
@@ -2517,10 +2448,8 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #ATTRIBUTE_OPERATION_ERR.
    */
   virtual void onClearChannelAttributesResult(
-      long long requestId,
-      ATTRIBUTE_OPERATION_ERR errorCode) {
-    (long long)requestId;
-    (ATTRIBUTE_OPERATION_ERR) errorCode;
+    long long requestId,
+    ATTRIBUTE_OPERATION_ERR errorCode) {
   }
 
   /**
@@ -2535,10 +2464,10 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #ATTRIBUTE_OPERATION_ERR.
    */
   virtual void onGetChannelAttributesResult(
-      long long requestId,
-      const IRtmChannelAttribute* attributes[],
-      int numberOfAttributes,
-      ATTRIBUTE_OPERATION_ERR errorCode) {
+    long long requestId,
+    const IRtmChannelAttribute* attributes[],
+    int numberOfAttributes,
+    ATTRIBUTE_OPERATION_ERR errorCode) {
     //         (long long) requestId;
     //         (const IRtmChannelAttribute**) attributes;
     //         (int) numberOfAttributes;
@@ -2555,14 +2484,10 @@ class IRtmServiceEventHandler {
    @param errorCode Error Codes. See #GET_CHANNEL_MEMBER_COUNT_ERR_CODE.
    */
   virtual void onGetChannelMemberCountResult(
-      long long requestId,
-      const ChannelMemberCount* channelMemberCounts,
-      int channelCount,
-      GET_CHANNEL_MEMBER_COUNT_ERR_CODE errorCode) {
-    (long long)requestId;
-    (const ChannelMemberCount*)channelMemberCounts;
-    (int)channelCount;
-    (GET_CHANNEL_MEMBER_COUNT_ERR_CODE) errorCode;
+    long long requestId,
+    const ChannelMemberCount* channelMemberCounts,
+    int channelCount,
+    GET_CHANNEL_MEMBER_COUNT_ERR_CODE errorCode) {
   }
 };
 
@@ -2925,7 +2850,7 @@ class IRtmService {
    @return An \ref wuji::rtm::IRtmCallManager "IRtmCallManager" object.
    */
   virtual IRtmCallManager* getRtmCallManager(
-      IRtmCallEventHandler* eventHandler) = 0;
+    IRtmCallEventHandler* eventHandler) = 0;
 
   /**
    Creates an empty text \ref wuji::rtm::IMessage "IMessage" instance.
@@ -3463,11 +3388,11 @@ class IRtmService {
    - &ne;0: Failure. See #ATTRIBUTE_OPERATION_ERR for the error codes.
    */
   virtual int addOrUpdateChannelAttributes(
-      const char* channelId,
-      const IRtmChannelAttribute* attributes[],
-      int numberOfAttributes,
-      const ChannelAttributeOptions& options,
-      long long& requestId) = 0;
+    const char* channelId,
+    const IRtmChannelAttribute* attributes[],
+    int numberOfAttributes,
+    const ChannelAttributeOptions& options,
+    long long& requestId) = 0;
 
   /**
    Deletes the attributes of a specified channel by attribute keys.
@@ -3503,11 +3428,11 @@ class IRtmService {
    - &ne;0: Failure. See #ATTRIBUTE_OPERATION_ERR for the error codes.
    */
   virtual int deleteChannelAttributesByKeys(
-      const char* channelId,
-      const char* attributeKeys[],
-      int numberOfKeys,
-      const ChannelAttributeOptions& options,
-      long long& requestId) = 0;
+    const char* channelId,
+    const char* attributeKeys[],
+    int numberOfKeys,
+    const ChannelAttributeOptions& options,
+    long long& requestId) = 0;
 
   /**
    Clears all attributes of a specified channel.

@@ -7,6 +7,7 @@
 #ifndef IWujiRtcChannel_h
 #define IWujiRtcChannel_h
 #include "IWujiRtcEngine.h"
+#include "IWujiMediaEngine.h"
 
 namespace wuji {
 namespace rtc {
@@ -1207,6 +1208,10 @@ public:
      @return #CONNECTION_STATE_TYPE.
      */
     virtual CONNECTION_STATE_TYPE getConnectionState() = 0;
+
+    virtual int setEnableCloudVideoRecord(bool enable) = 0;
+    virtual int setExternalVideoSource(bool enable) = 0;
+    virtual int pushVideoFrame(wuji::media::ExternalVideoFrame *frame) = 0;
 };
 /** @since v3.0.0 
  

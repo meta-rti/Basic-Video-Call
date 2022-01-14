@@ -39,7 +39,7 @@
  sendMessage:toPeer:sendMessageOptions:completion:]) method to be compatible with the endCall method
  of the legacy Wuji Signaling SDK.
  */
-static NSString *const WujiRtmEndcallPrefix = @"WujiRTMLegacyEndcallCompatibleMessagePrefix";
+static NSString * _Nonnull  const WujiRtmEndcallPrefix = @"WujiRTMLegacyEndcallCompatibleMessagePrefix";
 
 /**
 Message types.
@@ -848,19 +848,19 @@ typedef NS_ENUM(NSInteger, WujiRtmPeerSubscriptionOptions) {
 
 /**
  Returns the result of the [loginByToken]([WujiRtmKit loginByToken:user:completion:]) method call.
- <p><i>errorCode:<i> Login error code. See WujiRtmLoginErrorCode.
+ <p><i>errorCode:</i> Login error code. See WujiRtmLoginErrorCode.
  */
 typedef void (^WujiRtmLoginBlock)(WujiRtmLoginErrorCode errorCode);
 
 /**
  Indicates the results of calling the [logoutWithCompletion]([WujiRtmKit logoutWithCompletion:])
- method call. <p><i>errorCode:<i> Logout error code. See WujiRtmLogoutErrorCode.
+ method call. <p><i>errorCode:</i> Logout error code. See WujiRtmLogoutErrorCode.
  */
 typedef void (^WujiRtmLogoutBlock)(WujiRtmLogoutErrorCode errorCode);
 
 /**
  Returns the result of the [sendMessage]([WujiRtmKit sendMessage:toPeer:completion:]) method call.
- <p><i>errorCode:<i> Error code of sending the peer-to-peer message. See
+ <p><i>errorCode:</i> Error code of sending the peer-to-peer message. See
  WujiRtmSendPeerMessageErrorCode.
  */
 typedef void (^WujiRtmSendPeerMessageBlock)(WujiRtmSendPeerMessageErrorCode errorCode);
@@ -870,14 +870,14 @@ typedef void (^WujiRtmSendPeerMessageBlock)(WujiRtmSendPeerMessageErrorCode erro
  method call. <p><li><i>peerOnlineStatus:</i> A list of the specified users' online status. See
  WujiRtmPeerOnlineStatus. <li><i>errorCode:</i> See WujiRtmQueryPeersOnlineErrorCode.
  */
-typedef void (^WujiRtmQueryPeersOnlineBlock)(NSArray<WujiRtmPeerOnlineStatus *> *peerOnlineStatus,
+typedef void (^WujiRtmQueryPeersOnlineBlock)(NSArray<WujiRtmPeerOnlineStatus *> * _Nullable peerOnlineStatus,
                                              WujiRtmQueryPeersOnlineErrorCode errorCode);
 
 /**
  Returns the result of the [renewToken]([WujiRtmKit renewToken:completion:]) method call.
  <p><li><i>token</i> Your new Token. <li><i>errorCode:</i> See WujiRtmRenewTokenErrorCode.
  */
-typedef void (^WujiRtmRenewTokenBlock)(NSString *token, WujiRtmRenewTokenErrorCode errorCode);
+typedef void (^WujiRtmRenewTokenBlock)(NSString * _Nullable token, WujiRtmRenewTokenErrorCode errorCode);
 
 /**
  Returns the result of the [subscribePeersOnlineStatus]([WujiRtmKit
@@ -893,7 +893,7 @@ typedef void (^WujiRtmSubscriptionRequestBlock)(WujiRtmPeerSubscriptionStatusErr
  WujiRtmQueryPeersBySubscriptionOptionErrorCode.
  */
 typedef void (^WujiRtmQueryPeersBySubscriptionOptionBlock)(
-    NSArray<NSString *> *peers, WujiRtmQueryPeersBySubscriptionOptionErrorCode errorCode);
+                                                           NSArray<NSString *> * _Nullable peers, WujiRtmQueryPeersBySubscriptionOptionErrorCode errorCode);
 
 /**
  Returns the result of the [downloadMediaToMemory]([WujiRtmKit
@@ -902,7 +902,7 @@ typedef void (^WujiRtmQueryPeersBySubscriptionOptionBlock)(
  WujiRtmDownloadMediaErrorCode.
  */
 typedef void (^WujiRtmDownloadMediaToMemoryBlock)(long long requestId,
-                                                  NSData *data,
+                                                  NSData * _Nullable data,
                                                   WujiRtmDownloadMediaErrorCode errorCode);
 
 /**
@@ -920,7 +920,7 @@ typedef void (^WujiRtmDownloadMediaToFileBlock)(long long requestId,
  WujiRtmUploadMediaErrorCode.
  */
 typedef void (^WujiRtmUploadFileMediaBlock)(long long requestId,
-                                            WujiRtmFileMessage *fileMessage,
+                                            WujiRtmFileMessage * _Nonnull fileMessage,
                                             WujiRtmUploadMediaErrorCode errorCode);
 /**
  Returns the result of the [createImageMessageByUploading]([WujiRtmKit
@@ -929,7 +929,7 @@ typedef void (^WujiRtmUploadFileMediaBlock)(long long requestId,
  <i>errorCode:</i> See WujiRtmUploadMediaErrorCode.
  */
 typedef void (^WujiRtmUploadImageMediaBlock)(long long requestId,
-                                             WujiRtmImageMessage *imageMessage,
+                                             WujiRtmImageMessage * _Nonnull  imageMessage,
                                              WujiRtmUploadMediaErrorCode errorCode);
 
 /**
@@ -1447,7 +1447,7 @@ typedef void (^WujiRtmClearLocalUserAttributesBlock)(WujiRtmProcessAttributeErro
  User ID of the specified user. <p><li><i>errorCode:</i> See WujiRtmProcessAttributeErrorCode.
  */
 typedef void (^WujiRtmGetUserAttributesBlock)(NSArray<WujiRtmAttribute *> *_Nullable attributes,
-                                              NSString *userId,
+                                              NSString * _Nonnull userId,
                                               WujiRtmProcessAttributeErrorCode errorCode);
 
 /**
@@ -1456,7 +1456,7 @@ typedef void (^WujiRtmGetUserAttributesBlock)(NSArray<WujiRtmAttribute *> *_Null
  WujiRtmChannelMemberCount. <p><li><i>errorCode:</i> See WujiRtmChannelMemberCountErrorCode.
  */
 typedef void (^WujiRtmChannelMemberCountBlock)(
-    NSArray<WujiRtmChannelMemberCount *> *channelMemberCounts,
+                                               NSArray<WujiRtmChannelMemberCount *> * _Nullable channelMemberCounts,
     WujiRtmChannelMemberCountErrorCode errorCode);
 
 /**
@@ -1614,10 +1614,10 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  @param userId The user ID of the user logging in the Wuji RTM system. The string length must be
  less than 64 bytes with the following character scope:
 
- - All lowercase English letters: a to z</li>
- - All uppercase English letters: A to Z</li>
- - All numeric characters: 0 to 9</li>
- - The space character.</li>
+ - All lowercase English letters: a to z
+ - All uppercase English letters: A to Z
+ - All numeric characters: 0 to 9
+ - The space character.
  - Punction characters and other symbols, including: "!", "#", "$", "%", "&", "(", ")", "+", "-",
  ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", " {", "}", "|", "~", ","
 
@@ -1710,7 +1710,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  returns the result of this method call. See WujiRtmDownloadMediaErrorCode for the error codes.
  */
 - (void)downloadMediaToMemory:(NSString *_Nonnull)mediaId
-                  withRequest:(long long *)requestId
+                  withRequest:(long long *_Nonnull)requestId
                    completion:(WujiRtmDownloadMediaToMemoryBlock _Nullable)completionBlock;
 
 /**
@@ -1724,7 +1724,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  */
 - (void)downloadMedia:(NSString *_Nonnull)mediaId
                toFile:(NSString *_Nonnull)filePath
-          withRequest:(long long *)requestId
+          withRequest:(long long * _Nonnull)requestId
            completion:(WujiRtmDownloadMediaToFileBlock _Nullable)completionBlock;
 
 /**
@@ -1748,7 +1748,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  result of this method call. See WujiRtmUploadMediaErrorCode for the error codes.
  */
 - (void)createFileMessageByUploading:(NSString *_Nonnull)filePath
-                         withRequest:(long long *)requestId
+                         withRequest:(long long * _Nonnull)requestId
                           completion:(WujiRtmUploadFileMediaBlock _Nullable)completionBlock;
 
 /**
@@ -1778,7 +1778,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  result of this method call. See WujiRtmUploadMediaErrorCode for the error codes.
  */
 - (void)createImageMessageByUploading:(NSString *_Nonnull)filePath
-                          withRequest:(long long *)requestId
+                          withRequest:(long long * _Nonnull)requestId
                            completion:(WujiRtmUploadImageMediaBlock _Nullable)completionBlock;
 
 /**
@@ -1821,7 +1821,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  @param mediaId The media ID of an uploaded file on the Wuji server.
  @return An WujiRtmFileMessage instance.
  */
-- (WujiRtmFileMessage *)createFileMessageByMediaId:(NSString *_Nonnull)mediaId;
+- (WujiRtmFileMessage *_Nullable)createFileMessageByMediaId:(NSString *_Nonnull)mediaId;
 
 /**
  Creates an WujiRtmImageMessage instance by media ID.
@@ -1835,7 +1835,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  @param mediaId The media ID of an uploaded image on the Wuji server.
  @return An WujiRtmImageMessage instance.
  */
-- (WujiRtmImageMessage *)createImageMessageByMediaId:(NSString *_Nonnull)mediaId;
+- (WujiRtmImageMessage * _Nullable)createImageMessageByMediaId:(NSString *_Nonnull)mediaId;
 
 /**
  Sends an (offline) peer-to-peer message to a specified peer user.
@@ -1904,10 +1904,10 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  @param channelId The unique channel name of the Wuji RTM session. The string length must not exceed
  64 bytes with the following character scope:
 
- - All lowercase English letters: a to z</li>
- - All uppercase English letters: A to Z</li>
- - All numeric characters: 0 to 9</li>
- - The space character.</li>
+ - All lowercase English letters: a to z
+ - All uppercase English letters: A to Z
+ - All numeric characters: 0 to 9
+ - The space character.
  - Punction characters and other symbols, including: "!", "#", "$", "%", "&", "(", ")", "+", "-",
  ":", ";", "<", "=", ".", ">", "?", "@", "[", "]", "^", "_", " {", "}", "|", "~", ","
 
@@ -2041,7 +2041,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  @param completionBlock [WujiRtmGetUserAttributesBlock](WujiRtmGetUserAttributesBlock) returns the
  result of this method call.
  */
-- (void)getUserAllAttributes:(NSString *)userId
+- (void)getUserAllAttributes:(NSString *_Nonnull)userId
                   completion:(WujiRtmGetUserAttributesBlock _Nullable)completionBlock;
 
 /**
@@ -2056,7 +2056,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
  @param completionBlock [WujiRtmGetUserAttributesBlock](WujiRtmGetUserAttributesBlock) returns the
  result of this method call.
  */
-- (void)getUserAttributes:(NSString *)userId
+- (void)getUserAttributes:(NSString * _Nonnull)userId
                    ByKeys:(NSArray<NSString *> *_Nullable)attributeKeys
                completion:(WujiRtmGetUserAttributesBlock _Nullable)completionBlock;
 
@@ -2332,7 +2332,7 @@ __attribute__((visibility("default"))) @interface WujiRtmKit : NSObject
 
  @return The RTM SDK version.
  */
-+ (NSString *)getSDKVersion;
++ (NSString *_Nonnull)getSDKVersion;
 
 @end
 

@@ -1,0 +1,13 @@
+//
+//  MMConfig.xcconfig
+//  WujiRTCFramework-ios
+//
+//  Created by liuming on 2021/6/15.
+//  Copyright © 2021 liuming. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include "BasConfig.xcconfig"
+
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) WEBRTC_MAC $(inherited) WEBRTC_POSIX $(inherited) WEBRTC_INCLUDE_INTERNAL_AUDIO_DEVICE $(inherited) WUJI_RELEASE $(inherited) WUJI_XBL_RELEASE
