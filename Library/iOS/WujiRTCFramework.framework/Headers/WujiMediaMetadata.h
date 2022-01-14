@@ -13,6 +13,8 @@ typedef NS_ENUM(NSInteger, WujiMetadataType) {
     WujiMetadataTypeUnknown = -1,
     /** 0: the metadata type is video. */
     WujiMetadataTypeVideo   = 0,
+    /** 0: the metadata type is auido. */
+    WujiMetadataTypeAudio = 1,
 };
 
 /** The definition of the WujiMediaMetadataDataSource protocol.

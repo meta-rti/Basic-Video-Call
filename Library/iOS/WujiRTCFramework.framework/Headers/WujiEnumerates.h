@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, WujiWarningCode) {
     /** 104: A timeout occurs when looking up the channel. When joining a channel, the SDK looks up the specified channel. The warning usually occurs when the network condition is too poor for the SDK to connect to the server. */
     WujiWarningCodeLookupChannelTimeout = 104,
     /** 105: The server rejects the request to look up the channel. The server cannot process this request or the request is illegal.
-     <br><b>DEPRECATED</b> as of v2.4.1. Use WujiConnectionChangedRejectedByServer(10) in the `reason` parameter of [connectionChangedToState]([WujiRtcEngineDelegate rtcEngine:connectionChangedToState:reason:]).</br>
+     <br><b>DEPRECATED</b> as of v2.4.1. Use WujiConnectionChangedRejectedByServer(10) in the `reason` parameter of [connectionChangedToState]([WujiRtcEngineDelegate rtcEngine:connectionChangedToState:reason:]).
      */
     WujiWarningCodeLookupChannelRejected = 105,
     /** 106: The server rejects the request to look up the channel. The server cannot process this request or the request is illegal. */
@@ -135,14 +135,14 @@ typedef NS_ENUM(NSInteger, WujiErrorCode) {
     /** 102: The specified channel name is invalid. Please try to rejoin the channel with a valid channel name. */
     WujiErrorCodeInvalidChannelId = 102,
     /** 109: The token expired.
-     <br><b>DEPRECATED</b> as of v2.4.1. Use WujiConnectionChangedTokenExpired(9) in the `reason` parameter of [connectionChangedToState]([WujiRtcEngineDelegate rtcEngine:connectionChangedToState:reason:]).</br>
+     <br><b>DEPRECATED</b> as of v2.4.1. Use WujiConnectionChangedTokenExpired(9) in the `reason` parameter of [connectionChangedToState]([WujiRtcEngineDelegate rtcEngine:connectionChangedToState:reason:]).
      <p>Possible reasons are:
      <ul><li>Authorized Timestamp expired: The timestamp is represented by the number of seconds elapsed since 1/1/1970. The user can use the token to access the Wuji service within 24 hours after the token is generated. If the user does not access the Wuji service after 24 hours, this token is no longer valid.</li>
      <li>Call Expiration Timestamp expired: The timestamp is the exact time when a user can no longer use the Wuji service (for example, when a user is forced to leave an ongoing call). When a value is set for the Call Expiration Timestamp, it does not mean that the token will expire, but that the user will be banned from the channel.</li></ul></p>
      */
     WujiErrorCodeTokenExpired = 109,
     /** 110: The token is invalid.
-<br><b>DEPRECATED</b> as of v2.4.1. Use WujiConnectionChangedInvalidToken(8) in the `reason` parameter of [connectionChangedToState]([WujiRtcEngineDelegate rtcEngine:connectionChangedToState:reason:]).</br>
+<br><b>DEPRECATED</b> as of v2.4.1. Use WujiConnectionChangedInvalidToken(8) in the `reason` parameter of [connectionChangedToState]([WujiRtcEngineDelegate rtcEngine:connectionChangedToState:reason:]).
      <p>Possible reasons are:
      <ul><li>The App Certificate for the project is enabled in Console, but the user is using the App ID. Once the App Certificate is enabled, the user must use a token.</li>
      <li>The uid is mandatory, and users must set the same uid as the one set in the [joinChannelByToken]([WujiRtcEngineKit joinChannelByToken:channelId:info:uid:joinSuccess:]) method.</li></ul></p>
@@ -197,7 +197,7 @@ typedef NS_ENUM(NSInteger, WujiErrorCode) {
     /** 1002: Fails to start the call after enabling the media engine. */
     WujiErrorCodeStartCall = 1002,
     /** 1003: Fails to start the camera.
-     <br><b>DEPRECATED</b> as of v2.4.1. Use WujiLocalVideoStreamErrorCaptureFailure(4) in the `error` parameter of [connectionChangedToState]([WujiRtcEngineDelegate rtcEngine:connectionChangedToState:reason:]).</br>
+     <br><b>DEPRECATED</b> as of v2.4.1. Use WujiLocalVideoStreamErrorCaptureFailure(4) in the `error` parameter of [connectionChangedToState]([WujiRtcEngineDelegate rtcEngine:connectionChangedToState:reason:]).
      */
     WujiErrorCodeStartCamera = 1003,
     /** 1004: Fails to start the video rendering module. */
