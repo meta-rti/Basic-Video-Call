@@ -24,6 +24,8 @@ class VideoChatViewController: NSViewController {
     @IBOutlet weak var localVideoMutedBg: NSImageView!
     @IBOutlet weak var localVideoMutedIndicator: NSImageView!
     
+    private var remoteUid:UInt = 0
+    
     lazy var muteAudio: Bool = false
     lazy var muteVideo: Bool = false
     lazy var screenShare: Bool = false
@@ -214,7 +216,13 @@ extension VideoChatViewController: WujiRtcEngineDelegate {
     func rtcEngine(_ engine: WujiRtcEngineKit, firstRemoteVideoDecodedOfUid uid:UInt, size:CGSize, elapsed:Int) {
         if (remoteVideo.isHidden) {
             remoteVideo.isHidden = false
+            
+            let subViews = self.remoteVideo.subviews;
+            subViews.forEach { view in
+                view .removeFromSuperview()
+            }
         }
+        self.remoteUid = uid
         let videoCanvas = WujiRtcVideoCanvas()
         videoCanvas.uid = uid
         videoCanvas.view = remoteVideo
@@ -228,7 +236,9 @@ extension VideoChatViewController: WujiRtcEngineDelegate {
     ///   - uid: ID of the user or host who leaves a channel or goes offline.
     ///   - reason: Reason why the user goes offline
     func rtcEngine(_ engine: WujiRtcEngineKit, didOfflineOfUid uid:UInt, reason:WujiUserOfflineReason) {
-        self.remoteVideo.isHidden = true
+        if self.remoteUid == uid {
+            self.remoteVideo.isHidden = true
+        }
     }
     
     /// Occurs when a remote user’s video stream playback pauses/resumes.

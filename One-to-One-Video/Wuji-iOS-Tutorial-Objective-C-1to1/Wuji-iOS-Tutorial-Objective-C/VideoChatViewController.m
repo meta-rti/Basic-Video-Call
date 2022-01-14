@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *remoteVideoMutedIndicator;
 @property (weak, nonatomic) IBOutlet UIImageView *localVideoMutedBg;
 @property (weak, nonatomic) IBOutlet UIImageView *localVideoMutedIndicator;
+@property (nonatomic,assign)NSUInteger remoteUid;
 
 @end
 
@@ -85,8 +86,13 @@
 - (void)rtcEngine:(WujiRtcEngineKit *)engine firstRemoteVideoDecodedOfUid:(NSUInteger)uid size: (CGSize)size elapsed:(NSInteger)elapsed {
     if (self.remoteVideo.hidden) {
         self.remoteVideo.hidden = NO;
+        NSArray * subViews = self.remoteVideo.subviews;
+        for (UIView * subview in subViews) {
+            [subview removeFromSuperview];
+        }
     }
     
+    self.remoteUid = uid;
     WujiRtcVideoCanvas *videoCanvas = [[WujiRtcVideoCanvas alloc] init];
     videoCanvas.uid = uid;
     // Since we are making a simple 1:1 video chat app, for simplicity sake, we are not storing the UIDs. You could use a mechanism such as an array to store the UIDs in a channel.
@@ -126,7 +132,9 @@
 /// @param uid - user id
 /// @param reason - why is the user offline
 - (void)rtcEngine:(WujiRtcEngineKit *)engine didOfflineOfUid:(NSUInteger)uid reason:(WujiUserOfflineReason)reason {
-    self.remoteVideo.hidden = true;
+    if (self.remoteUid == uid) {
+        self.remoteVideo.hidden = true;
+    }
 }
 
 - (void)setupButtons {

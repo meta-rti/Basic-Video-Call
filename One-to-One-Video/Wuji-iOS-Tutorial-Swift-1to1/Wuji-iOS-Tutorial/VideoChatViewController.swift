@@ -224,6 +224,7 @@ extension VideoChatViewController: WujiRtcEngineDelegate {
             return
         }
         
+        
         let view = UIView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: parent.frame.size))
         remoteVideo = WujiRtcVideoCanvas()
         remoteVideo!.view = view

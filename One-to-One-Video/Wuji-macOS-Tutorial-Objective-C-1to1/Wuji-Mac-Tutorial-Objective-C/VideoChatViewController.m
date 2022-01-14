@@ -22,6 +22,8 @@
 @property (nonatomic) BOOL muteVideo;
 @property (nonatomic) BOOL screenShare;
 
+@property (nonatomic,assign)NSUInteger remoteUid;
+
 @end
 
 @implementation VideoChatViewController
@@ -85,8 +87,14 @@
 }
 
 - (void)rtcEngine:(WujiRtcEngineKit *)engine firstRemoteVideoDecodedOfUid:(NSUInteger)uid size: (CGSize)size elapsed:(NSInteger)elapsed {
-    if (self.remoteVideo.hidden)
+    if (self.remoteVideo.hidden){
         self.remoteVideo.hidden = false;
+        NSArray * subViews = self.remoteVideo.subviews;
+        for (NSView * view in subViews) {
+            [view removeFromSuperview];
+        }
+    }
+    self.remoteUid = uid;
     WujiRtcVideoCanvas *videoCanvas = [[WujiRtcVideoCanvas alloc] init];
     videoCanvas.uid = uid;
     // Since we are making a simple 1:1 video chat app, for simplicity sake, we are not storing the UIDs. You could use a mechanism such as an array to store the UIDs in a channel.
@@ -112,7 +120,9 @@
 }
 
 - (void)rtcEngine:(WujiRtcEngineKit *)engine didOfflineOfUid:(NSUInteger)uid reason:(WujiUserOfflineReason)reason {
-    self.remoteVideo.hidden = true;
+    if (self.remoteUid == uid) {
+      self.remoteVideo.hidden = true;
+    }
 }
 
 - (void)setupButtons {
