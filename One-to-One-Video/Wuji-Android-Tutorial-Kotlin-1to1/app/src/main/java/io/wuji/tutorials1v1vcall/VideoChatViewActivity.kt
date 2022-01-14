@@ -67,7 +67,7 @@ class VideoChatViewActivity : AppCompatActivity() {
          *     USER_OFFLINE_BECOME_AUDIENCE(2): (Live broadcast only.) The client role switched from the host to the audience.
          */
         override fun onUserOffline(uid: Int, reason: Int) {
-            runOnUiThread { onRemoteUserLeft() }
+            runOnUiThread { onRemoteUserLeft(uid) }
         }
 
         /**
@@ -308,12 +308,23 @@ class VideoChatViewActivity : AppCompatActivity() {
         mRtcEngine!!.leaveChannel()
     }
 
-    private fun onRemoteUserLeft() {
+    private fun onRemoteUserLeft(uid: Int) {
+        Log.d(LOG_TAG, "onRemoteUserLeft: uid = $uid")
         val container = findViewById(R.id.remote_video_view_container) as FrameLayout
-        container.removeAllViews()
+        val count = container.childCount
+        try {
+            for (i in 0 until count){
+                val child = container.getChildAt(i) as SurfaceView
+                if (child?.tag as Int == uid){
+                    container.removeViewAt(i)
+                    val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_wuji_sdk) // optional UI
+                    tipMsg.visibility = View.VISIBLE
+                    return
+                }
+            }
+        }catch (e : Exception){
 
-        val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_wuji_sdk) // optional UI
-        tipMsg.visibility = View.VISIBLE
+        }
     }
 
     private fun onRemoteUserVideoMuted(uid: Int, muted: Boolean) {
