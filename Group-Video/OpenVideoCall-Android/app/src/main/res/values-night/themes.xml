@@ -16,9 +16,9 @@
 
 
     <style name="VideoCallTheme" parent="Theme.OpenVideoCallAndroid">
-        <item name="colorPrimary">@color/wuji_blue</item>
-        <item name="colorPrimaryDark">@color/wuji_blue</item>
-        <item name="colorAccent">@color/wuji_blue</item>
+        <item name="colorPrimary">@color/meta_blue</item>
+        <item name="colorPrimaryDark">@color/meta_blue</item>
+        <item name="colorAccent">@color/meta_blue</item>
     </style>
 
     <style name="L1Text">

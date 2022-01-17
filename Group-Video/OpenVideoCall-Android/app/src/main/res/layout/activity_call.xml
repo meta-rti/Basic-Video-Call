@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
-    <io.wuji.openvcall.ui.layout.GridVideoViewContainer
+    <rti.meta.openvcall.ui.layout.GridVideoViewContainer
         android:id="@+id/grid_video_view_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <io.wuji.propeller.ui.WJLinearLayout
+        <rti.meta.propeller.ui.WJLinearLayout
             android:id="@+id/extra_ops_container"
             android:layout_width="48dp"
             android:layout_height="wrap_content"
@@ -45,9 +45,9 @@
                 android:scaleType="center"
                 android:src="@drawable/btn_audio_mixing_off" />
 
-        </io.wuji.propeller.ui.WJLinearLayout>
+        </rti.meta.propeller.ui.WJLinearLayout>
 
-        <io.wuji.propeller.ui.WJLinearLayout
+        <rti.meta.propeller.ui.WJLinearLayout
             android:id="@+id/bottom_container"
             android:layout_width="match_parent"
             android:layout_height="48dp"
@@ -156,7 +156,7 @@
 
             </LinearLayout>
 
-        </io.wuji.propeller.ui.WJLinearLayout>
+        </rti.meta.propeller.ui.WJLinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/msg_list"

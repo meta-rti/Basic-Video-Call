@@ -85,7 +85,7 @@
             android:onClick="onClickDoNetworkTest"
             android:text="@string/label_do_network_test"
             android:textAllCaps="false"
-            android:textColor="@color/wuji_blue" />
+            android:textColor="@color/meta_blue" />
 
         <Button
             android:id="@+id/button_join"
@@ -97,7 +97,7 @@
             android:layout_marginTop="18dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
-            android:background="@color/wuji_blue"
+            android:background="@color/meta_blue"
             android:enabled="false"
             android:onClick="onClickJoin"
             android:text="@string/label_join"

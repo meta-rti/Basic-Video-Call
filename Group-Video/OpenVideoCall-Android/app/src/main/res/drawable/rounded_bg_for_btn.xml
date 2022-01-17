@@ -3,8 +3,8 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <stroke
         android:width="0.5dp"
-        android:color="@color/wuji_blue" />
-    <solid android:color="@color/wuji_blue" />
+        android:color="@color/meta_blue" />
+    <solid android:color="@color/meta_blue" />
 
     <corners android:radius="30dp" />
 </shape>

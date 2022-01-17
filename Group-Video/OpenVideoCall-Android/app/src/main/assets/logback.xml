@@ -2,7 +2,7 @@
     <!-- config THESE PROPERTIES in code for more flexibility -->
     <property
         name="LOG_DIR"
-        value="/sdcard/io.wuji.openvcall/log" />
+        value="/sdcard/rti.meta.openvcall/log" />
     <property
         name="FILE_PREFIX"
         value="app" />

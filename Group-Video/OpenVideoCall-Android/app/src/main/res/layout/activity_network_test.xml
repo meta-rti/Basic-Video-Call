@@ -19,7 +19,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:text="@string/label_quality"
-            android:textColor="@color/wuji_blue" />
+            android:textColor="@color/meta_blue" />
 
         <TextView
             android:id="@+id/network_test_quality"
@@ -55,7 +55,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:text="@string/label_rtt"
-            android:textColor="@color/wuji_blue" />
+            android:textColor="@color/meta_blue" />
 
         <TextView
             android:id="@+id/network_test_rtt"
@@ -91,7 +91,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:text="@string/label_uplink_packet_loss"
-            android:textColor="@color/wuji_blue" />
+            android:textColor="@color/meta_blue" />
 
         <TextView
             android:id="@+id/network_test_uplink_packet_loss"
@@ -128,7 +128,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:text="@string/label_downlink_packet_loss"
-            android:textColor="@color/wuji_blue" />
+            android:textColor="@color/meta_blue" />
 
         <TextView
             android:id="@+id/network_test_downlink_packet_loss"
