@@ -1,0 +1,3 @@
+include ':logger'
+include ':app'
+rootProject.name = "Meta-Android-Tutorial-1to1"
