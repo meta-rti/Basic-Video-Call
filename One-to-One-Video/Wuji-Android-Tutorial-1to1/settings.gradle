@@ -1,3 +1,0 @@
-include ':logger'
-include ':app'
-rootProject.name = "Wuji-Android-Tutorial-1to1"
