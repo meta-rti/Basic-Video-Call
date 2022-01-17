@@ -1,4 +1,4 @@
-package io.wuji.tutorials1v1vcall
+package rti.meta.tutorials1v1vcall
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -18,7 +18,7 @@ import co.wuji.rtc.IRtcEngineEventHandler
 import co.wuji.rtc.RtcEngine
 import co.wuji.rtc.video.VideoCanvas
 import co.wuji.rtc.video.VideoEncoderConfiguration
-import com.wuji.wuji_tutorial_kotlin_1to1.R
+import rti.meta.tutorial_kotlin_1to1.R
 
 class VideoChatViewActivity : AppCompatActivity() {
 
@@ -57,7 +57,7 @@ class VideoChatViewActivity : AppCompatActivity() {
          *     period of time (20 seconds for the communication profile, and more for the live
          *     broadcast profile), the SDK assumes that the user/host drops offline. A poor
          *     network connection may lead to false detections, so we recommend using the
-         *     Wuji RTM SDK for reliable offline detection.
+         *     Meta RTM SDK for reliable offline detection.
          *
          * @param uid ID of the user or host who leaves the channel or goes offline.
          * @param reason Reason why the user goes offline:
@@ -94,12 +94,12 @@ class VideoChatViewActivity : AppCompatActivity() {
                 Manifest.permission.CAMERA, PERMISSION_REQ_ID_CAMERA
             )
         ) {
-            initWujiEngineAndJoinChannel()
+            initMetaEngineAndJoinChannel()
         }
     }
 
-    private fun initWujiEngineAndJoinChannel() {
-        initializeWujiEngine()
+    private fun initMetaEngineAndJoinChannel() {
+        initializeMetaEngine()
         setupVideoProfile()
         setupLocalVideo()
         joinChannel()
@@ -140,7 +140,7 @@ class VideoChatViewActivity : AppCompatActivity() {
             }
             PERMISSION_REQ_ID_CAMERA -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    initWujiEngineAndJoinChannel()
+                    initMetaEngineAndJoinChannel()
                 } else {
                     showLongToast("No permission for " + Manifest.permission.CAMERA)
                     finish()
@@ -158,7 +158,7 @@ class VideoChatViewActivity : AppCompatActivity() {
 
         leaveChannel()
         /*
-          Destroys the RtcEngine instance and releases all resources used by the Wuji SDK.
+          Destroys the RtcEngine instance and releases all resources used by the Meta SDK.
 
           This method is useful for apps that occasionally make voice or video calls,
           to free up resources for other operations when not making calls.
@@ -209,10 +209,10 @@ class VideoChatViewActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun initializeWujiEngine() {
+    private fun initializeMetaEngine() {
         try {
             mRtcEngine =
-                RtcEngine.create(baseContext, getString(R.string.wuji_app_id), mRtcEventHandler)
+                RtcEngine.create(baseContext, getString(R.string.meta_app_id), mRtcEventHandler)
         } catch (e: Exception) {
             Log.e(LOG_TAG, Log.getStackTraceString(e))
 
@@ -232,7 +232,7 @@ class VideoChatViewActivity : AppCompatActivity() {
 //      mRtcEngine!!.setVideoProfile(Constants.VIDEO_PROFILE_360P, false) // Earlier than 2.3.0
 
         // Please go to this page for detailed explanation
-        // https://docs.wuji.io/en/Video/API%20Reference/java/classio_1_1wuji_1_1rtc_1_1_rtc_engine.html#af5f4de754e2c1f493096641c5c5c1d8f
+        // https://docs.Meta.io/en/Video/API%20Reference/java/classio_1_1Meta_1_1rtc_1_1_rtc_engine.html#af5f4de754e2c1f493096641c5c5c1d8f
         mRtcEngine!!.setVideoEncoderConfiguration(
             VideoEncoderConfiguration(
                 VideoEncoderConfiguration.VD_640x360,
@@ -265,7 +265,7 @@ class VideoChatViewActivity : AppCompatActivity() {
         // same channel successfully using the same app id.
         // 2. One token is only valid for the channel name that
         // you use to generate this token.
-        var token: String? = getString(R.string.wuji_access_token)
+        var token: String? = getString(R.string.meta_access_token)
         if (token!!.isEmpty()) {
             token = null
         }
@@ -290,7 +290,7 @@ class VideoChatViewActivity : AppCompatActivity() {
         /*
           Creates the video renderer view.
           CreateRendererView returns the SurfaceView type. The operation and layout of the view
-          are managed by the app, and the Wuji SDK renders the view provided by the app.
+          are managed by the app, and the Meta SDK renders the view provided by the app.
           The video display view must be created using this method instead of directly
           calling SurfaceView.
          */
@@ -300,7 +300,7 @@ class VideoChatViewActivity : AppCompatActivity() {
         mRtcEngine!!.setupRemoteVideo(VideoCanvas(surfaceView, VideoCanvas.RENDER_MODE_FIT, uid))
 
         surfaceView.tag = uid // for mark purpose
-        val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_wuji_sdk) // optional UI
+        val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_meta_sdk) // optional UI
         tipMsg.visibility = View.GONE
     }
 
@@ -317,7 +317,7 @@ class VideoChatViewActivity : AppCompatActivity() {
                 val child = container.getChildAt(i) as SurfaceView
                 if (child?.tag as Int == uid){
                     container.removeViewAt(i)
-                    val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_wuji_sdk) // optional UI
+                    val tipMsg = findViewById<TextView>(R.id.quick_tips_when_use_meta_sdk) // optional UI
                     tipMsg.visibility = View.VISIBLE
                     return
                 }

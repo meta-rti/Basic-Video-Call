@@ -6,7 +6,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "io.wuji.kotlin.tutorials1v1vcall"
+        applicationId "rti.meta.kotlin.tutorials1v1vcall"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
