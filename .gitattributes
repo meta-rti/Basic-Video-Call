@@ -1,2 +1,0 @@
-MetaRTCFramework.framework filter=lfs diff=lfs merge=lfs -text
-MetaRTCFramework filter=lfs diff=lfs merge=lfs -text
