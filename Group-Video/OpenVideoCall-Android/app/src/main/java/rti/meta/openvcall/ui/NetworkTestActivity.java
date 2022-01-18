@@ -11,8 +11,8 @@ import androidx.appcompat.app.ActionBar;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.wuji.rtc.IRtcEngineEventHandler;
-import co.wuji.rtc.internal.LastmileProbeConfig;
+import co.meta.rtc.IRtcEngineEventHandler;
+import co.meta.rtc.internal.LastmileProbeConfig;
 import rti.meta.openvcall.R;
 import rti.meta.openvcall.model.BeforeCallEventHandler;
 import rti.meta.openvcall.model.ConstantApp;

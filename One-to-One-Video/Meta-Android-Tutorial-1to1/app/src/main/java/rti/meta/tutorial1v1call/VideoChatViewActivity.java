@@ -19,10 +19,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import co.wuji.rtc.IRtcEngineEventHandler;
-import co.wuji.rtc.RtcEngine;
-import co.wuji.rtc.video.VideoCanvas;
-import co.wuji.rtc.video.VideoEncoderConfiguration;
+import co.meta.rtc.IRtcEngineEventHandler;
+import co.meta.rtc.RtcEngine;
+import co.meta.rtc.video.VideoCanvas;
+import co.meta.rtc.video.VideoEncoderConfiguration;
 import rti.meta.uikit.logger.LoggerRecyclerView;
 
 
@@ -32,7 +32,7 @@ public class VideoChatViewActivity extends AppCompatActivity {
     private static final int PERMISSION_REQ_ID = 22;
 
     // Permission WRITE_EXTERNAL_STORAGE is not mandatory
-    // for Wuji RTC SDK, just in case if you wanna save
+    // for Meta RTC SDK, just in case if you wanna save
     // logs to external sdcard.
     private static final String[] REQUESTED_PERMISSIONS = {
             Manifest.permission.RECORD_AUDIO,
@@ -121,7 +121,7 @@ public class VideoChatViewActivity extends AppCompatActivity {
          *     period of time (20 seconds for the communication profile, and more for the live
          *     broadcast profile), the SDK assumes that the user/host drops offline. A poor
          *     network connection may lead to false detections, so we recommend using the
-         *     Wuji RTM SDK for reliable offline detection.
+         *     Meta RTM SDK for reliable offline detection.
          *
          * @param uid ID of the user or host who leaves the channel or goes offline.
          * @param reason Reason why the user goes offline:
@@ -158,7 +158,7 @@ public class VideoChatViewActivity extends AppCompatActivity {
         /*
           Creates the video renderer view.
           CreateRendererView returns the SurfaceView type. The operation and layout of the view
-          are managed by the app, and the Wuji SDK renders the view provided by the app.
+          are managed by the app, and the Meta SDK renders the view provided by the app.
           The video display view must be created using this method instead of directly
           calling SurfaceView.
          */
@@ -209,7 +209,7 @@ public class VideoChatViewActivity extends AppCompatActivity {
     }
 
     private void showSampleLogs() {
-        mLogView.logI("Welcome to Wuji 1v1 video call");
+        mLogView.logI("Welcome to Meta 1v1 video call");
         mLogView.logW("You will see custom logs here");
         mLogView.logE("You can also use this to show errors");
     }
@@ -320,7 +320,7 @@ public class VideoChatViewActivity extends AppCompatActivity {
             leaveChannel();
         }
         /*
-          Destroys the RtcEngine instance and releases all resources used by the wuji SDK.
+          Destroys the RtcEngine instance and releases all resources used by the Meta SDK.
 
           This method is useful for apps that occasionally make voice or video calls,
           to free up resources for other operations when not making calls.

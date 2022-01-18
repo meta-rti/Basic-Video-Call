@@ -1,7 +1,7 @@
 package rti.meta.openvcall.model;
 
-import co.wuji.rtc.Constants;
-import co.wuji.rtc.video.VideoEncoderConfiguration;
+import co.meta.rtc.Constants;
+import co.meta.rtc.video.VideoEncoderConfiguration;
 
 public class ConstantApp {
     public static final String APP_BUILD_DATE = "today";

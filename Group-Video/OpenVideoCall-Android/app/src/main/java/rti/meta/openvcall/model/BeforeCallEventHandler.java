@@ -1,7 +1,7 @@
 package rti.meta.openvcall.model;
 
 
-import co.wuji.rtc.IRtcEngineEventHandler;
+import co.meta.rtc.IRtcEngineEventHandler;
 
 public interface BeforeCallEventHandler extends WJEventHandler {
     void onLastmileQuality(int quality);

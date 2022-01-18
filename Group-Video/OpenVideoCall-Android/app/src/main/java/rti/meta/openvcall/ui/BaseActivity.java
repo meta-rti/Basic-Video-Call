@@ -27,9 +27,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
-import co.wuji.rtc.RtcEngine;
-import co.wuji.rtc.video.VideoCanvas;
-import co.wuji.rtc.video.VideoEncoderConfiguration;
+import co.meta.rtc.RtcEngine;
+import co.meta.rtc.video.VideoCanvas;
+import co.meta.rtc.video.VideoEncoderConfiguration;
 import rti.meta.openvcall.WJApplication;
 import rti.meta.openvcall.R;
 import rti.meta.openvcall.model.ConstantApp;

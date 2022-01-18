@@ -14,10 +14,10 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import co.wuji.rtc.IRtcEngineEventHandler
-import co.wuji.rtc.RtcEngine
-import co.wuji.rtc.video.VideoCanvas
-import co.wuji.rtc.video.VideoEncoderConfiguration
+import co.meta.rtc.IRtcEngineEventHandler
+import co.meta.rtc.RtcEngine
+import co.meta.rtc.video.VideoCanvas
+import co.meta.rtc.video.VideoEncoderConfiguration
 import rti.meta.tutorial_kotlin_1to1.R
 
 class VideoChatViewActivity : AppCompatActivity() {

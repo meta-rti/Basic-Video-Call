@@ -1,8 +1,8 @@
 package rti.meta.propeller;
 
 
-import co.wuji.rtc.RtcEngine;
-import co.wuji.rtc.video.BeautyOptions;
+import co.meta.rtc.RtcEngine;
+import co.meta.rtc.video.BeautyOptions;
 
 public class Constant {
 

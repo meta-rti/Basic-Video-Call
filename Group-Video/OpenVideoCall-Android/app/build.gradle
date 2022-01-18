@@ -48,7 +48,7 @@ dependencies {
     }
 
 
-    implementation(name:'wuji_rtc_sdk', ext:'aar')
+    implementation(name:'meta_rtc_sdk', ext:'aar')
 
     //mmkv       https://github.com/Tencent/MMKV
     implementation 'com.tencent:mmkv-static:1.2.2'

@@ -10,8 +10,8 @@ import com.tencent.mmkv.MMKV;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import co.wuji.rtc.Constants;
-import co.wuji.rtc.RtcEngine;
+import co.meta.rtc.Constants;
+import co.meta.rtc.RtcEngine;
 import rti.meta.openvcall.model.CurrentUserSettings;
 import rti.meta.openvcall.model.EngineConfig;
 import rti.meta.openvcall.model.MyEngineEventHandler;

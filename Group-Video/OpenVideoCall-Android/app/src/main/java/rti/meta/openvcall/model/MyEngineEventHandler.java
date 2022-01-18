@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
 
-import co.wuji.rtc.IRtcEngineEventHandler;
-import co.wuji.rtc.RtcEngine;
+import co.meta.rtc.IRtcEngineEventHandler;
+import co.meta.rtc.RtcEngine;
 
 
 public class MyEngineEventHandler extends IRtcEngineEventHandler {

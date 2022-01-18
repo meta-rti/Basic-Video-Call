@@ -47,7 +47,7 @@ dependencies {
     implementation project(path: ':logger')
 
 
-    //wuji sdk
-    implementation(name:'wuji_rtc_sdk', ext:'aar')
+    //meta sdk
+    implementation(name:'meta_rtc_sdk', ext:'aar')
 
 }
