@@ -3,14 +3,14 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 import UIKit
-import WujiRTCFramework
+import MetaRTCFramework
 
 protocol LastmileVCDataSource: NSObjectProtocol {
-    func lastmileVCNeedWujiKit() -> WujiRtcEngineKit
+    func lastmileVCNeedMetaKit() -> MetaRtcEngineKit
 }
 
 class LastmileViewController: UITableViewController {
@@ -20,23 +20,23 @@ class LastmileViewController: UITableViewController {
     @IBOutlet weak var uplinkLabel: UILabel!
     @IBOutlet weak var downlinkLabel: UILabel!
     
-    private var wujiKit: WujiRtcEngineKit {
-        return dataSource!.lastmileVCNeedWujiKit()
+    private var metaKit: MetaRtcEngineKit {
+        return dataSource!.lastmileVCNeedMetaKit()
     }
     
     private var isLastmileProbeTesting = false {
         didSet {
             if isLastmileProbeTesting {
-                let config = WujiLastmileProbeConfig()
+                let config = MetaLastmileProbeConfig()
                 config.probeUplink = true
                 config.probeDownlink = true
                 config.expectedUplinkBitrate = 5000
                 config.expectedDownlinkBitrate = 5000
-                wujiKit.startLastmileProbeTest(config)
+                metaKit.startLastmileProbeTest(config)
                 activityView?.startAnimating()
                 self.title = "Testing..."
             } else {
-                wujiKit.stopLastmileProbeTest()
+                metaKit.stopLastmileProbeTest()
                 activityView?.stopAnimating()
                 self.title = "Test result"
             }
@@ -50,7 +50,7 @@ class LastmileViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addActivityView()
-        wujiKit.delegate = self
+        metaKit.delegate = self
         isLastmileProbeTesting = true
         view.backgroundColor = UIColor.white
     }
@@ -60,17 +60,17 @@ class LastmileViewController: UITableViewController {
     }
 }
 
-extension LastmileViewController: WujiRtcEngineDelegate {
+extension LastmileViewController: MetaRtcEngineDelegate {
     /// Reports the last mile network quality of the local user once every two seconds before the user joins a channel.
     /// - Parameters:
-    ///   - engine: the Portions Copyright (c) 2020 wuji-co. All rights reserved. engine
+    ///   - engine: the Portions Copyright (c) 2020 meta-rti. All rights reserved. engine
     ///   - quality: An enum describing the network quality. Possible values are: Unknown = 0, Excellent = 1, Good = 2, Poor = 3, Bad = 4, VBad = 5, Down = 6, Unsupported = 7, Detecting = 8.
-    func rtcEngine(_ engine: WujiRtcEngineKit, lastmileQuality quality: WujiNetworkQuality) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, lastmileQuality quality: MetaNetworkQuality) {
         qualityLabel.text = quality.description()
     }
     
     /// Reports the last-mile network probe result.
-    func rtcEngine(_ engine: WujiRtcEngineKit, lastmileProbeTest result: WujiLastmileProbeResult) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, lastmileProbeTest result: MetaLastmileProbeResult) {
         rttLabel.text = "\(result.rtt) ms"
         uplinkLabel.text = result.uplinkReport.description()
         downlinkLabel.text = result.downlinkReport.description()
@@ -87,7 +87,7 @@ extension LastmileViewController {
     }
 }
 
-extension WujiLastmileProbeOneWayResult {
+extension MetaLastmileProbeOneWayResult {
     func description() -> String {
         return "\(packetLossRate)"
     }

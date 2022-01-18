@@ -3,11 +3,11 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 import UIKit
-import WujiRTCFramework
+import MetaRTCFramework
 
 protocol SettingsVCDataSource: NSObjectProtocol {
     func settingsVCNeedSettings() -> Settings
@@ -15,7 +15,7 @@ protocol SettingsVCDataSource: NSObjectProtocol {
 
 protocol SettingsVCDelegate: NSObjectProtocol {
     func settingsVC(_ vc: SettingsViewController, didSelect dimension: CGSize)
-    func settingsVC(_ vc: SettingsViewController, didSelect frameRate: WujiVideoFrameRate)
+    func settingsVC(_ vc: SettingsViewController, didSelect frameRate: MetaVideoFrameRate)
 }
 
 class SettingsViewController: UITableViewController {
@@ -34,14 +34,14 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    private var selectedFrameRate: WujiVideoFrameRate = WujiVideoFrameRate.defaultValue {
+    private var selectedFrameRate: MetaVideoFrameRate = MetaVideoFrameRate.defaultValue {
         didSet {
             frameRateLabel?.text = selectedFrameRate.description
         }
     }
     
     private let dimensionList: [CGSize] = CGSize.validDimensionList()
-    private let frameRateList: [WujiVideoFrameRate] = WujiVideoFrameRate.validList()
+    private let frameRateList: [MetaVideoFrameRate] = MetaVideoFrameRate.validList()
     
     weak var delegate: SettingsVCDelegate?
     weak var dataSource: SettingsVCDataSource?

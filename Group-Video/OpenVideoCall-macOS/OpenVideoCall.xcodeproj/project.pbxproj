@@ -27,7 +27,7 @@
 		07C2CFF41D6C299400C84349 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CFF01D6C299400C84349 /* VideoView.swift */; };
 		07C2D0001D6C2DD900C84349 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CFFF1D6C2DD900C84349 /* Message.swift */; };
 		3832FA63227FCDCA00E50E69 /* FileCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832FA62227FCDCA00E50E69 /* FileCenter.swift */; };
-		A31281B226D88B6B00E20DDC /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31281B126D88B6A00E20DDC /* WujiRTCFramework.framework */; };
+		A31281B226D88B6B00E20DDC /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31281B126D88B6A00E20DDC /* MetaRTCFramework.framework */; };
 		A3211C9F258A0710004A59B5 /* WJEVideoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9A258A0710004A59B5 /* WJEVideoLayout.swift */; };
 		A3211CA0258A0710004A59B5 /* WJEEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9B258A0710004A59B5 /* WJEEventsObserver.swift */; };
 		A3211CA1258A0710004A59B5 /* WJEVideoConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9C258A0710004A59B5 /* WJEVideoConstraints.swift */; };
@@ -53,7 +53,7 @@
 		A7E4DBC5234C7E65001C20F7 /* WJEConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4DBC2234C7E65001C20F7 /* WJEConvert.swift */; };
 		A7E4DBC6234C7E65001C20F7 /* WJEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4DBC3234C7E65001C20F7 /* WJEError.swift */; };
 		A7E4DBCC234CBAB2001C20F7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4DBCB234CBAB2001C20F7 /* Settings.swift */; };
-		A7E4DBCE234CBD9B001C20F7 /* WujiExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4DBCD234CBD9B001C20F7 /* WujiExtension.swift */; };
+		A7E4DBCE234CBD9B001C20F7 /* MetaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4DBCD234CBD9B001C20F7 /* MetaExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,7 +85,7 @@
 		389D99B721885C4600BFD852 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		389D99B921885C4D00BFD852 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		389D99BB21885C5200BFD852 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		A31281B126D88B6A00E20DDC /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = ../../Library/Mac/WujiRTCFramework.framework; sourceTree = "<group>"; };
+		A31281B126D88B6A00E20DDC /* MetaRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetaRTCFramework.framework; path = ../../Library/Mac/MetaRTCFramework.framework; sourceTree = "<group>"; };
 		A3211C9A258A0710004A59B5 /* WJEVideoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoLayout.swift; sourceTree = "<group>"; };
 		A3211C9B258A0710004A59B5 /* WJEEventsObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEEventsObserver.swift; sourceTree = "<group>"; };
 		A3211C9C258A0710004A59B5 /* WJEVideoConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoConstraints.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		A7E4DBC2234C7E65001C20F7 /* WJEConvert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEConvert.swift; sourceTree = "<group>"; };
 		A7E4DBC3234C7E65001C20F7 /* WJEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEError.swift; sourceTree = "<group>"; };
 		A7E4DBCB234CBAB2001C20F7 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		A7E4DBCD234CBD9B001C20F7 /* WujiExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WujiExtension.swift; sourceTree = "<group>"; };
+		A7E4DBCD234CBD9B001C20F7 /* MetaExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A365D676264A269800E2B4F2 /* Accelerate.framework in Frameworks */,
-				A31281B226D88B6B00E20DDC /* WujiRTCFramework.framework in Frameworks */,
+				A31281B226D88B6B00E20DDC /* MetaRTCFramework.framework in Frameworks */,
 				A3211CA8258A075A004A59B5 /* libc++.tbd in Frameworks */,
 				A3211CAD258A0790004A59B5 /* VideoToolbox.framework in Frameworks */,
 				A3211CA7258A074B004A59B5 /* GLKit.framework in Frameworks */,
@@ -195,7 +195,7 @@
 		07C2CFF61D6C29A100C84349 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A7E4DBCD234CBD9B001C20F7 /* WujiExtension.swift */,
+				A7E4DBCD234CBD9B001C20F7 /* MetaExtension.swift */,
 				A7E4DBC2234C7E65001C20F7 /* WJEConvert.swift */,
 				A7E4DBC3234C7E65001C20F7 /* WJEError.swift */,
 				A74240162375639F00794648 /* StatisticsInfo.swift */,
@@ -213,7 +213,7 @@
 		389D99B021885C1C00BFD852 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A31281B126D88B6A00E20DDC /* WujiRTCFramework.framework */,
+				A31281B126D88B6A00E20DDC /* MetaRTCFramework.framework */,
 				A3211CAA258A0778004A59B5 /* MetalKit.framework */,
 				A3211CA6258A074B004A59B5 /* GLKit.framework */,
 				A3211CA4258A073D004A59B5 /* CoreTelephony.framework */,
@@ -279,7 +279,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 1220;
-				ORGANIZATIONNAME = Wuji;
+				ORGANIZATIONNAME = Meta;
 				TargetAttributes = {
 					07C2CFB31D6C26F300C84349 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -337,7 +337,7 @@
 				A7E4DBC5234C7E65001C20F7 /* WJEConvert.swift in Sources */,
 				A3211CA1258A0710004A59B5 /* WJEVideoConstraints.swift in Sources */,
 				A74240122375441600794648 /* WJEAlert.swift in Sources */,
-				A7E4DBCE234CBD9B001C20F7 /* WujiExtension.swift in Sources */,
+				A7E4DBCE234CBD9B001C20F7 /* MetaExtension.swift in Sources */,
 				3832FA63227FCDCA00E50E69 /* FileCenter.swift in Sources */,
 				A77A8EF7235D81A500A44B0C /* LastmileViewController.swift in Sources */,
 				A742402A23794C0600794648 /* WindowItem.swift in Sources */,

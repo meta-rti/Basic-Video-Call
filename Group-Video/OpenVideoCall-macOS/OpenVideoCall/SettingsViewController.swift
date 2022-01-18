@@ -3,15 +3,15 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 import Cocoa
-import WujiRTCFramework
+import MetaRTCFramework
 
 protocol SettingsVCDataSource: NSObjectProtocol {
     func settingsVCNeedSettings() -> Settings
-    func settingsVCNeedWujiKit() -> WujiRtcEngineKit
+    func settingsVCNeedMetaKit() -> MetaRtcEngineKit
 }
 
 protocol SettingsVCDelegate: NSObjectProtocol {
@@ -36,14 +36,14 @@ class SettingsViewController: NSViewController {
     @IBOutlet weak var lineView4: NSView!
     @IBOutlet weak var lineView5: NSView!
     
-    private var recordDevices: [WujiRtcDeviceInfo]?
-    private var speakerDevices: [WujiRtcDeviceInfo]?
-    private var cameraDevices: [WujiRtcDeviceInfo]?
+    private var recordDevices: [MetaRtcDeviceInfo]?
+    private var speakerDevices: [MetaRtcDeviceInfo]?
+    private var cameraDevices: [MetaRtcDeviceInfo]?
     
     private lazy var settings: Settings = dataSource!.settingsVCNeedSettings()
     
-    private var wujiKit: WujiRtcEngineKit {
-        return dataSource!.settingsVCNeedWujiKit()
+    private var metaKit: MetaRtcEngineKit {
+        return dataSource!.settingsVCNeedMetaKit()
     }
     
     weak var dataSource: SettingsVCDataSource?
@@ -68,7 +68,7 @@ class SettingsViewController: NSViewController {
     }
     
     @IBAction func doFrameRateChanged(_ sender: NSPopUpButton) {
-        settings.frameRate = WujiVideoFrameRate.validList()[sender.indexOfSelectedItem]
+        settings.frameRate = MetaVideoFrameRate.validList()[sender.indexOfSelectedItem]
     }
     
     @IBAction func doRecordDeviceChanged(_ sender: NSPopUpButton) {
@@ -130,7 +130,7 @@ private extension SettingsViewController {
     }
     
     func loadFrameRateItems() {
-        frameRatePopUpButton.addItems(withTitles: WujiVideoFrameRate.validList().map { (rate) -> String in
+        frameRatePopUpButton.addItems(withTitles: MetaVideoFrameRate.validList().map { (rate) -> String in
             return rate.description
         })
         frameRatePopUpButton.selectItem(withTitle: settings.frameRate.description)
@@ -147,28 +147,28 @@ private extension SettingsViewController {
     }
     
     func loadDevice(of type: Settings.DeviceType) {
-        var wjType: WujiMediaDeviceType
+        var wjType: MetaMediaDeviceType
         var localId: String?
-        var localDevices: [WujiRtcDeviceInfo]?
+        var localDevices: [MetaRtcDeviceInfo]?
         var localButton: NSPopUpButton
         
         switch type {
         case .record(let id):
             wjType = .audioRecording
             localId = id
-            localDevices = wujiKit.enumerateDevices(wjType)! as NSArray as? [WujiRtcDeviceInfo]
+            localDevices = metaKit.enumerateDevices(wjType)! as NSArray as? [MetaRtcDeviceInfo]
             recordDevices = localDevices
             localButton = recordDevicePopUpButton
         case .speaker(let id):
             wjType = .audioPlayout
             localId = id
-            localDevices = wujiKit.enumerateDevices(wjType)! as NSArray as? [WujiRtcDeviceInfo]
+            localDevices = metaKit.enumerateDevices(wjType)! as NSArray as? [MetaRtcDeviceInfo]
             speakerDevices = localDevices
             localButton = speakerDevicePopUpButton
         case .camera(let id):
 //            wjType = .videoCapture
             localId = id
-//            localDevices = wujiKit.enumerateDevices(wjType)! as NSArray as? [WujiRtcDeviceInfo]
+//            localDevices = metaKit.enumerateDevices(wjType)! as NSArray as? [MetaRtcDeviceInfo]
 //            cameraDevices = localDevices
             localButton = cameraPopUpButton
         }
@@ -186,7 +186,7 @@ private extension SettingsViewController {
         updatePopUpButtonColor(localButton)
     }
     
-    func updatePopUpButton(_ button: NSPopUpButton, withValue value: String?, inValueList list: [WujiRtcDeviceInfo]) {
+    func updatePopUpButton(_ button: NSPopUpButton, withValue value: String?, inValueList list: [MetaRtcDeviceInfo]) {
         button.removeAllItems()
         button.addItems(withTitles: list.map({ (info) -> String in
             return info.deviceName!

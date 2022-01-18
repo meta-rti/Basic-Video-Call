@@ -3,19 +3,19 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 import Cocoa
 import Quartz.ImageKit
-import WujiRTCFramework
+import MetaRTCFramework
 
 protocol RoomVCDelegate: class {
     func roomVCNeedClose(_ roomVC: RoomViewController)
 }
 
 protocol RoomVCDataSource: NSObjectProtocol {
-    func roomVCNeedWujiKit() -> WujiRtcEngineKit
+    func roomVCNeedMetaKit() -> MetaRtcEngineKit
     func roomVCNeedSettings() -> Settings
 }
 
@@ -53,7 +53,7 @@ class RoomViewController: NSViewController {
         didSet {
             muteAudioButton?.image = NSImage(named: audioMuted ? "icon-micorophone off" : "icon-micorophone")
             // mute local audio
-            wujiKit.muteLocalAudioStream(audioMuted)
+            metaKit.muteLocalAudioStream(audioMuted)
         }
     }
     
@@ -61,7 +61,7 @@ class RoomViewController: NSViewController {
         didSet {
             muteVideoButton?.image = NSImage(named: videoMuted ? "icon-camera off" : "icon-camera")
             // mute local video
-            wujiKit.muteLocalVideoStream(videoMuted)
+            metaKit.muteLocalVideoStream(videoMuted)
             setVideoMuted(videoMuted, forUid: 0)
         }
     }
@@ -69,7 +69,7 @@ class RoomViewController: NSViewController {
     private var speakerMuted = false {
         didSet {
             muteSpeakerButton?.image = NSImage(named: speakerMuted ? "icon-speaker off" : "icon-speaker")
-            wujiKit.muteAllRemoteAudioStreams(speakerMuted)
+            metaKit.muteAllRemoteAudioStreams(speakerMuted)
         }
     }
     
@@ -79,16 +79,16 @@ class RoomViewController: NSViewController {
                 return
             }
             beautyButton?.image = NSImage(named: isBeauty ? "icon-beauty off" : "icon-beauty")
-            var options: WujiBeautyOptions? = nil
+            var options: MetaBeautyOptions? = nil
             if isBeauty {
-                options = WujiBeautyOptions()
+                options = MetaBeautyOptions()
                 options?.lighteningContrastLevel = .normal
                 options?.lighteningLevel = 0.7
                 options?.smoothnessLevel = 0.5
                 options?.rednessLevel = 0.1
             }
             // improve local render view
-            wujiKit.setBeautyEffectOptions(isBeauty, options: options)
+            metaKit.setBeautyEffectOptions(isBeauty, options: options)
         }
     }
     
@@ -115,8 +115,8 @@ class RoomViewController: NSViewController {
         }
     }
     
-    private var wujiKit: WujiRtcEngineKit {
-        return dataSource!.roomVCNeedWujiKit()
+    private var metaKit: MetaRtcEngineKit {
+        return dataSource!.roomVCNeedMetaKit()
     }
     
     private var settings: Settings {
@@ -136,7 +136,7 @@ class RoomViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        loadWujiKit()
+        loadMetaKit()
     }
     
     override func viewDidAppear() {
@@ -341,56 +341,56 @@ private extension RoomViewController {
     }
 }
 
-//MARK: - Wuji Rtc Kit
+//MARK: - Meta Rtc Kit
 private extension RoomViewController {
-    func loadWujiKit() {
+    func loadMetaKit() {
         guard let roomName = settings.roomName else {
             return
         }
         
         // Step 1, set media device
         if let deviceId = settings.recordDevice.deviceId {
-            wujiKit.setDevice(.audioRecording, deviceId: deviceId)
+            metaKit.setDevice(.audioRecording, deviceId: deviceId)
         }
         
         if let deviceId = settings.speakerDevice.deviceId {
-            wujiKit.setDevice(.audioPlayout, deviceId: deviceId)
+            metaKit.setDevice(.audioPlayout, deviceId: deviceId)
         }
         
         if let deviceId = settings.cameraDevice.deviceId {
-            wujiKit.setDevice(.videoCapture, deviceId: deviceId)
+            metaKit.setDevice(.videoCapture, deviceId: deviceId)
         }
         
         // Step 2, set delegate
-        wujiKit.delegate = self
+        metaKit.delegate = self
         
         // Step 3, set communication mode
-        wujiKit.setChannelProfile(.communication)
+        metaKit.setChannelProfile(.communication)
         
         // Step 4, enable the video module
-        wujiKit.enableVideo()
+        metaKit.enableVideo()
         // set video configuration
         let configuration =
-            WujiVideoEncoderConfiguration(size: settings.dimension,
+            MetaVideoEncoderConfiguration(size: settings.dimension,
                                            frameRate: .fps15,
-                                           bitrate: WujiVideoBitrateStandard,
+                                           bitrate: MetaVideoBitrateStandard,
                                            orientationMode: .adaptative)
-        wujiKit.setVideoEncoderConfiguration(configuration)
+        metaKit.setVideoEncoderConfiguration(configuration)
         
         // add local render view and start preview
         addLocalSession()
-        wujiKit.startPreview()
+        metaKit.startPreview()
         
         // Step 5, enable encryption mode
         if let type = settings.encryptionType, let text = type.text, !text.isEmpty {
-            wujiKit.setEncryptionMode(type.modeString())
-            wujiKit.setEncryptionSecret(text)
+            metaKit.setEncryptionMode(type.modeString())
+            metaKit.setEncryptionSecret(text)
         }
         
         // Step 5, join channel and start group chat
-        // If join  channel success, wujiKit triggers it's delegate function
-        // 'rtcEngine(_ engine: WujiRtcEngineKit, didJoinChannel channel: String, withUid uid: UInt, elapsed: Int)'
-        wujiKit.joinChannel(byToken: KeyCenter.Token,
+        // If join  channel success, metaKit triggers it's delegate function
+        // 'rtcEngine(_ engine: MetaRtcEngineKit, didJoinChannel channel: String, withUid uid: UInt, elapsed: Int)'
+        metaKit.joinChannel(byToken: KeyCenter.Token,
                              channelId: roomName,
                              info: nil,
                              uid: 0,
@@ -400,16 +400,16 @@ private extension RoomViewController {
     func addLocalSession() {
         let localSession = VideoSession.localSession()
         videoSessions.append(localSession)
-        wujiKit.setupLocalVideo(localSession.canvas)
+        metaKit.setupLocalVideo(localSession.canvas)
     }
     
     func leaveChannel() {
-        // Step 1, release local WujiRtcVideoCanvas instance
-        wujiKit.setupLocalVideo(nil)
+        // Step 1, release local MetaRtcVideoCanvas instance
+        metaKit.setupLocalVideo(nil)
         // Step 2, leave channel and end group chat
-        wujiKit.leaveChannel(nil)
+        metaKit.leaveChannel(nil)
         // Step 3, please attention, stop preview after leave channel
-        wujiKit.stopPreview()
+        metaKit.stopPreview()
         
         // Step 4, remove all render views
         for session in videoSessions {
@@ -424,78 +424,78 @@ private extension RoomViewController {
     func startShareWindow(_ window: Window) {
         let windowId = window.id
         if windowId == 0 {
-            wujiKit.startScreenCapture(byDisplayId: UInt(CGMainDisplayID()),
+            metaKit.startScreenCapture(byDisplayId: UInt(CGMainDisplayID()),
                                         rectangle: CGRect.zero,
-                                        parameters: WujiScreenCaptureParameters())
+                                        parameters: MetaScreenCaptureParameters())
         } else {
-            wujiKit.startScreenCapture(byWindowId: UInt(windowId),
+            metaKit.startScreenCapture(byWindowId: UInt(windowId),
                                         rectangle: CGRect.zero,
-                                        parameters: WujiScreenCaptureParameters())
+                                        parameters: MetaScreenCaptureParameters())
         }
-        videoSessions.first?.hostingView.switchToScreenShare(windowId == 0 || window.name == "Wuji Video Call" || window.name == "Full Screen")
+        videoSessions.first?.hostingView.switchToScreenShare(windowId == 0 || window.name == "Meta Video Call" || window.name == "Full Screen")
     }
     
     func stopShareWindow() {
-        wujiKit.stopScreenCapture()
+        metaKit.stopScreenCapture()
         videoSessions.first?.hostingView.switchToScreenShare(false)
     }
 }
 
-//MARK: - WujiRtcEngineDelegate
-extension RoomViewController: WujiRtcEngineDelegate {
+//MARK: - MetaRtcEngineDelegate
+extension RoomViewController: MetaRtcEngineDelegate {
     
     /// Occurs when the local user joins a specified channel.
     /// - Parameters:
-    ///   - engine: the Wuji engine
+    ///   - engine: the Meta engine
     ///   - channel: channel name
     ///   - uid: User ID. If the uid is specified in the joinChannelByToken method, the specified user ID is returned. If the user ID is not specified when the joinChannel method is called, the server automatically assigns a uid.
     ///   - elapsed: Time elapsed (ms) from the user calling the joinChannelByToken method until the SDK triggers this callback.
-    func rtcEngine(_ engine: WujiRtcEngineKit, didJoinChannel channel: String, withUid uid: UInt, elapsed: Int) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, didJoinChannel channel: String, withUid uid: UInt, elapsed: Int) {
         info(string: "Join channel: \(channel)")
     }
     
     /// Occurs when the connection between the SDK and the server is interrupted.
-    func rtcEngineConnectionDidInterrupted(_ engine: WujiRtcEngineKit) {
+    func rtcEngineConnectionDidInterrupted(_ engine: MetaRtcEngineKit) {
         alert(string: "RTC Connection Interrupted")
     }
     
-    /// Occurs when the SDK cannot reconnect to Wuji edge server 10 seconds after its connection to the server is interrupted.
-    func rtcEngineConnectionDidLost(_ engine: WujiRtcEngineKit) {
+    /// Occurs when the SDK cannot reconnect to Meta edge server 10 seconds after its connection to the server is interrupted.
+    func rtcEngineConnectionDidLost(_ engine: MetaRtcEngineKit) {
         alert(string: "RTC Connection Lost")
     }
     
     /// Reports an error during SDK runtime.
-    func rtcEngine(_ engine: WujiRtcEngineKit, didOccurError errorCode: WujiErrorCode) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, didOccurError errorCode: MetaErrorCode) {
         alert(string: "RTC ErrorCode \(errorCode.description)")
     }
     
     // first local video frame
-    func rtcEngine(_ engine: WujiRtcEngineKit, firstLocalVideoFrameWith size: CGSize, elapsed: Int) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, firstLocalVideoFrameWith size: CGSize, elapsed: Int) {
         if let selfSession = videoSessions.first {
             selfSession.updateInfo(resolution: size)
         }
     }
     
     // local stats
-    func rtcEngine(_ engine: WujiRtcEngineKit, reportRtcStats stats: WujiChannelStats) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, reportRtcStats stats: MetaChannelStats) {
         if let selfSession = videoSessions.first {
             selfSession.updateChannelStats(stats)
         }
     }
     
     // first remote video frame
-    func rtcEngine(_ engine: WujiRtcEngineKit, firstRemoteVideoDecodedOfUid uid: UInt, size: CGSize, elapsed: Int) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, firstRemoteVideoDecodedOfUid uid: UInt, size: CGSize, elapsed: Int) {
         guard videoSessions.count < 5 else {
             return
         }
         
         let userSession = videoSession(of: uid)
         userSession.updateInfo(resolution: size)
-        wujiKit.setupRemoteVideo(userSession.canvas)
+        metaKit.setupRemoteVideo(userSession.canvas)
     }
     
     // user offline
-    func rtcEngine(_ engine: WujiRtcEngineKit, didOfflineOfUid uid: UInt, reason: WujiUserOfflineReason) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, didOfflineOfUid uid: UInt, reason: MetaUserOfflineReason) {
         var indexToDelete: Int?
         for (index, session) in videoSessions.enumerated() {
             if session.uid == uid {
@@ -510,24 +510,24 @@ extension RoomViewController: WujiRtcEngineDelegate {
             // release canvas's view
             deletedSession.canvas.view = nil
             
-            wujiKit.setupRemoteVideo(deletedSession.canvas)
+            metaKit.setupRemoteVideo(deletedSession.canvas)
         }
     }
     
     // video muted
-    func rtcEngine(_ engine: WujiRtcEngineKit, didVideoMuted muted: Bool, byUid uid: UInt) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, didVideoMuted muted: Bool, byUid uid: UInt) {
         setVideoMuted(muted, forUid: uid)
     }
     
     // remote video stats
-    func rtcEngine(_ engine: WujiRtcEngineKit, remoteVideoStats stats: WujiRtcRemoteVideoStats) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, remoteVideoStats stats: MetaRtcRemoteVideoStats) {
         if let session = getSession(of: stats.uid) {
             session.updateVideoStats(stats)
         }
     }
     
     // remote audio stats
-    func rtcEngine(_ engine: WujiRtcEngineKit, remoteAudioStats stats: WujiRtcRemoteAudioStats) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, remoteAudioStats stats: MetaRtcRemoteAudioStats) {
         if let session = getSession(of: stats.uid) {
             session.updateAudioStats(stats)
         }

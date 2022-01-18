@@ -3,11 +3,11 @@
 //  OpenLive
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 import UIKit
-import WujiRTCFramework
+import MetaRTCFramework
 
 class VideoSession: NSObject {
     enum SessionType {
@@ -23,7 +23,7 @@ class VideoSession: NSObject {
     
     var uid: UInt
     var hostingView: VideoView!
-    var canvas: WujiRtcVideoCanvas
+    var canvas: MetaRtcVideoCanvas
     var type: SessionType
     var statistics: StatisticsInfo
     
@@ -40,8 +40,8 @@ class VideoSession: NSObject {
         hostingView = VideoView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         hostingView.translatesAutoresizingMaskIntoConstraints = false
         
-        // Setup the canvas to show an Portions Copyright (c) 2020 wuji-co. All rights reserved. video stream.
-        canvas = WujiRtcVideoCanvas()
+        // Setup the canvas to show an Portions Copyright (c) 2020 meta-rti. All rights reserved. video stream.
+        canvas = MetaRtcVideoCanvas()
         canvas.uid = uid
         canvas.view = hostingView.videoView
         canvas.renderMode = .hidden
@@ -58,7 +58,7 @@ extension VideoSession {
         return VideoSession(uid: 0, type: .local)
     }
     
-    func updateInfo(resolution: CGSize? = nil, fps: Int? = nil, txQuality: WujiNetworkQuality? = nil, rxQuality: WujiNetworkQuality? = nil) {
+    func updateInfo(resolution: CGSize? = nil, fps: Int? = nil, txQuality: MetaNetworkQuality? = nil, rxQuality: MetaNetworkQuality? = nil) {
         if let resolution = resolution {
             statistics.dimension = resolution
         }
@@ -78,7 +78,7 @@ extension VideoSession {
         hostingView.update(with: statistics)
     }
     
-    func updateChannelStats(_ stats: WujiChannelStats) {
+    func updateChannelStats(_ stats: MetaChannelStats) {
         guard self.type.isLocal else {
             return
         }
@@ -86,7 +86,7 @@ extension VideoSession {
         hostingView.update(with: statistics)
     }
     
-    func updateVideoStats(_ stats: WujiRtcRemoteVideoStats) {
+    func updateVideoStats(_ stats: MetaRtcRemoteVideoStats) {
         guard !self.type.isLocal else {
             return
         }
@@ -96,7 +96,7 @@ extension VideoSession {
         hostingView.update(with: statistics)
     }
     
-    func updateAudioStats(_ stats: WujiRtcRemoteAudioStats) {
+    func updateAudioStats(_ stats: MetaRtcRemoteAudioStats) {
         guard !self.type.isLocal else {
             return
         }

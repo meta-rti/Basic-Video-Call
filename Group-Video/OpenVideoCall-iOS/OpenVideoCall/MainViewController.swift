@@ -3,11 +3,11 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 import UIKit
-import WujiRTCFramework
+import MetaRTCFramework
 
 class MainViewController: UIViewController {
     
@@ -16,10 +16,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var encryptionButton: UIButton!
     @IBOutlet weak var testNetworkButton: UIButton!
     
-    // The wuji engine
-    private lazy var wujiKit: WujiRtcEngineKit = {
-        let engine = WujiRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: nil)
-        engine.setLogFilter(WujiLogFilter.info.rawValue)
+    // The meta engine
+    private lazy var metaKit: MetaRtcEngineKit = {
+        let engine = MetaRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: nil)
+        engine.setLogFilter(MetaLogFilter.info.rawValue)
         engine.setLogFile(FileCenter.logFilePath())
         return engine
     }()
@@ -131,7 +131,7 @@ extension MainViewController: SettingsVCDelegate {
         settings.dimension = dimension
     }
     
-    func settingsVC(_ vc: SettingsViewController, didSelect frameRate: WujiVideoFrameRate) {
+    func settingsVC(_ vc: SettingsViewController, didSelect frameRate: MetaVideoFrameRate) {
         settings.frameRate = frameRate
     }
 }
@@ -143,8 +143,8 @@ extension MainViewController: SettingsVCDataSource {
 }
 
 extension MainViewController: LastmileVCDataSource {
-    func lastmileVCNeedWujiKit() -> WujiRtcEngineKit {
-        return wujiKit
+    func lastmileVCNeedMetaKit() -> MetaRtcEngineKit {
+        return metaKit
     }
 }
 
@@ -153,8 +153,8 @@ extension MainViewController: RoomVCDataSource {
         return settings
     }
     
-    func roomVCNeedWujiKit() -> WujiRtcEngineKit {
-        return wujiKit
+    func roomVCNeedMetaKit() -> MetaRtcEngineKit {
+        return metaKit
     }
 }
 

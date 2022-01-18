@@ -3,20 +3,20 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 import Foundation
 
 class FileCenter {
     static func logDirectory() -> String {
-        let directory = documentDirectory() + "/WujiLogs"
+        let directory = documentDirectory() + "/MetaLogs"
         checkAndCreateDirectory(at: directory)
         return directory
     }
     
     static func logFilePath() -> String {
-        return logDirectory() + "/wuji-rtc.log"
+        return logDirectory() + "/meta-rtc.log"
     }
     
     static func audioFilePath() -> String {

@@ -5,7 +5,7 @@
 - [Create the MainViewController Class](#create-the-mainviewcontroller-class)
 - [Create the MainViewController Class Delegates](#create-mainviewcontroller-delegates)
 - [Create the RoomViewController](#create-the-roomviewcontroller)
-- [Create RoomViewController Wuji Methods and Delegates](#create-roomviewcontroller-wuji-methods-and-delegates)
+- [Create RoomViewController Meta Methods and Delegates](#create-roomviewcontroller-meta-methods-and-delegates)
 - [Create the ChatMessageViewController](#create-the-chatmessageviewcontroller)
 - [Create the SettingsViewController](#create-the-settingsviewcontroller)
 
@@ -29,7 +29,7 @@ Under the **Build Phases** tab, add the following frameworks and libraries to yo
 - `MetalKit.framework`
 - `SystemConfiguration.framework`
 - `VideoToolbox.framework`
-- `WujiRTCFramework.framework`
+- `MetaRTCFramework.framework`
 
 ![buildPhasesTab.jpg](images/buildPhasesTab.jpg)
 
@@ -126,12 +126,12 @@ class MainViewController: UIViewController {
 
 The `MainViewController` class has two private variables.
 
-The `videoProfile` variable is initialized with the default Wuji video profile using `WujiVideoProfile.defaultProfile()`.
+The `videoProfile` variable is initialized with the default Meta video profile using `MetaVideoProfile.defaultProfile()`.
 
 The `encryptionType` is initialized to `EncryptionType.xts128`. When a new `encryptionType` is set, set the `encryptionButton` text to the new encryption type using `encryptionButton?.setTitle()`.
 
 ``` Swift    
-    fileprivate var videoProfile = WujiVideoProfile.defaultProfile()
+    fileprivate var videoProfile = MetaVideoProfile.defaultProfile()
     
     fileprivate var encryptionType = EncryptionType.xts128 {
         didSet {
@@ -271,7 +271,7 @@ The `settingsVC` method is a delegate method for the `SettingsViewController`. T
 
 ``` Swift    
 extension MainViewController: SettingsVCDelegate {
-    func settingsVC(_ settingsVC: SettingsViewController, didSelectProfile profile: WujiVideoProfile) {
+    func settingsVC(_ settingsVC: SettingsViewController, didSelectProfile profile: MetaVideoProfile) {
         videoProfile = profile
         dismiss(animated: true, completion: nil)
     }
@@ -342,19 +342,19 @@ Variable|Description
 `encryptionType`|The encryption type for the room
 `videoProfile`|The video profile for the room
 `delegate`|The delegate for the `RoomViewController` class
-`WujiRtcEngineKit`|The Wuji RTC Engine SDK object
+`MetaRtcEngineKit`|The Meta RTC Engine SDK object
 
 ``` Swift    
     //MARK: public var
     var roomName: String!
     var encryptionSecret: String?
     var encryptionType: EncryptionType!
-    var videoProfile: WujiVideoProfile!
+    var videoProfile: MetaVideoProfile!
     weak var delegate: RoomVCDelegate?
     
     ...
     
-    var wujiKit: WujiRtcEngineKit!
+    var metaKit: MetaRtcEngineKit!
     
     ...
 ```
@@ -495,13 +495,13 @@ The `currentAlert` is not set by default and is available for use to display ale
 
 The `audioMuted` and `videoMuted` variables are set to `false` by default, and manage the audio and video streams, respectively.
 
-When `audioMuted` is set, the `muteAudioButton` image is updated, and the audio stream is muted/unmuted using `wujiKit.muteLocalAudioStream()`.
+When `audioMuted` is set, the `muteAudioButton` image is updated, and the audio stream is muted/unmuted using `metaKit.muteLocalAudioStream()`.
 
 When `videoMuted` is set:
 
 - The `muteVideoButton` image is updated.
 - The `cameraButton` and `speakerButton` are set to hidden/not hidden. 
-- The video stream is stopped/started using `wujiKit.muteLocalVideoStream()` and `setVideoMuted()`.
+- The video stream is stopped/started using `metaKit.muteLocalVideoStream()` and `setVideoMuted()`.
 - The video view of the current user is set to hidden/not hidden using `updateSelfViewVisiable()`.
 
 ``` Swift
@@ -509,7 +509,7 @@ When `videoMuted` is set:
     fileprivate var audioMuted = false {
         didSet {
             muteAudioButton?.setImage(UIImage(named: audioMuted ? "btn_mute_blue" : "btn_mute"), for: UIControlState())
-            wujiKit.muteLocalAudioStream(audioMuted)
+            metaKit.muteLocalAudioStream(audioMuted)
         }
     }
     fileprivate var videoMuted = false {
@@ -518,7 +518,7 @@ When `videoMuted` is set:
             cameraButton?.isHidden = videoMuted
             speakerButton?.isHidden = !videoMuted
             
-            wujiKit.muteLocalVideoStream(videoMuted)
+            metaKit.muteLocalVideoStream(videoMuted)
             setVideoMuted(videoMuted, forUid: 0)
             
             updateSelfViewVisiable()
@@ -526,7 +526,7 @@ When `videoMuted` is set:
     }
 ```
 
-The `speakerEnabled` variable is set to `true` by default. When this variable is set, the `speakerButton` image is updated and the speakerphone is enabled/disabled using `wujiKit.setEnableSpeakerphone()`. 
+The `speakerEnabled` variable is set to `true` by default. When this variable is set, the `speakerButton` image is updated and the speakerphone is enabled/disabled using `metaKit.setEnableSpeakerphone()`. 
 
 ``` Swift
     //MARK: speaker
@@ -535,14 +535,14 @@ The `speakerEnabled` variable is set to `true` by default. When this variable is
             speakerButton?.setImage(UIImage(named: speakerEnabled ? "btn_speaker_blue" : "btn_speaker"), for: UIControlState())
             speakerButton?.setImage(UIImage(named: speakerEnabled ? "btn_speaker" : "btn_speaker_blue"), for: .highlighted)
             
-            wujiKit.setEnableSpeakerphone(speakerEnabled)
+            metaKit.setEnableSpeakerphone(speakerEnabled)
         }
     }
 ```
 
 The `isFiltering` variable is set to `false` by default. When this variable is set:
 
-- The creation of `wujiKit` is verified.
+- The creation of `metaKit` is verified.
 - If filtering is enabled, set the video preprocessing using `WJVideoPreProcessing.registerVideoPreprocessing()` and update the `filterButton` with the blue image. 
 - If filtering is not enabled, update the `filterButton` with the white image.
 
@@ -550,15 +550,15 @@ The `isFiltering` variable is set to `false` by default. When this variable is s
     //MARK: filter
     fileprivate var isFiltering = false {
         didSet {
-            guard let wujiKit = wujiKit else {
+            guard let metaKit = metaKit else {
                 return
             }
             
             if isFiltering {
-                WJVideoPreProcessing.registerVideoPreprocessing(wujiKit)
+                WJVideoPreProcessing.registerVideoPreprocessing(metaKit)
                 filterButton?.setImage(UIImage(named: "btn_filter_blue"), for: UIControlState())
             } else {
-                WJVideoPreProcessing.deregisterVideoPreprocessing(wujiKit)
+                WJVideoPreProcessing.deregisterVideoPreprocessing(metaKit)
                 filterButton?.setImage(UIImage(named: "btn_filter"), for: UIControlState())
             }
         }
@@ -591,11 +591,11 @@ The `isInputing` variable is set to `false` as the default. When this is set:
     }
 ```
 
-Initialize `cryptoLoader` using `WujiRtcCryptoLoader()`. This object manages Wuji encryption.
+Initialize `cryptoLoader` using `MetaRtcCryptoLoader()`. This object manages Meta encryption.
 
 ``` Swift    
     //MARK: crypto loader
-    private let cryptoLoader = WujiRtcCryptoLoader()
+    private let cryptoLoader = MetaRtcCryptoLoader()
 ```
 
 #### Create Delegate and Superclass Methods
@@ -605,7 +605,7 @@ The `viewDidLoad()` method initializes the `RoomViewController`:
 1. Set the `roomNameLabel` text.
 2. Set the `backgroundTap` gesture recognizer to fail on double-tap using `backgroundTap.require()`.
 3. Add the keyboard event listener using `addKeyboardObserver()`.
-4. Load the Wuji RTC engine SDK using `loadWujiKit()`.
+4. Load the Meta RTC engine SDK using `loadMetaKit()`.
 
 ``` Swift
     //MARK: - life cycle
@@ -616,7 +616,7 @@ The `viewDidLoad()` method initializes the `RoomViewController`:
         backgroundTap.require(toFail: backgroundDoubleTap)
         addKeyboardObserver()
         
-        loadWujiKit()
+        loadMetaKit()
     }
 ```
 
@@ -724,7 +724,7 @@ The `doMuteAudioPressed()` method is invoked by the `muteAudioButton` UI button 
 
 ##### Camera, Speaker, Filter, and Close Methods
 
-The `doCameraPressed()` method is invoked by the `cameraButton` UI button action and switches the camera view using `wujiKit.switchCamera()`.
+The `doCameraPressed()` method is invoked by the `cameraButton` UI button action and switches the camera view using `metaKit.switchCamera()`.
 
 The `doSpeakerPressed()` method is invoked by the `speakerButton` UI button action and updates `speakerEnabled`.
     
@@ -734,7 +734,7 @@ The `doClosePressed()` method is invoked by the red hangup UI button action and 
 
 ``` Swift
     @IBAction func doCameraPressed(_ sender: UIButton) {
-        wujiKit.switchCamera()
+        metaKit.switchCamera()
     }
     
     @IBAction func doSpeakerPressed(_ sender: UIButton) {
@@ -1028,9 +1028,9 @@ The `alert()` method appends an alert message to the chat message box using `cha
     }
 ```
 
-### Create RoomViewController Wuji Methods and Delegates
+### Create RoomViewController Meta Methods and Delegates
 
-The methods applying the Wuji SDK are placed within a private extension for the `RoomViewController`.
+The methods applying the Meta SDK are placed within a private extension for the `RoomViewController`.
 
 ``` Swift
 //MARK: - engine
@@ -1039,45 +1039,45 @@ private extension RoomViewController {
 }
 ```
 
-- [Create the loadWujiKit() Method](#create-the-loadwujikit-method)
+- [Create the loadMetaKit() Method](#create-the-loadmetakit-method)
 - [Create the addLocalSession() Method](#create-the-addlocalsession-method)
 - [Create the leaveChannel() Method](#create-the-leavechannel-method)
 - [Create the send() Method](#create-the-send-method)
-- [Create the WujiRtcEngineDelegate](#create-the-wujirtcenginedelegate)
+- [Create the MetaRtcEngineDelegate](#create-the-metartcenginedelegate)
 
 
-#### Create the loadWujiKit Method
+#### Create the loadMetaKit Method
 
-The `loadWujiKit()` method initializes the Wuji RTC engine using `WujiRtcEngineKit.sharedEngine()`:
+The `loadMetaKit()` method initializes the Meta RTC engine using `MetaRtcEngineKit.sharedEngine()`:
 
 1. Set the channel profile to `.communication`, enable video, and set the `videoProfile`.
 
-2. Invoke `addLocalSession()` and start the preview using `wujiKit.startPreview()`.
+2. Invoke `addLocalSession()` and start the preview using `metaKit.startPreview()`.
 
-3. If `encryptionSecret` is not empty, set the encryption using `wujiKit.setEncryptionMode()` and `wujiKit.setEncryptionSecret()`.
+3. If `encryptionSecret` is not empty, set the encryption using `metaKit.setEncryptionMode()` and `metaKit.setEncryptionSecret()`.
 
-4. Join the channel `roomName` using `wujiKit.joinChannel()`:
+4. Join the channel `roomName` using `metaKit.joinChannel()`:
 
 - If the `code` is equal to `0`, the channel join is successful. Disable the idle timer using `setIdleTimerActive`.
 - If the channel join is not successful, display an error message alert using `self.alert()`.
 
-5. Complete the method with `wujiKit.createDataStream()` to create a data stream for the joined channel.
+5. Complete the method with `metaKit.createDataStream()` to create a data stream for the joined channel.
 
 ``` Swift
-    func loadWujiKit() {
-        wujiKit = WujiRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: self)
-        wujiKit.setChannelProfile(.communication)
-        wujiKit.enableVideo()
-        wujiKit.setVideoProfile(videoProfile, swapWidthAndHeight: false)
+    func loadMetaKit() {
+        metaKit = MetaRtcEngineKit.sharedEngine(withAppId: KeyCenter.AppId, delegate: self)
+        metaKit.setChannelProfile(.communication)
+        metaKit.enableVideo()
+        metaKit.setVideoProfile(videoProfile, swapWidthAndHeight: false)
         
         addLocalSession()
-        wujiKit.startPreview()
+        metaKit.startPreview()
         if let encryptionType = encryptionType, let encryptionSecret = encryptionSecret, !encryptionSecret.isEmpty {
-            wujiKit.setEncryptionMode(encryptionType.modeString())
-            wujiKit.setEncryptionSecret(encryptionSecret)
+            metaKit.setEncryptionMode(encryptionType.modeString())
+            metaKit.setEncryptionSecret(encryptionSecret)
         }
         
-        let code = wujiKit.joinChannel(byToken: nil, channelId: roomName, info: nil, uid: 0, joinSuccess: nil)
+        let code = metaKit.joinChannel(byToken: nil, channelId: roomName, info: nil, uid: 0, joinSuccess: nil)
         
         if code == 0 {
             setIdleTimerActive(false)
@@ -1087,13 +1087,13 @@ The `loadWujiKit()` method initializes the Wuji RTC engine using `WujiRtcEngineK
             })
         }
         
-        wujiKit.createDataStream(&dataChannelId, reliable: true, ordered: true)
+        metaKit.createDataStream(&dataChannelId, reliable: true, ordered: true)
     }
 ```
 
 #### Create the addLocalSession Method
 
-The `addLocalSession()` method appends the local video session to `videoSessions` and sets up the local video view using `wujiKit.setupLocalVideo()`.
+The `addLocalSession()` method appends the local video session to `videoSessions` and sets up the local video view using `metaKit.setupLocalVideo()`.
 
 If `MediaInfo` is available for the `videoProfile`, set the media info property for the local session using `localSession.mediaInfo`.
 
@@ -1101,7 +1101,7 @@ If `MediaInfo` is available for the `videoProfile`, set the media info property 
     func addLocalSession() {
         let localSession = VideoSession.localSession()
         videoSessions.append(localSession)
-        wujiKit.setupLocalVideo(localSession.canvas)
+        metaKit.setupLocalVideo(localSession.canvas)
         
         if let mediaInfo = MediaInfo(videoProfile: videoProfile) {
             localSession.mediaInfo = mediaInfo
@@ -1113,8 +1113,8 @@ If `MediaInfo` is available for the `videoProfile`, set the media info property 
 
 The `leaveChannel()` method enables the user to leave the video session.
 
-1. Clear the local video and leave the channel by applying `nil` as the parameter for `wujiKit.setupLocalVideo()` and `wujiKit.leaveChannel()`.
-2. Stop the video preview using `wujiKit.stopPreview()` and set `isFiltering` to `false`.
+1. Clear the local video and leave the channel by applying `nil` as the parameter for `metaKit.setupLocalVideo()` and `metaKit.leaveChannel()`.
+2. Stop the video preview using `metaKit.stopPreview()` and set `isFiltering` to `false`.
 3. Loop through `videoSessions` and remove its `hostingView` from the superview using `removeFromSuperview()`. 
 4. Clear the video sessions array using `videoSessions.removeAll()`.
 5. Set the idle timer to active using `setIdleTimerActive()`.
@@ -1122,9 +1122,9 @@ The `leaveChannel()` method enables the user to leave the video session.
 
 ``` Swift
     func leaveChannel() {
-        wujiKit.setupLocalVideo(nil)
-        wujiKit.leaveChannel(nil)
-        wujiKit.stopPreview()
+        metaKit.setupLocalVideo(nil)
+        metaKit.leaveChannel(nil)
+        metaKit.stopPreview()
         isFiltering = false
         
         for session in videoSessions {
@@ -1139,26 +1139,26 @@ The `leaveChannel()` method enables the user to leave the video session.
 
 #### Create the send Method
 
-The `send()` method sends a new message to the stream using `wujiKit.sendStreamMessage()`.
+The `send()` method sends a new message to the stream using `metaKit.sendStreamMessage()`.
 
 Append the message to the chat message view using `chatMessageVC?.append()`.
 
 ``` Swift
     func send(text: String) {
         if dataChannelId > 0, let data = text.data(using: String.Encoding.utf8) {
-            wujiKit.sendStreamMessage(dataChannelId, data: data)
+            metaKit.sendStreamMessage(dataChannelId, data: data)
             chatMessageVC?.append(chat: text, fromUid: 0)
         }
     }
 ```
 
-#### Create the WujiRtcEngineDelegate
+#### Create the MetaRtcEngineDelegate
 
-The `WujiRtcEngineDelegate` methods are added through an extension for the `RoomViewController`.
+The `MetaRtcEngineDelegate` methods are added through an extension for the `RoomViewController`.
 
 ``` Swift
 //MARK: - engine delegate
-extension RoomViewController: WujiRtcEngineDelegate {
+extension RoomViewController: MetaRtcEngineDelegate {
     
     ...
     
@@ -1183,21 +1183,21 @@ The `rtcEngineConnectionDidInterrupted()` method displays an alert with the erro
 The `rtcEngineConnectionDidLost()` method displays an alert with the error message `Connection Lost`.
 
 ``` Swift
-    func rtcEngineConnectionDidInterrupted(_ engine: WujiRtcEngineKit) {
+    func rtcEngineConnectionDidInterrupted(_ engine: MetaRtcEngineKit) {
         alert(string: "Connection Interrupted")
     }
     
-    func rtcEngineConnectionDidLost(_ engine: WujiRtcEngineKit) {
+    func rtcEngineConnectionDidLost(_ engine: MetaRtcEngineKit) {
         alert(string: "Connection Lost")
     }
 ```
 
 ##### Create the errorCode Event Listener
 
-The `didOccurError` event listener is triggered when the Wuji RTC engine generates an error. Use this for logging and debugging.
+The `didOccurError` event listener is triggered when the Meta RTC engine generates an error. Use this for logging and debugging.
 
 ``` Swift
-    func rtcEngine(_ engine: WujiRtcEngineKit, didOccurError errorCode: WujiErrorCode) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, didOccurError errorCode: MetaErrorCode) {
         //
     }
 ```
@@ -1210,15 +1210,15 @@ The `firstRemoteVideoDecodedOfUid` event listener is triggered when the first re
 
 2. Set the session dimensions using `userSession.size` and update the media info using `userSession.updateMediaInfo()`.
 
-3. Complete the method by setting up the remote video using `wujiKit.setupRemoteVideo()`.
+3. Complete the method by setting up the remote video using `metaKit.setupRemoteVideo()`.
 
 ``` Swift
-    func rtcEngine(_ engine: WujiRtcEngineKit, firstRemoteVideoDecodedOfUid uid: UInt, size: CGSize, elapsed: Int) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, firstRemoteVideoDecodedOfUid uid: UInt, size: CGSize, elapsed: Int) {
         let userSession = videoSession(of: uid)
         let sie = size.fixedSize(with: containerView.bounds.size)
         userSession.size = sie
         userSession.updateMediaInfo(resolution: size)
-        wujiKit.setupRemoteVideo(userSession.canvas)
+        metaKit.setupRemoteVideo(userSession.canvas)
     }
 ```
 
@@ -1230,7 +1230,7 @@ Set the dimensions of the video session using `selfSession.size` and update the 
 
 ``` Swift
     //first local video frame
-    func rtcEngine(_ engine: WujiRtcEngineKit, firstLocalVideoFrameWith size: CGSize, elapsed: Int) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, firstLocalVideoFrameWith size: CGSize, elapsed: Int) {
         if let selfSession = videoSessions.first {
             let fixedSize = size.fixedSize(with: containerView.bounds.size)
             selfSession.size = fixedSize
@@ -1250,7 +1250,7 @@ Loop through `videoSessions` to retrieve the video session of the offline user:
 
 ``` Swift
     //user offline
-    func rtcEngine(_ engine: WujiRtcEngineKit, didOfflineOfUid uid: UInt, reason: WujiUserOfflineReason) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, didOfflineOfUid uid: UInt, reason: MetaUserOfflineReason) {
         var indexToDelete: Int?
         for (index, session) in videoSessions.enumerated() {
             if session.uid == uid {
@@ -1276,20 +1276,20 @@ Set the video to off using `setVideoMuted()`.
 
 ``` Swift
     //video muted
-    func rtcEngine(_ engine: WujiRtcEngineKit, didVideoMuted muted: Bool, byUid uid: UInt) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, didVideoMuted muted: Bool, byUid uid: UInt) {
         setVideoMuted(muted, forUid: uid)
     }
 ```
 
 ##### Create the remoteVideoStats Event Listener
 
-The `remoteVideoStats` event is triggered when a metric changes for the Wuji RTC engine.
+The `remoteVideoStats` event is triggered when a metric changes for the Meta RTC engine.
 
 Retrieve the video session for the user using `fetchSession()` and update the `resolution`, `height`, and `fps` using `session.updateMediaInfo()`.
 
 ``` Swift
     //remote stat
-    func rtcEngine(_ engine: WujiRtcEngineKit, remoteVideoStats stats: WujiRtcRemoteVideoStats) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, remoteVideoStats stats: MetaRtcRemoteVideoStats) {
         if let session = fetchSession(of: stats.uid) {
             session.updateMediaInfo(resolution: CGSize(width: CGFloat(stats.width), height: CGFloat(stats.height)), fps: Int(stats.receivedFrameRate))
         }
@@ -1304,7 +1304,7 @@ The method checks that the message `string` is not empty before appending it to 
 
 ``` Swift
     //data channel
-    func rtcEngine(_ engine: WujiRtcEngineKit, receiveStreamMessageFromUid uid: UInt, streamId: Int, data: Data) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, receiveStreamMessageFromUid uid: UInt, streamId: Int, data: Data) {
         guard let string = String(data: data, encoding: String.Encoding.utf8) , !string.isEmpty else {
             return
         }
@@ -1317,7 +1317,7 @@ The method checks that the message `string` is not empty before appending it to 
 The `didOccurStreamMessageErrorFromUid` is triggered when a user message error occurs and then logs the error using `print()`.
 
 ``` Swift
-    func rtcEngine(_ engine: WujiRtcEngineKit, didOccurStreamMessageErrorFromUid uid: UInt, streamId: Int, error: Int, missed: Int, cached: Int) {
+    func rtcEngine(_ engine: MetaRtcEngineKit, didOccurStreamMessageErrorFromUid uid: UInt, streamId: Int, error: Int, missed: Int, cached: Int) {
         print("Data channel error: \(error), missed: \(missed), cached: \(cached)\n")
     }
 ```
@@ -1469,7 +1469,7 @@ extension ChatMessageViewController: UITableViewDataSource {
 
 - [Create Variables, Protocols, and IBAction Methods](#create-variables-protocols-and-ibaction-methods)
 - [Create Delegate and DataSource Methods](#create-delegate-and-datasource-methods)
-- [Create Wuji Methods](#create-wuji-methods)
+- [Create Meta Methods](#create-meta-methods)
 
 #### Create Variables, Protocols, and IBAction Methods
 
@@ -1479,7 +1479,7 @@ The `settingsVC()` protocol method is used by external classes to update the vid
 import UIKit
 
 protocol SettingsVCDelegate: NSObjectProtocol {
-    func settingsVC(_ settingsVC: SettingsViewController, didSelectProfile profile: WujiVideoProfile)
+    func settingsVC(_ settingsVC: SettingsViewController, didSelectProfile profile: MetaVideoProfile)
 }
 ```
 
@@ -1498,7 +1498,7 @@ class SettingsViewController: UIViewController {
 When the `videoProfile` is set, `profileTableView?.reloadData()` is invoked to update the profile table information. 
 
 ``` Swift
-    var videoProfile: WujiVideoProfile! {
+    var videoProfile: MetaVideoProfile! {
         didSet {
             profileTableView?.reloadData()
         }
@@ -1507,12 +1507,12 @@ When the `videoProfile` is set, `profileTableView?.reloadData()` is invoked to u
 
 The `delegate` variable is an optional `SettingsVCDelegate` object.
 
-The private `profiles` variable is an array of `WujiVideoProfile` objects and is initialized with `WujiVideoProfile.list()`.
+The private `profiles` variable is an array of `MetaVideoProfile` objects and is initialized with `MetaVideoProfile.list()`.
 
 ``` Swift
     weak var delegate: SettingsVCDelegate?
     
-    fileprivate let profiles: [WujiVideoProfile] = WujiVideoProfile.list()
+    fileprivate let profiles: [MetaVideoProfile] = MetaVideoProfile.list()
 ```
 
 The `doConfirmPressed()` `IBAction` method is invoked by the **OK** button in the UI layout. This method updates the video profile by invoking `delegate?.settingsVC()`.
@@ -1567,14 +1567,14 @@ extension SettingsViewController: UITableViewDelegate {
 }
 ```
 
-#### Create Wuji Methods
+#### Create Meta Methods
 
-The `WujiVideoProfile` extension adds a `list()` method, which returns an array of `WujiVideoProfile` objects using `WujiVideoProfile.validProfileList()`.
+The `MetaVideoProfile` extension adds a `list()` method, which returns an array of `MetaVideoProfile` objects using `MetaVideoProfile.validProfileList()`.
 
 ``` Swift
-private extension WujiVideoProfile {
-    static func list() -> [WujiVideoProfile] {
-        return WujiVideoProfile.validProfileList()
+private extension MetaVideoProfile {
+    static func list() -> [MetaVideoProfile] {
+        return MetaVideoProfile.validProfileList()
     }
 }
 ```

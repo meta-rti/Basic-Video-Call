@@ -8,7 +8,7 @@
 	<false/>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>co.wuji.OpenVideoCall</key>
+		<key>co.meta.OpenVideoCall</key>
 		<string>App</string>
 	</dict>
 </dict>

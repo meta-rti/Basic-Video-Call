@@ -666,7 +666,7 @@
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yk6-kg-KTM">
                                 <rect key="frame" x="129" y="31" width="117" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Powered by wuji.io" id="vnP-NZ-FmZ">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Powered by meta.io" id="vnP-NZ-FmZ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.50352286459999995" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -719,7 +719,7 @@
                         </imageView>
                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CDR-R3-5e6">
                             <rect key="frame" x="129" y="31" width="117" height="16"/>
-                            <textFieldCell key="cell" lineBreakMode="clipping" title="Powered by wuji.io" id="bwX-FQ-nsh">
+                            <textFieldCell key="cell" lineBreakMode="clipping" title="Powered by meta.io" id="bwX-FQ-nsh">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.50352286459999995" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

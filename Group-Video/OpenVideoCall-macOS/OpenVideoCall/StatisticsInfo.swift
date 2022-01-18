@@ -2,20 +2,20 @@
 //  StatisticsInfo.swift
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 import Foundation
-import WujiRTCFramework
+import MetaRTCFramework
 
 struct StatisticsInfo {
     struct LocalInfo {
-        var stats = WujiChannelStats()
+        var stats = MetaChannelStats()
     }
     
     struct RemoteInfo {
-        var videoStats = WujiRtcRemoteVideoStats()
-        var audioStats = WujiRtcRemoteAudioStats()
+        var videoStats = MetaRtcRemoteVideoStats()
+        var audioStats = MetaRtcRemoteAudioStats()
     }
     
     enum StatisticsType {
@@ -32,8 +32,8 @@ struct StatisticsInfo {
     var dimension = CGSize.zero
     var fps = 0
     
-    var txQuality: WujiNetworkQuality = .unknown
-    var rxQuality: WujiNetworkQuality = .unknown
+    var txQuality: MetaNetworkQuality = .unknown
+    var rxQuality: MetaNetworkQuality = .unknown
     
     var type: StatisticsType
     
@@ -41,7 +41,7 @@ struct StatisticsInfo {
         self.type = type
     }
     
-    mutating func updateChannelStats(_ stats: WujiChannelStats) {
+    mutating func updateChannelStats(_ stats: MetaChannelStats) {
         guard self.type.isLocal else {
             return
         }
@@ -49,7 +49,7 @@ struct StatisticsInfo {
         self.type = .local(info)
     }
     
-    mutating func updateVideoStats(_ stats: WujiRtcRemoteVideoStats) {
+    mutating func updateVideoStats(_ stats: MetaRtcRemoteVideoStats) {
         switch type {
         case .remote(let info):
             var new = info
@@ -60,7 +60,7 @@ struct StatisticsInfo {
         }
     }
     
-    mutating func updateAudioStats(_ stats: WujiRtcRemoteAudioStats) {
+    mutating func updateAudioStats(_ stats: MetaRtcRemoteAudioStats) {
         switch type {
         case .remote(let info):
             var new = info
@@ -101,11 +101,11 @@ struct StatisticsInfo {
         let dimensionFpsBit = "\(Int(dimension.width))×\(Int(dimension.height)), \(fps)fps, \(info.videoStats.receivedBitrate)kbps"
         let quality = "Send/Recv Quality: \(txQuality.description())/\(rxQuality.description())"
         
-        var audioQuality: WujiNetworkQuality
-        if let quality = WujiNetworkQuality(rawValue: info.audioStats.quality) {
+        var audioQuality: MetaNetworkQuality
+        if let quality = MetaNetworkQuality(rawValue: info.audioStats.quality) {
             audioQuality = quality
         } else {
-            audioQuality = WujiNetworkQuality.unknown
+            audioQuality = MetaNetworkQuality.unknown
         }
         
         let audioNet = "Audio Net Delay/Jitter: \(info.audioStats.networkTransportDelay)ms/\(info.audioStats.jitterBufferDelay)ms)"

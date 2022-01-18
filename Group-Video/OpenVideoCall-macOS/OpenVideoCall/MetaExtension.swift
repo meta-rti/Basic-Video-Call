@@ -1,14 +1,13 @@
 //
-//  WujiExtension.swift
-//  OpenLive
+//  MetaCode.swift
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
-import WujiRTCFramework
+import MetaRTCFramework
 
-extension WujiErrorCode {
+extension MetaErrorCode {
     var description: String {
         var text: String
         switch self {
@@ -23,7 +22,7 @@ extension WujiErrorCode {
     }
 }
 
-extension WujiWarningCode {
+extension MetaWarningCode {
     var description: String {
         var text: String
         switch self {
@@ -36,20 +35,23 @@ extension WujiWarningCode {
 
 extension CGSize {
     static func defaultDimension() -> CGSize {
-        return WujiVideoDimension640x360
+        return MetaVideoDimension640x480
     }
     
     static func validDimensionList() -> [CGSize] {
-        return [WujiVideoDimension160x120,
-                WujiVideoDimension240x180,
-                WujiVideoDimension320x240,
-                WujiVideoDimension640x360,
-                WujiVideoDimension640x480,
-                WujiVideoDimension960x720]
+        return [MetaVideoDimension160x120,
+                MetaVideoDimension320x240,
+                MetaVideoDimension640x360,
+                MetaVideoDimension640x480,
+                MetaVideoDimension960x720]
+    }
+    
+    func description() -> String {
+        return "\(Int(width))×\(Int(height))"
     }
 }
 
-extension WujiVideoFrameRate {
+extension MetaVideoFrameRate {
     var description: String {
         switch self {
         case .fps1:    return "1 fps"
@@ -74,9 +76,9 @@ extension WujiVideoFrameRate {
         }
     }
     
-    static var defaultValue = WujiVideoFrameRate.fps15
+    static var defaultValue = MetaVideoFrameRate.fps15
     
-    static func validList() -> [WujiVideoFrameRate] {
+    static func validList() -> [MetaVideoFrameRate] {
         return [.fps1,
                 .fps7,
                 .fps10,
@@ -86,7 +88,7 @@ extension WujiVideoFrameRate {
     }
 }
 
-extension WujiNetworkQuality {
+extension MetaNetworkQuality {
     func description() -> String {
         switch self {
         case .excellent: return "excellent"
@@ -100,5 +102,11 @@ extension WujiNetworkQuality {
         case .detecting: return "detecting"
         default:         return "unknown"
         }
+    }
+}
+
+extension MetaLastmileProbeOneWayResult {
+    func description() -> String {
+        return "\(packetLossRate)"
     }
 }

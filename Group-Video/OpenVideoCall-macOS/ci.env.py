@@ -6,8 +6,8 @@ import os
 def main():
 
     appId = ""
-    if "WUJI_APP_ID" in os.environ:
-        appId = os.environ["WUJI_APP_ID"]
+    if "META_APP_ID" in os.environ:
+        appId = os.environ["META_APP_ID"]
     token = ""
 
     #if need reset

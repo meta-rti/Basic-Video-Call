@@ -3,10 +3,10 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/16.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
-import WujiRTCFramework
+import MetaRTCFramework
 
 enum EncryptionType {
     case xts128(String?), xts256(String?)
@@ -36,7 +36,7 @@ enum EncryptionType {
         }
     }
     
-    func modeValue() -> WujiEncryptionMode {
+    func modeValue() -> MetaEncryptionMode {
         switch self {
         case .xts128:
             return .AES128XTS
