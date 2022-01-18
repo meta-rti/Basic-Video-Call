@@ -8,11 +8,11 @@ def main():
 #    if "SDK_URL" in os.environ:
 #        SDK_URL = os.environ["SDK_URL"]
 #
-#    TARGET_LIBS_ZIP = "wuji_sdk.zip"
-#    TARGET_INTERNAL_FOLDER = "Wuji_sdk"
-#    ZIP_STRUCTURE_FOLDER = "Wuji_Native_SDK_for_iOS_FULL/libs"
-#    FRAMEWORK_NAME = "WujiRtcKit.framework"
-#    APP_NAME = "Wuji iOS Tutorial"
+#    TARGET_LIBS_ZIP = "meta_sdk.zip"
+#    TARGET_INTERNAL_FOLDER = "Meta_sdk"
+#    ZIP_STRUCTURE_FOLDER = "Meta_Native_SDK_for_iOS_FULL/libs"
+#    FRAMEWORK_NAME = "MetaRtcKit.framework"
+#    APP_NAME = "Meta iOS Tutorial"
 #
 #    wget = "wget -q " + SDK_URL + " -O " + TARGET_LIBS_ZIP
 #    os.system(wget)
@@ -25,11 +25,11 @@ def main():
 #
 #    appId = ""
 
-    if "WUJI_APP_ID" in os.environ:
-        appId = os.environ["WUJI_APP_ID"]
+    if "META_APP_ID" in os.environ:
+        appId = os.environ["META_APP_ID"]
     token = ""
 
-    f = open("./Wuji-iOS-Tutorial/AppID.swift", 'r+')
+    f = open("./Meta-iOS-Tutorial/AppID.swift", 'r+')
     content = f.read()
     appString = "\"" + appId + "\""
     tokenString = "\"" + token + "\""

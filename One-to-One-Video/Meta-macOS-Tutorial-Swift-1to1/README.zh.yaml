@@ -1,23 +1,22 @@
 Meta:
-  name: iOS Tutorial for Swift - 1to1
+  name: macOS Tutorial for Swift - 1to1
   # en or cn
   lang: cn
-  project: Meta iOS Tutorial
+  project: Meta Mac Tutorial Swift
   # | 代表这里是字符串
   description: |
-    这个开源示例项目演示了如何快速集成Meta视频SDK，实现1对1视频通话。
+    这个开源示例项目演示了如何快速集成 Meta 视频 SDK，实现 1 对 1 视频通话。
 
     在这个示例项目中包含了以下功能：
 
     - 加入通话和离开通话；
     - 静音和解除静音；
     - 关闭摄像头和开启摄像头；
-    - 切换前置摄像头和后置摄像头；
+    - 设备选择；
+    - 屏幕共享；
 
 Prerequisites:
   - XCode 10.0 +
-  - iOS 真机设备
-  - 不支持模拟器
 
 QuickStart:
   description:
@@ -36,11 +35,12 @@ QuickStart:
 
     - title: 集成 Meta 视频 SDK
       content: |
-        $_{IOS_RUN}
+        $_{MAC_RUN}
 
 Resources:
   document: https://docs.wuji.co/cn/
-  issue: https://github.com/meta-rti/Basic-Video-Call/issues
+  issue: https://github.com/meta-rti/Basic-Video-Call/issuess
 
 License:
   type: MIT
+  https://github.com/meta-rti/Basic-Video-Call/issues

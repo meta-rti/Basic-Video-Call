@@ -1,8 +1,8 @@
 Meta:
-  name: iOS Tutorial for Swift - 1to1
+  name: iOS Tutorial for Objective-C - 1to1
   # en or cn
   lang: cn
-  project: Meta iOS Tutorial
+  project: Meta iOS Tutorial Objective-C
   # | 代表这里是字符串
   description: |
     这个开源示例项目演示了如何快速集成Meta视频SDK，实现1对1视频通话。
@@ -26,12 +26,12 @@ QuickStart:
     - title: 创建Meta账号并获取AppId
       content: |
         $_{APPID}
-        5. 将 AppID 和 Token 填写进 AppID.swift
+        5. 将 AppID 和 Token 填写进 AppID.m
 
             ```
-            let AppID: String = <#Your App ID#>
+            NSString *const appID = @"<#Your App ID#>";
             // 如果你没有打开Token功能，token可以直接给nil
-            let Token: String? = <#Temp Token#>
+            NSString *const token = @"<#Temp Token#>";
             ```
 
     - title: 集成 Meta 视频 SDK
