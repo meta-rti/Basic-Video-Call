@@ -1,6 +1,0 @@
-framework module MetaRTCFramework {
-  umbrella header "MetaRTCFramework.h"
-
-  export *
-  module * { export * }
-}
