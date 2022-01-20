@@ -118,6 +118,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.selectedDimension = [self.dimensionList[indexPath.row] CGSizeValue];
+    [self.delegate settingsVC:self didSelectDimension:self.selectedDimension];
 }
 
 #pragma mark - UIPickerViewDelegate, UIPickerViewDataSource
@@ -132,6 +133,7 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     self.selectedFrameRate = [self.frameRateList[row] integerValue];
     self.frameRatePickerView.hidden = YES;
+    [self.delegate settingsVC:self didSelectFrameRate:self.selectedFrameRate];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
