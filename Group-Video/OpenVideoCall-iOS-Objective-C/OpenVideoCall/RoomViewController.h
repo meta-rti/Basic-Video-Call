@@ -3,17 +3,17 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/15.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <WujiRTCFramework/WujiRTCFramework.h>
+#import <MetaRTCFramework/MetaRTCFramework.h>
 #import "Encryption.h"
 #import "Settings.h"
 
 @class RoomViewController;
 @protocol RoomVCDataSource <NSObject>
-- (WujiRtcEngineKit *)roomVCNeedWujiKit;
+- (MetaRtcEngineKit *)roomVCNeedMetaKit;
 - (Settings *)roomVCNeedSettings;
 @end
 

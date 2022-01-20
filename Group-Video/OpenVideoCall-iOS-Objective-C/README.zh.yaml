@@ -5,7 +5,7 @@ Meta:
   project: OpenVideoCall
   # | 代表这里是字符串
   description: |
-    这个开源示例项目演示了如何快速集成 Wuji 视频 SDK，实现多人视频通话。
+    这个开源示例项目演示了如何快速集成 Meta 视频 SDK，实现多人视频通话。
     
     在这个示例项目中包含了以下功能：
 
@@ -27,7 +27,7 @@ QuickStart:
   description:
     这个段落主要讲解了如何编译和运行实例程序。
   sections:
-    - title: 创建Wuji账号并获取AppId
+    - title: 创建Meta账号并获取AppId
       content: |
         $_{APPID}
         5. 将 AppID 和 Token 填写进 KeyCenter.m
@@ -42,13 +42,13 @@ QuickStart:
             }
             ```
 
-    - title: 集成 Wuji 视频 SDK
+    - title: 集成 Meta 视频 SDK
       content: |
         $_{IOS_RUN}
 
 Resources:
   document: https://docs.wuji.co/cn/
-  issue: https://github.com/wuji-co/Basic-Video-Call/issues
+  issue: https://github.com/meta-rti/Basic-Video-Call/issues
 
 License:
   type: MIT

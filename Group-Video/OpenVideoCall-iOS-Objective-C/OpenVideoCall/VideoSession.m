@@ -3,7 +3,7 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/15.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 #import "VideoSession.h"
@@ -26,10 +26,10 @@
         self.hostingView = [[VideoView alloc] init];
         self.hostingView.translatesAutoresizingMaskIntoConstraints = NO;
         
-        self.canvas = [[WujiRtcVideoCanvas alloc] init];
+        self.canvas = [[MetaRtcVideoCanvas alloc] init];
         self.canvas.uid = uid;
         self.canvas.view = ((VideoView *)self.hostingView).videoView;
-        self.canvas.renderMode = WujiVideoRenderModeHidden;
+        self.canvas.renderMode = MetaVideoRenderModeHidden;
         
     }
     return self;

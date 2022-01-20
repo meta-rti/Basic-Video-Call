@@ -3,7 +3,7 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/15.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 #import "MainViewController.h"
@@ -23,27 +23,27 @@
 @property (weak, nonatomic) IBOutlet UIButton *encryptionButton;
 @property (weak, nonatomic) IBOutlet UIButton *testNetworkButton;
 
-@property (strong, nonatomic) WujiRtcEngineKit *wujiKit;
+@property (strong, nonatomic) MetaRtcEngineKit *metaKit;
 @property (assign, nonatomic) EncryptionType encryptionType;
 @property (strong, nonatomic) Settings *settings;
 @end
 
 @implementation MainViewController
 #pragma mark - Getter, Setter
-- (WujiRtcEngineKit *)wujiKit {
-    if (!_wujiKit) {
-        _wujiKit = [WujiRtcEngineKit sharedEngineWithAppId:[KeyCenter AppId] delegate:nil];
-        [_wujiKit setLogFilter:WujiLogFilterInfo];
-        [_wujiKit setLogFile:[FileCenter logFilePath]];
+- (MetaRtcEngineKit *)metaKit {
+    if (!_metaKit) {
+        _metaKit = [MetaRtcEngineKit sharedEngineWithAppId:[KeyCenter AppId] delegate:nil];
+        [_metaKit setLogFilter:MetaLogFilterInfo];
+        [_metaKit setLogFile:[FileCenter logFilePath]];
     }
-    return _wujiKit;
+    return _metaKit;
 }
 
 - (Settings *)settings {
     if (!_settings) {
         _settings = [[Settings alloc] init];
-        _settings.dimension = WujiVideoDimension640x360;
-        _settings.frameRate = WujiVideoFrameRateFps15;
+        _settings.dimension = MetaVideoDimension640x360;
+        _settings.frameRate = MetaVideoFrameRateFps15;
     }
     return _settings;
 }
@@ -56,7 +56,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self wujiKit];
+    [self metaKit];
     [self updateViews];
 }
 
@@ -147,7 +147,7 @@
     self.settings.dimension = dimension;
 }
 
-- (void)settingsVC:(SettingsViewController *)settingsVC didSelectFrameRate:(WujiVideoFrameRate)frameRate {
+- (void)settingsVC:(SettingsViewController *)settingsVC didSelectFrameRate:(MetaVideoFrameRate)frameRate {
     self.settings.frameRate = frameRate;
 }
 
@@ -156,13 +156,13 @@
 }
 
 #pragma mark - LastmileVCDataSource
-- (WujiRtcEngineKit *)lastmileVCNeedWujiKit {
-    return self.wujiKit;
+- (MetaRtcEngineKit *)lastmileVCNeedMetaKit {
+    return self.metaKit;
 }
 
 #pragma mark - RoomVCDataSource
-- (WujiRtcEngineKit *)roomVCNeedWujiKit {
-    return self.wujiKit;
+- (MetaRtcEngineKit *)roomVCNeedMetaKit {
+    return self.metaKit;
 }
 
 - (Settings *)roomVCNeedSettings {

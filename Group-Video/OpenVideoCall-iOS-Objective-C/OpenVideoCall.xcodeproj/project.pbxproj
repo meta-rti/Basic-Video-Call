@@ -30,7 +30,7 @@
 		A39788A42588AEB10082FE15 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A397889525889FC30082FE15 /* MetalKit.framework */; };
 		A39788A62588AEB30082FE15 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB4FB641FF1F979006C7AE3 /* SystemConfiguration.framework */; };
 		A39788A82588AEB40082FE15 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 076C59AF1DDDDE6900F813E2 /* VideoToolbox.framework */; };
-		A3E8CD9B26D88CA20052ADBB /* WujiRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CD9A26D88CA20052ADBB /* WujiRTCFramework.framework */; };
+		A3E8CD9B26D88CA20052ADBB /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CD9A26D88CA20052ADBB /* MetaRTCFramework.framework */; };
 		A7327ECE1FC7B5E300882882 /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = A7327ECD1FC7B5E300882882 /* Encryption.m */; };
 		A7327ED41FC7C7DB00882882 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7327ED31FC7C7DB00882882 /* MessageCell.m */; };
 		A7327ED71FC7C7EE00882882 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A7327ED61FC7C7EE00882882 /* Message.m */; };
@@ -84,7 +84,7 @@
 		A397889025889F8F0082FE15 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A397889325889FAE0082FE15 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		A397889525889FC30082FE15 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-		A3E8CD9A26D88CA20052ADBB /* WujiRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WujiRTCFramework.framework; path = ../../Library/iOS/WujiRTCFramework.framework; sourceTree = "<group>"; };
+		A3E8CD9A26D88CA20052ADBB /* MetaRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetaRTCFramework.framework; path = ../../Library/iOS/MetaRTCFramework.framework; sourceTree = "<group>"; };
 		A7327ECC1FC7B5E300882882 /* Encryption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Encryption.h; sourceTree = "<group>"; };
 		A7327ECD1FC7B5E300882882 /* Encryption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
 		A7327ED21FC7C7DB00882882 /* MessageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 				A39788A62588AEB30082FE15 /* SystemConfiguration.framework in Frameworks */,
 				A31EA530264A2413003457E8 /* Accelerate.framework in Frameworks */,
 				A397889225889FA60082FE15 /* libresolv.tbd in Frameworks */,
-				A3E8CD9B26D88CA20052ADBB /* WujiRTCFramework.framework in Frameworks */,
+				A3E8CD9B26D88CA20052ADBB /* MetaRTCFramework.framework in Frameworks */,
 				A397888B25889EA10082FE15 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,7 +235,7 @@
 		076C59AA1DDDDE5C00F813E2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3E8CD9A26D88CA20052ADBB /* WujiRTCFramework.framework */,
+				A3E8CD9A26D88CA20052ADBB /* MetaRTCFramework.framework */,
 				A397889525889FC30082FE15 /* MetalKit.framework */,
 				A397889325889FAE0082FE15 /* Metal.framework */,
 				A397889025889F8F0082FE15 /* GLKit.framework */,
@@ -281,7 +281,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1220;
-				ORGANIZATIONNAME = Wuji;
+				ORGANIZATIONNAME = Meta;
 				TargetAttributes = {
 					076C59711DDDBC3500F813E2 = {
 						CreatedOnToolsVersion = 8.1;
@@ -505,7 +505,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenVideoCall",
-					"$(PROJECT_DIR)/OpenVideoCall/WujiRTCFramework_Debug.framework",
+					"$(PROJECT_DIR)/OpenVideoCall/MetaRTCFramework_Debug.framework",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -538,7 +538,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenVideoCall",
-					"$(PROJECT_DIR)/OpenVideoCall/WujiRTCFramework_Debug.framework",
+					"$(PROJECT_DIR)/OpenVideoCall/MetaRTCFramework_Debug.framework",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

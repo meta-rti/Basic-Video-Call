@@ -3,19 +3,19 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/15.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 #import "SettingsViewController.h"
 #import "DimensionCell.h"
-#import <WujiRTCFramework/WujiRTCFramework.h>
+#import <MetaRTCFramework/MetaRTCFramework.h>
 
 @interface SettingsViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *dimensionCollectionView;
 @property (weak, nonatomic) IBOutlet UIPickerView *frameRatePickerView;
 @property (weak, nonatomic) IBOutlet UILabel *frameRateLabel;
 
-@property (assign, nonatomic) WujiVideoFrameRate selectedFrameRate;
+@property (assign, nonatomic) MetaVideoFrameRate selectedFrameRate;
 @property (assign, nonatomic) CGSize selectedDimension;
 @property (strong, nonatomic) Settings *settings;
 @property (strong, nonatomic) NSArray *dimensionList;
@@ -26,24 +26,24 @@
 #pragma mark - Getter, Setter
 - (NSArray *)dimensionList {
     if (!_dimensionList) {
-        _dimensionList = @[@(WujiVideoDimension160x120),
-                           @(WujiVideoDimension240x180),
-                           @(WujiVideoDimension320x240),
-                           @(WujiVideoDimension640x360),
-                           @(WujiVideoDimension640x480),
-                           @(WujiVideoDimension960x720)];
+        _dimensionList = @[@(MetaVideoDimension160x120),
+                           @(MetaVideoDimension240x180),
+                           @(MetaVideoDimension320x240),
+                           @(MetaVideoDimension640x360),
+                           @(MetaVideoDimension640x480),
+                           @(MetaVideoDimension960x720)];
     }
     return _dimensionList;
 }
 
 - (NSArray *)frameRateList {
     if (!_frameRateList) {
-        _frameRateList = @[@(WujiVideoFrameRateFps1),
-                           @(WujiVideoFrameRateFps7),
-                           @(WujiVideoFrameRateFps10),
-                           @(WujiVideoFrameRateFps15),
-                           @(WujiVideoFrameRateFps24),
-                           @(WujiVideoFrameRateFps30)];
+        _frameRateList = @[@(MetaVideoFrameRateFps1),
+                           @(MetaVideoFrameRateFps7),
+                           @(MetaVideoFrameRateFps10),
+                           @(MetaVideoFrameRateFps15),
+                           @(MetaVideoFrameRateFps24),
+                           @(MetaVideoFrameRateFps30)];
     }
     return _frameRateList;
 }
@@ -57,7 +57,7 @@
     [self.dimensionCollectionView reloadData];
 }
 
-- (void)setSelectedFrameRate:(WujiVideoFrameRate)selectedFrameRate {
+- (void)setSelectedFrameRate:(MetaVideoFrameRate)selectedFrameRate {
     _selectedFrameRate = selectedFrameRate;
     self.frameRateLabel.text = [self descriptionOfFrameRate:selectedFrameRate];
 }
@@ -151,14 +151,14 @@
     return 16;
 }
 
-- (NSString *)descriptionOfFrameRate:(WujiVideoFrameRate)frameRate {
+- (NSString *)descriptionOfFrameRate:(MetaVideoFrameRate)frameRate {
     switch (frameRate) {
-        case WujiVideoFrameRateFps1:  return @"1 fps";     break;
-        case WujiVideoFrameRateFps7:  return @"7 fps";     break;
-        case WujiVideoFrameRateFps10: return @"10 fps";    break;
-        case WujiVideoFrameRateFps15: return @"15 fps";    break;
-        case WujiVideoFrameRateFps24: return @"24 fps";    break;
-        case WujiVideoFrameRateFps30: return @"30 fps";    break;
+        case MetaVideoFrameRateFps1:  return @"1 fps";     break;
+        case MetaVideoFrameRateFps7:  return @"7 fps";     break;
+        case MetaVideoFrameRateFps10: return @"10 fps";    break;
+        case MetaVideoFrameRateFps15: return @"15 fps";    break;
+        case MetaVideoFrameRateFps24: return @"24 fps";    break;
+        case MetaVideoFrameRateFps30: return @"30 fps";    break;
         default:                       return @"unsported"; break;
     }
 }

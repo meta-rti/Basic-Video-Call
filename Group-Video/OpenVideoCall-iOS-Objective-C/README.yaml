@@ -5,7 +5,7 @@ Meta:
   project: OpenVideoCall
   # | 代表这里是字符串
   description: |
-    The Open Video Call iOS for Objective-C Sample App is an open-source demo that will help you get video chat integrated directly into your iOS applications using the Wuji Video SDK.
+    The Open Video Call iOS for Objective-C Sample App is an open-source demo that will help you get video chat integrated directly into your iOS applications using the Meta Video SDK.
     
     With this sample app, you can:
     - Join / leave channel
@@ -38,13 +38,13 @@ QuickStart:
                 return <#Temp Access Token#>;
             }
             ```
-    - title: Integrate the Wuji Video SDK
+    - title: Integrate the Meta Video SDK
       content: |
         $_{IOS_RUN}
 
 Resources:
   document: https://docs.wuji.co/en/
-  issue: https://github.com/wuji-co/Basic-Video-Call/issues
+  issue: https://github.com/meta-rti/Basic-Video-Call/issues
 
 License:
   type: MIT

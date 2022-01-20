@@ -3,11 +3,11 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/15.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 #import "Encryption.h"
-#import <WujiRTCFramework/WujiRTCFramework.h>
+#import <MetaRTCFramework/MetaRTCFramework.h>
 
 @implementation Encryption
 - (NSString *)modeString {
@@ -18,15 +18,15 @@
     }
 }
 
-- (WujiEncryptionMode)modeValue {
+- (MetaEncryptionMode)modeValue {
     switch (_type) {
         case EncryptionTypeXTS128:
-            return WujiEncryptionModeAES128XTS;
+            return MetaEncryptionModeAES128XTS;
             break;
         case EncryptionTypeXTS256:
-            return WujiEncryptionModeAES256XTS;
+            return MetaEncryptionModeAES256XTS;
         default:
-            return WujiEncryptionModeAES128XTS;
+            return MetaEncryptionModeAES128XTS;
     }
 }
 

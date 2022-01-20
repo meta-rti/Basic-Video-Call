@@ -3,20 +3,20 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/15.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 #import "FileCenter.h"
 
 @implementation FileCenter
 + (NSString *)logDirectory {
-    NSString *directory = [[self documentDirectory] stringByAppendingPathComponent:@"WujiLogs"];
+    NSString *directory = [[self documentDirectory] stringByAppendingPathComponent:@"MetaLogs"];
     [self checkAndCreateDirectoryAtPath:directory];
     return directory;
 }
 
 + (NSString *)logFilePath {
-    return [[self logDirectory] stringByAppendingPathComponent:@"Wuji-rtc.log"];
+    return [[self logDirectory] stringByAppendingPathComponent:@"Meta-rtc.log"];
 }
 
 + (NSString *)audioFilePath {

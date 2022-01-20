@@ -3,11 +3,11 @@
 //  OpenVideoCall
 //
 //  Created by 3 on 2020/12/15.
-//  Portions Copyright (c) 2020 wuji-co. All rights reserved.
+//  Portions Copyright (c) 2020 meta-rti. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <WujiRTCFramework/WujiRTCFramework.h>
+#import <MetaRTCFramework/MetaRTCFramework.h>
 
 typedef NS_ENUM(int, EncryptionType) {
     EncryptionTypeXTS128,
@@ -17,7 +17,7 @@ typedef NS_ENUM(int, EncryptionType) {
 
 @interface Encryption : NSObject
 @property (nonatomic, copy, readonly) NSString *modeString;
-@property (nonatomic, readonly) WujiEncryptionMode modeValue;
+@property (nonatomic, readonly) MetaEncryptionMode modeValue;
 @property (nonatomic, copy, readonly) NSString *description;
 @property (nonatomic, assign) EncryptionType type;
 @property (nonatomic, copy) NSString *secret;
