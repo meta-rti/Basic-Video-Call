@@ -23,7 +23,7 @@
 		A3211D02258B1C73004A59B5 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211D01258B1C73004A59B5 /* MetalKit.framework */; };
 		A3211D03258B1C7B004A59B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758118124078CF1007EDAD3 /* SystemConfiguration.framework */; };
 		A3211D04258B1C89004A59B5 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A758118524078D00007EDAD3 /* VideoToolbox.framework */; };
-		A3E8CD9F26D88FF60052ADBB /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CD9E26D88FF60052ADBB /* MetaRTCFramework.framework */; };
+		BE72C770279906F6008B8B19 /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE72C76F279906F6008B8B19 /* MetaRTCFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +42,6 @@
 		A3211CFB258B1C4A004A59B5 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		A3211CFF258B1C6D004A59B5 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		A3211D01258B1C73004A59B5 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-		A3E8CD9E26D88FF60052ADBB /* MetaRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetaRTCFramework.framework; path = ../../Library/iOS/MetaRTCFramework.framework; sourceTree = "<group>"; };
 		A758117B24078CD7007EDAD3 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		A758117D24078CE0007EDAD3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		A758117F24078CE9007EDAD3 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
@@ -54,6 +53,7 @@
 		A758118B24078D16007EDAD3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A758118D24078D1E007EDAD3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A758118F24078D24007EDAD3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		BE72C76F279906F6008B8B19 /* MetaRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetaRTCFramework.framework; path = ../../../Library/iOS/MetaRTCFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE72C770279906F6008B8B19 /* MetaRTCFramework.framework in Frameworks */,
 				A3211D04258B1C89004A59B5 /* VideoToolbox.framework in Frameworks */,
 				A3211CFD258B1C58004A59B5 /* libc++.tbd in Frameworks */,
 				A3211D03258B1C7B004A59B5 /* SystemConfiguration.framework in Frameworks */,
@@ -69,7 +70,6 @@
 				A3211D02258B1C73004A59B5 /* MetalKit.framework in Frameworks */,
 				A31EA532264A29E8003457E8 /* Accelerate.framework in Frameworks */,
 				A3211CFA258B1C3D004A59B5 /* CoreTelephony.framework in Frameworks */,
-				A3E8CD9F26D88FF60052ADBB /* MetaRTCFramework.framework in Frameworks */,
 				A3211CFE258B1C62004A59B5 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,7 +123,7 @@
 		A758117A24078CD7007EDAD3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A3E8CD9E26D88FF60052ADBB /* MetaRTCFramework.framework */,
+				BE72C76F279906F6008B8B19 /* MetaRTCFramework.framework */,
 				A3211D01258B1C73004A59B5 /* MetalKit.framework */,
 				A3211CFF258B1C6D004A59B5 /* Metal.framework */,
 				A3211CFB258B1C4A004A59B5 /* GLKit.framework */,

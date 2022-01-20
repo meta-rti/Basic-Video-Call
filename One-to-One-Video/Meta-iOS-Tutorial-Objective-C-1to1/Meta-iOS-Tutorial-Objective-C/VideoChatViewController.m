@@ -49,7 +49,7 @@
     
     // Set up the configuration such as dimension, frame rate, bit rate and orientation
     MetaVideoEncoderConfiguration *encoderConfiguration =
-    [[MetaVideoEncoderConfiguration alloc] initWithSize:MetaVideoDimension640x360
+    [[MetaVideoEncoderConfiguration alloc] initWithSize:CGSizeMake(1920, 1080)
                                                frameRate:MetaVideoFrameRateFps15
                                                  bitrate:MetaVideoBitrateStandard
                                          orientationMode:MetaVideoOutputOrientationModeAdaptative];

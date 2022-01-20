@@ -91,7 +91,8 @@ class VideoChatViewController: UIViewController {
         
         // Set video configuration
         // Please go to this page for detailed explanation
-        metaKit.setVideoEncoderConfiguration(MetaVideoEncoderConfiguration(size: MetaVideoDimension640x360,
+        //MetaVideoDimension640x360
+        metaKit.setVideoEncoderConfiguration(MetaVideoEncoderConfiguration(size: CGSize(width: 1920, height: 1080),
                                                                              frameRate: .fps15,
                                                                              bitrate: MetaVideoBitrateStandard,
                                                                              orientationMode: .adaptative))
