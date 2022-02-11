@@ -47,6 +47,9 @@
 @property (weak, nonatomic) MessageViewController *messageVC;
 @property (weak, nonatomic) RoomOptionsViewController *optionsVC;
 @property (weak, nonatomic) Settings *settings;
+
+@property (nonatomic,assign)BOOL canLeavingChannel;
+
 @end
 
 @implementation RoomViewController
@@ -196,11 +199,11 @@
         optionsVC.delegate = self;
         optionsVC.dataSource = self;
         self.optionsVC = optionsVC;
+        self.canLeavingChannel = NO;
     }
 }
 
 - (void)dealloc {
-    [self leaveChannel];
 }
 
 #pragma mark - UI Actions
@@ -463,13 +466,7 @@
     [self.videoViewLayouter layoutVideoViews];
     [self updateSelfViewVisiable];
     
-    // Only three people or more can switch the layout
-    if (sessions.count >= 3) {
-        self.backgroundDoubleTap.enabled = YES;
-    } else {
-        self.backgroundDoubleTap.enabled = NO;
-        self.doubleClickFullSession = nil;
-    }
+    self.backgroundDoubleTap.enabled = NO;
 }
 
 - (void)setIdleTimerActive:(BOOL)active {
@@ -533,11 +530,15 @@
     [super viewWillAppear:animated];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.orientation = UIInterfaceOrientationMaskAll;
+    self.canLeavingChannel = YES;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.orientation = UIInterfaceOrientationMaskPortrait;
+    if (self.canLeavingChannel) {
+        [self leaveChannel];
+    }
 }
 @end

@@ -53,6 +53,12 @@
     NSString *name = [Encryption descriptionWithType:encryptionType];
     [self.encryptionButton setTitle:name forState:UIControlStateNormal];
 }
+- (void)viewDidAppear:(BOOL)animated {
+    if (_metaKit) {
+        _metaKit = nil;
+        [MetaRtcEngineKit destroy];
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

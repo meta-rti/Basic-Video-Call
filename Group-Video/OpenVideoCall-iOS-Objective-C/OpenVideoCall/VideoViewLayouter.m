@@ -221,30 +221,45 @@
         [layouts addObjectsFromArray:@[left, top, equalWidth1, equalWidth2, equalHeight1, equalHeight2]];
         
     } else if (viewCount >= 4) {
-        UIView *firstView = allViews.firstObject;
-        UIView *secondView = allViews[1];
-        UIView *thirdView = allViews[2];
-        UIView *lastView = allViews.lastObject;
-        [container addSubview:firstView];
-        [container addSubview:secondView];
-        [container addSubview:thirdView];
-        [container addSubview:lastView];
         
-        NSArray<NSLayoutConstraint *> *h1 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view1]-1-[view2]|" options:0 metrics:nil views:@{@"view1": firstView, @"view2": secondView}];
-        NSArray<NSLayoutConstraint *> *h2 = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view1]-1-[view2]|" options:0 metrics:nil views:@{@"view1": thirdView, @"view2": lastView}];
-        NSArray<NSLayoutConstraint *> *v1 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view1]-1-[view2]|" options:0 metrics:nil views:@{@"view1": firstView, @"view2": thirdView}];
-        NSArray<NSLayoutConstraint *> *v2 = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view1]-1-[view2]|" options:0 metrics:nil views:@{@"view1": secondView, @"view2": lastView}];
+        [container addSubview:self.scrollView];
+        NSLayoutConstraint *scrollTop = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeTop multiplier:1 constant:0];
         
-        NSLayoutConstraint *equalWidth1 = [NSLayoutConstraint constraintWithItem:firstView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:secondView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
-        NSLayoutConstraint *equalWidth2 = [NSLayoutConstraint constraintWithItem:firstView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:thirdView attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
-        NSLayoutConstraint *equalHeight1 = [NSLayoutConstraint constraintWithItem:firstView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:secondView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
-        NSLayoutConstraint *equalHeight2 = [NSLayoutConstraint constraintWithItem:firstView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:thirdView attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
+        NSLayoutConstraint *scrollLeft = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
         
-        [layouts addObjectsFromArray:h1];
-        [layouts addObjectsFromArray:h2];
-        [layouts addObjectsFromArray:v1];
-        [layouts addObjectsFromArray:v2];
-        [layouts addObjectsFromArray:@[equalWidth1, equalWidth2, equalHeight1, equalHeight2]];
+        NSLayoutConstraint *scrollRight = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeRight multiplier:1 constant:0];
+        NSLayoutConstraint *scrollBottom = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+        [layouts addObjectsFromArray:@[scrollTop,scrollLeft,scrollRight,scrollBottom]];
+        
+        
+        CGSize containerSize = container.frame.size;
+        int itemWidth = (containerSize.width - 15) / 2;
+        int itemHeight = (containerSize.height - 10) / 2;
+        
+        CGFloat itemSpace = 5;
+        UIView *lastView;
+        for (int i = 0 ; i < allViews.count; i++) {
+            UIView *view = allViews[i];
+            [self.scrollView addSubview:view];
+            if (i % 2 == 0) {
+                lastView = nil;
+            }
+            int row = i / 2;
+            NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:itemWidth];
+            NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:itemHeight];
+
+            NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeTop multiplier:1 constant:(row * (itemHeight + itemSpace) +  itemSpace)];
+            NSLayoutConstraint *viewLeft;
+            if (lastView) {
+                viewLeft = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:lastView attribute:NSLayoutAttributeRight multiplier:1 constant:itemSpace];
+            } else {
+                viewLeft = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeLeft multiplier:1 constant:itemSpace];
+            }
+            [layouts addObjectsFromArray:@[viewTop,viewLeft,viewWidth, viewHeight,]];
+            lastView = view;
+        }
+        int allRow = ceil(allViews.count / 2.0);
+        [self.scrollView setContentSize:CGSizeMake(0, allRow * (itemHeight + itemSpace) + 2 * itemSpace )];
     }
     
     return [layouts copy];

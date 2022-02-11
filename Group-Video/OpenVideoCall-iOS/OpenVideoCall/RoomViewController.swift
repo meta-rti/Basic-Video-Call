@@ -133,7 +133,7 @@ class RoomViewController: UIViewController {
         }
     }
     
-    private let maxVideoSession = 4
+    private let maxVideoSession = 10
     
     private weak var optionsVC: RoomOptionsViewController?
     private lazy var options = RoomOptions(isDebugMode: false)
