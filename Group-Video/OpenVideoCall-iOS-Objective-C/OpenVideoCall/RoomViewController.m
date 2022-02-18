@@ -15,7 +15,7 @@
 #import "FileCenter.h"
 #import "KeyCenter.h"
 
-@interface RoomViewController () <MetaRtcEngineDelegate, RoomOptionsVCDelegate, RoomOptionsVCDataSource>
+@interface RoomViewController () <MetaRtcEngineDelegate, RoomOptionsVCDelegate, RoomOptionsVCDataSource,VideoViewLayouterDeletate>
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *messageTableContainerView;
 
@@ -156,6 +156,7 @@
 - (VideoViewLayouter *)videoViewLayouter {
     if (!_videoViewLayouter) {
         _videoViewLayouter = [[VideoViewLayouter alloc] init];
+        _videoViewLayouter.delegate = self;
     }
     return _videoViewLayouter;
 }
@@ -539,6 +540,18 @@
     appDelegate.orientation = UIInterfaceOrientationMaskPortrait;
     if (self.canLeavingChannel) {
         [self leaveChannel];
+    }
+}
+
+#pragma mark - VideoViewLayouterDeletate
+- (void)viewLayouter:(VideoViewLayouter *)layouter didSeleted:(NSInteger)index {
+    if (!self.doubleClickFullSession) {
+        // full screen display after be double clicked
+        if (index >= 0 && index < self.videoSessions.count) {
+            self.doubleClickFullSession = self.videoSessions[index];
+        }
+    } else {
+        self.doubleClickFullSession = nil;
     }
 }
 @end

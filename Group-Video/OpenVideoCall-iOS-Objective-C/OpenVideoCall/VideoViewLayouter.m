@@ -8,14 +8,20 @@
 
 #import "VideoViewLayouter.h"
 
-@interface VideoViewLayouter ()
+static NSString * video_Item_Identifier= @"Identifier";
+
+@interface VideoViewLayouter ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (assign, nonatomic) NSInteger MaxPeerCount;
 @property (strong, nonatomic) NSMutableArray<NSLayoutConstraint *> *layoutConstraints;
-@property (strong, nonatomic) UIScrollView *scrollView;
+@property (strong, nonatomic) UICollectionView * collectionView;
+@property (strong, nonatomic) VideoCollectionLayout * layout;
 @property (readonly, nonatomic) NSArray<UIView *> *allViews;
+
 @end
 
 @implementation VideoViewLayouter
+
+
 - (NSMutableArray<NSLayoutConstraint *> *)layoutConstraints {
     if (!_layoutConstraints) {
         _layoutConstraints = [[NSMutableArray<NSLayoutConstraint *> alloc] init];
@@ -23,28 +29,29 @@
     return _layoutConstraints;
 }
 
-- (UIScrollView *)scrollView {
-    if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] init];
-        _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _scrollView;
-}
-
-- (NSArray<UIView *> *)allViews {
-    NSMutableArray *allViews = [[NSMutableArray alloc] init];
-    if (self.videoViews) {
-        [allViews addObjectsFromArray:self.videoViews];
-    }
-    if (self.selfView) {
-        [allViews addObject:self.selfView];
-    }
-    return [allViews copy];
+- (UICollectionView *) collectionView {
+    if (_collectionView == nil) {
+        self.layout = [[VideoCollectionLayout alloc] init];
+        self.layout.sectionInsets = UIEdgeInsetsMake(5, 5, 5, 5);
+        
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero
+                                             collectionViewLayout:self.layout];
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.showsVerticalScrollIndicator = NO;
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        _collectionView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0];
+        [_collectionView registerClass:[VideoCollectionCell class] forCellWithReuseIdentifier:video_Item_Identifier];
+        
+        _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        }
+    return _collectionView;
 }
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.MaxPeerCount = 3;
+        self.MaxPeerCount = 10000;
     }
     return self;
 }
@@ -58,11 +65,21 @@
     for (UIView *view in self.videoViews) {
         [view removeFromSuperview];
     }
-    [self.scrollView removeFromSuperview];
+    [self.collectionView removeFromSuperview];
     
     [NSLayoutConstraint deactivateConstraints:self.layoutConstraints];
     [self.layoutConstraints removeAllObjects];
     
+    
+    NSMutableArray *allViews = [[NSMutableArray alloc] init];
+    if (self.selfView) {
+        [allViews addObject:self.selfView];
+    }
+    if (self.videoViews) {
+        [allViews addObjectsFromArray:self.videoViews];
+    }
+  
+    _allViews = [allViews copy];
     
     NSInteger count = self.videoViews.count;
     if (count == 0) {
@@ -91,7 +108,7 @@
             if (smallViews.count < self.MaxPeerCount && self.fullView != self.selfView) {
                 [smallViews addObject:self.selfView];
             }
-            
+            _allViews = [smallViews copy];
             NSArray *smallViewLayouts = [self layoutSmallSessionViews:smallViews inContainerView:self.containerView];
             [self.layoutConstraints addObjectsFromArray:smallViewLayouts];
             
@@ -103,6 +120,9 @@
     
     if (self.layoutConstraints.count) {
         [NSLayoutConstraint activateConstraints:self.layoutConstraints];
+    }
+    if (count >= 4) {
+        [self.collectionView reloadData];
     }
 }
 
@@ -152,28 +172,32 @@
 }
 
 - (NSArray<NSLayoutConstraint *> *)layoutSmallSessionViews:(NSArray<UIView *> *)smallViews inContainerView:(UIView *)container {
+    
+    self.layout.layoutMode = VideoCollectionLayoutSmall;
+    [container addSubview:self.collectionView];
+    
+    
     NSMutableArray *layouts = [[NSMutableArray alloc] init];
-    UIView *lastView;
+    NSLayoutConstraint *scrollTop = [NSLayoutConstraint constraintWithItem:self.collectionView
+                                                                 attribute:NSLayoutAttributeTop
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:container
+                                                                 attribute:NSLayoutAttributeTop
+                                                                multiplier:1
+                                                                  constant:80];
     
-    CGFloat itemSpace = 5;
-    
-    for (UIView *view in smallViews) {
-        [container addSubview:view];
-        NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:120];
-        NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:120];
-        
-        NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeTop multiplier:1 constant:60 + itemSpace];
-        NSLayoutConstraint *viewLeft;
-        if (lastView) {
-            viewLeft = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:lastView attribute:NSLayoutAttributeRight multiplier:1 constant:itemSpace];
-        } else {
-            viewLeft = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeLeft multiplier:1 constant:itemSpace];
-        }
-        
-        [layouts addObjectsFromArray:@[viewWidth, viewHeight, viewLeft, viewTop]];
-        lastView = view;
-    }
-    
+    NSLayoutConstraint *scrollLeft = [NSLayoutConstraint constraintWithItem:self.collectionView
+                                                                  attribute:NSLayoutAttributeLeft
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:container
+                                                                  attribute:NSLayoutAttributeLeft
+                                                                 multiplier:1
+                                                                   constant:0];
+    NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:CGRectGetWidth(container.frame)];
+    NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:self.collectionView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:120];
+
+    [layouts addObjectsFromArray:@[scrollTop,scrollLeft,viewWidth,viewHeight]];
+    [self.collectionView reloadData];
     return [layouts copy];
 }
 
@@ -221,47 +245,208 @@
         [layouts addObjectsFromArray:@[left, top, equalWidth1, equalWidth2, equalHeight1, equalHeight2]];
         
     } else if (viewCount >= 4) {
+        self.layout.layoutMode = VideoCollectionLayoutFull;
+        [self.containerView addSubview:self.collectionView];
+        NSLayoutConstraint *scrollTop = [NSLayoutConstraint constraintWithItem:self.collectionView
+                                                                     attribute:NSLayoutAttributeTop
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:container
+                                                                     attribute:NSLayoutAttributeTop
+                                                                    multiplier:1
+                                                                      constant:0];
         
-        [container addSubview:self.scrollView];
-        NSLayoutConstraint *scrollTop = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+        NSLayoutConstraint *scrollLeft = [NSLayoutConstraint constraintWithItem:self.collectionView
+                                                                      attribute:NSLayoutAttributeLeft
+                                                                      relatedBy:NSLayoutRelationEqual
+                                                                         toItem:container
+                                                                      attribute:NSLayoutAttributeLeft
+                                                                     multiplier:1
+                                                                       constant:0];
         
-        NSLayoutConstraint *scrollLeft = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
-        
-        NSLayoutConstraint *scrollRight = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeRight multiplier:1 constant:0];
-        NSLayoutConstraint *scrollBottom = [NSLayoutConstraint constraintWithItem:self.scrollView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:container attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+        NSLayoutConstraint *scrollRight = [NSLayoutConstraint constraintWithItem:self.collectionView
+                                                                       attribute:NSLayoutAttributeRight
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:container
+                                                                       attribute:NSLayoutAttributeRight
+                                                                      multiplier:1
+                                                                        constant:0];
+        NSLayoutConstraint *scrollBottom = [NSLayoutConstraint constraintWithItem:self.collectionView
+                                                                        attribute:NSLayoutAttributeBottom
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:container
+                                                                        attribute:NSLayoutAttributeBottom
+                                                                       multiplier:1
+                                                                         constant:0];
         [layouts addObjectsFromArray:@[scrollTop,scrollLeft,scrollRight,scrollBottom]];
         
-        
-        CGSize containerSize = container.frame.size;
-        int itemWidth = (containerSize.width - 15) / 2;
-        int itemHeight = (containerSize.height - 10) / 2;
-        
-        CGFloat itemSpace = 5;
-        UIView *lastView;
-        for (int i = 0 ; i < allViews.count; i++) {
-            UIView *view = allViews[i];
-            [self.scrollView addSubview:view];
-            if (i % 2 == 0) {
-                lastView = nil;
-            }
-            int row = i / 2;
-            NSLayoutConstraint *viewWidth = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:itemWidth];
-            NSLayoutConstraint *viewHeight = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:itemHeight];
-
-            NSLayoutConstraint *viewTop = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeTop multiplier:1 constant:(row * (itemHeight + itemSpace) +  itemSpace)];
-            NSLayoutConstraint *viewLeft;
-            if (lastView) {
-                viewLeft = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:lastView attribute:NSLayoutAttributeRight multiplier:1 constant:itemSpace];
-            } else {
-                viewLeft = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeLeft multiplier:1 constant:itemSpace];
-            }
-            [layouts addObjectsFromArray:@[viewTop,viewLeft,viewWidth, viewHeight,]];
-            lastView = view;
-        }
-        int allRow = ceil(allViews.count / 2.0);
-        [self.scrollView setContentSize:CGSizeMake(0, allRow * (itemHeight + itemSpace) + 2 * itemSpace )];
     }
     
     return [layouts copy];
 }
+
+#pragma mark-
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.allViews.count;
+}
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    VideoCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:video_Item_Identifier forIndexPath:indexPath];
+   [cell addVideoView:self.allViews[indexPath.item]];
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(viewLayouter:didSeleted:)]) {
+        [self.delegate viewLayouter:self didSeleted:indexPath.item];
+    }
+}
 @end
+
+@interface VideoCollectionLayout ()
+@property(nonatomic,assign)NSInteger currentX;
+@property(nonatomic,assign)NSInteger currentY;
+@property(nonatomic,assign)NSInteger contentWidth;
+@property(nonatomic,assign)NSInteger contentHeight;
+@end
+
+@implementation VideoCollectionLayout
+
+- (void)prepareLayout {
+    [super prepareLayout];
+    //    self.layoutMode = VideoCollectionLayoutSmall;
+    self.currentX = 0;
+    self.currentY = 0;
+    _contentWidth = 0;
+    _contentHeight = 0;
+    NSInteger count = [self.collectionView numberOfItemsInSection:0];
+    for (NSInteger i = 0; i < count; i++) {
+        NSIndexPath * indexPath = [NSIndexPath indexPathForItem:i inSection:0];
+        UICollectionViewLayoutAttributes * attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
+        [self.attributesArray addObject:attributes];
+        _contentWidth = MAX(CGRectGetMaxX(attributes.frame) + self.sectionInsets.right , _contentWidth);
+        _contentHeight = MAX(CGRectGetMaxY(attributes.frame) + self.sectionInsets.bottom,_contentHeight);
+    }
+}
+
+- (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UICollectionViewLayoutAttributes * attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
+    CGSize itemSize = [self itemSize];
+    NSInteger x = self.sectionInsets.left;
+    NSInteger y = self.sectionInsets.top;
+    if (self.layoutMode ==  VideoCollectionLayoutFull) {
+        NSInteger col = indexPath.item % 2;
+        x = self.sectionInsets.left +  (itemSize.width + self.sectionInsets.left ) * col ;
+        y = self.currentY + self.sectionInsets.top ;
+        if (col == 1) {
+            self.currentY = y + itemSize.height;
+        }
+    } else {
+        y = self.sectionInsets.top;
+        x = self.currentX + self.sectionInsets.left;
+        self.currentX = x + itemSize.width;
+        
+    }
+    attributes.frame = CGRectMake(x, y, itemSize.width, itemSize.height);
+    NSLog(@" layout size = %@",NSStringFromCGRect(attributes.frame));
+    return attributes;
+}
+
+- (CGSize)collectionViewContentSize {
+    return CGSizeMake(_contentWidth, _contentHeight);
+}
+
+- (NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
+    return _attributesArray;
+}
+#pragma mark -
+- (NSMutableArray *)attributesArray {
+    if (_attributesArray == nil) {
+        _attributesArray = [[NSMutableArray alloc] init];
+    }
+    return _attributesArray;
+}
+- (CGSize)itemSize {
+    if (self.layoutMode == VideoCollectionLayoutFull) {
+        int itemWidth = (CGRectGetWidth(self.collectionView.frame) - 15) / 2;
+        int itemHeight = (CGRectGetHeight(self.collectionView.frame) - 10) / 2;
+        return CGSizeMake(itemWidth, itemHeight);
+    }
+    return CGSizeMake(110, 110);
+}
+@end
+
+@interface VideoCollectionCell()
+@property(nonatomic,strong)UIView * videoView;
+@property(nonatomic,strong)NSMutableArray * layouts;
+@end
+@implementation VideoCollectionCell
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.layouts = [[NSMutableArray alloc] init];
+    }
+    return self;
+}
+- (void)addVideoView:(UIView *)videoView {
+    [videoView removeFromSuperview];
+    [self removeVideoViewLayout];
+    self.videoView = videoView;
+    videoView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.contentView addSubview:videoView];
+    [self.layouts addObjectsFromArray:[self layoutVideoView]];
+    if (self.layouts.count) {
+        [NSLayoutConstraint activateConstraints:self.layouts];
+    }
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+}
+
+- (void)removeVideoViewLayout{
+    if (self.layouts.count) {
+        [NSLayoutConstraint deactivateConstraints:self.layouts];
+        [self.layouts removeAllObjects];
+    }
+    [self.layouts removeAllObjects];
+}
+
+- (NSArray *)layoutVideoView {
+    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:self.videoView
+                                                                 attribute:NSLayoutAttributeTop
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:self.contentView
+                                                                 attribute:NSLayoutAttributeTop
+                                                                multiplier:1
+                                                                  constant:0];
+    
+    NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:self.videoView
+                                                                  attribute:NSLayoutAttributeLeft
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:self.contentView
+                                                                  attribute:NSLayoutAttributeLeft
+                                                                 multiplier:1
+                                                                   constant:0];
+    
+    NSLayoutConstraint *right  = [NSLayoutConstraint constraintWithItem:self.videoView
+                                                                       attribute:NSLayoutAttributeRight
+                                                                       relatedBy:NSLayoutRelationEqual
+                                                                          toItem:self.contentView
+                                                                       attribute:NSLayoutAttributeRight
+                                                                      multiplier:1
+                                                                        constant:0];
+    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:self.videoView
+                                                                     attribute:NSLayoutAttributeBottom
+                                                                     relatedBy:NSLayoutRelationEqual
+                                                                        toItem:self.contentView
+                                                                     attribute:NSLayoutAttributeBottom
+                                                                    multiplier:1
+                                                                      constant:0] ;
+    return @[top,left,right,bottom];
+}
+@end
+
