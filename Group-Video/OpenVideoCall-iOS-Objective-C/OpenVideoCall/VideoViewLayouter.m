@@ -121,7 +121,7 @@ static NSString * video_Item_Identifier= @"Identifier";
     if (self.layoutConstraints.count) {
         [NSLayoutConstraint activateConstraints:self.layoutConstraints];
     }
-    if (count >= 4) {
+    if (self.allViews.count >= 4) {
         [self.collectionView reloadData];
     }
 }
