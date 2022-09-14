@@ -318,7 +318,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         rtcEngine().joinChannel(accessToken, channel, "OpenVCall", uid);
         config().mChannel = channel;
-        enablePreProcessor();
+//        enablePreProcessor();
         log.debug("joinChannel " + channel + " " + uid);
     }
 
@@ -342,7 +342,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public final void leaveChannel(String channel) {
         log.debug("leaveChannel " + channel);
         config().mChannel = null;
-        disablePreProcessor();
+//        disablePreProcessor();
         rtcEngine().leaveChannel();
         config().reset();
     }
@@ -350,11 +350,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * Enables image enhancement and sets the options.
      */
-    protected void enablePreProcessor() {
-        if (Constant.BEAUTY_EFFECT_ENABLED) {
-            rtcEngine().setBeautyEffectOptions(true, Constant.BEAUTY_OPTIONS);
-        }
-    }
+//    protected void enablePreProcessor() {
+//        if (Constant.BEAUTY_EFFECT_ENABLED) {
+//            rtcEngine().setBeautyEffectOptions(true, Constant.BEAUTY_OPTIONS);
+//        }
+//    }
 
     public final void setBeautyEffectParameters(float lightness, float smoothness, float redness) {
         Constant.BEAUTY_OPTIONS.lighteningLevel = lightness;
@@ -366,10 +366,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * Disables image enhancement.
      */
-    protected void disablePreProcessor() {
-        // do not support null when setBeautyEffectOptions to false
-        rtcEngine().setBeautyEffectOptions(false, Constant.BEAUTY_OPTIONS);
-    }
+//    protected void disablePreProcessor() {
+//        // do not support null when setBeautyEffectOptions to false
+//        rtcEngine().setBeautyEffectOptions(false, Constant.BEAUTY_OPTIONS);
+//    }
 
     protected void configEngine(VideoEncoderConfiguration.VideoDimensions videoDimension, VideoEncoderConfiguration.FRAME_RATE fps, String encryptionKey, String encryptionMode) {
 //        EncryptionConfig config = new EncryptionConfig();

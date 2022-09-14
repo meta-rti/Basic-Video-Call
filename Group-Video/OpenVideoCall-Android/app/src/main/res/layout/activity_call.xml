@@ -80,17 +80,17 @@
                     android:layout_height="match_parent"
                     android:layout_weight="20" />
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
-                    android:onClick="onFilterClicked"
-                    android:scaleType="center"
-                    android:src="@drawable/btn_filter" />
+<!--                <ImageView-->
+<!--                    android:layout_width="40dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:onClick="onFilterClicked"-->
+<!--                    android:scaleType="center"-->
+<!--                    android:src="@drawable/btn_filter" />-->
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="20" />
+<!--                <View-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="20" />-->
 
                 <ImageView
                     android:layout_width="40dp"

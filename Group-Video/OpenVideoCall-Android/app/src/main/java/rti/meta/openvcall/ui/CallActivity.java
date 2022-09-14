@@ -394,20 +394,20 @@ public class CallActivity extends BaseActivity implements DuringCallEventHandler
         rtcEngine.setEnableSpeakerphone(mAudioRouting != Constants.AUDIO_ROUTE_SPEAKERPHONE);
     }
 
-    public void onFilterClicked(View view) {
-        Constant.BEAUTY_EFFECT_ENABLED = !Constant.BEAUTY_EFFECT_ENABLED;
-
-        if (Constant.BEAUTY_EFFECT_ENABLED) {
-            setBeautyEffectParameters(Constant.BEAUTY_EFFECT_DEFAULT_LIGHTNESS, Constant.BEAUTY_EFFECT_DEFAULT_SMOOTHNESS, Constant.BEAUTY_EFFECT_DEFAULT_REDNESS);
-            enablePreProcessor();
-        } else {
-            disablePreProcessor();
-        }
-
-        ImageView iv = (ImageView) view;
-
-        iv.setImageResource(Constant.BEAUTY_EFFECT_ENABLED ? R.drawable.btn_filter : R.drawable.btn_filter_off);
-    }
+//    public void onFilterClicked(View view) {
+//        Constant.BEAUTY_EFFECT_ENABLED = !Constant.BEAUTY_EFFECT_ENABLED;
+//
+//        if (Constant.BEAUTY_EFFECT_ENABLED) {
+//            setBeautyEffectParameters(Constant.BEAUTY_EFFECT_DEFAULT_LIGHTNESS, Constant.BEAUTY_EFFECT_DEFAULT_SMOOTHNESS, Constant.BEAUTY_EFFECT_DEFAULT_REDNESS);
+//            enablePreProcessor();
+//        } else {
+//            disablePreProcessor();
+//        }
+//
+//        ImageView iv = (ImageView) view;
+//
+//        iv.setImageResource(Constant.BEAUTY_EFFECT_ENABLED ? R.drawable.btn_filter : R.drawable.btn_filter_off);
+//    }
 
     @Override
     protected void deInitUIandEvent() {
