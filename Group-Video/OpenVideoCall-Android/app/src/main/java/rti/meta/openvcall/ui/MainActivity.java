@@ -62,23 +62,23 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        Spinner encryptionSpinner = (Spinner) findViewById(R.id.encryption_mode);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.encryption_mode_values, R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        encryptionSpinner.setAdapter(adapter);
-
-        encryptionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                vSettings().mEncryptionModeIndex = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+//        Spinner encryptionSpinner = (Spinner) findViewById(R.id.encryption_mode);
+//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+//                R.array.encryption_mode_values, R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        encryptionSpinner.setAdapter(adapter);
+//
+//        encryptionSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                vSettings().mEncryptionModeIndex = position;
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
 
         String lastChannelName = SPUtils.getInstance().getString(SPKEYCHANNELNAME,"");
         if (!TextUtils.isEmpty(lastChannelName)) {
@@ -86,11 +86,11 @@ public class MainActivity extends BaseActivity {
             v_channel.setSelection(lastChannelName.length());
         }
 
-        EditText v_encryption_key = (EditText) findViewById(R.id.encryption_key);
-        String lastEncryptionKey = vSettings().mEncryptionKey;
-        if (!TextUtils.isEmpty(lastEncryptionKey)) {
-            v_encryption_key.setText(lastEncryptionKey);
-        }
+//        EditText v_encryption_key = (EditText) findViewById(R.id.encryption_key);
+//        String lastEncryptionKey = vSettings().mEncryptionKey;
+//        if (!TextUtils.isEmpty(lastEncryptionKey)) {
+//            v_encryption_key.setText(lastEncryptionKey);
+//        }
     }
 
     @Override
@@ -126,14 +126,14 @@ public class MainActivity extends BaseActivity {
         vSettings().mChannelName = channel;
         SPUtils.getInstance().setString(SPKEYCHANNELNAME,channel);
 
-        EditText v_encryption_key = (EditText) findViewById(R.id.encryption_key);
-        String encryption = v_encryption_key.getText().toString();
-        vSettings().mEncryptionKey = encryption;
+//        EditText v_encryption_key = (EditText) findViewById(R.id.encryption_key);
+//        String encryption = v_encryption_key.getText().toString();
+//        vSettings().mEncryptionKey = encryption;
 
         Intent i = new Intent(MainActivity.this, CallActivity.class);
         i.putExtra(ConstantApp.ACTION_KEY_CHANNEL_NAME, channel);
-        i.putExtra(ConstantApp.ACTION_KEY_ENCRYPTION_KEY, encryption);
-        i.putExtra(ConstantApp.ACTION_KEY_ENCRYPTION_MODE, getResources().getStringArray(R.array.encryption_mode_values)[vSettings().mEncryptionModeIndex]);
+//        i.putExtra(ConstantApp.ACTION_KEY_ENCRYPTION_KEY, encryption);
+//        i.putExtra(ConstantApp.ACTION_KEY_ENCRYPTION_MODE, getResources().getStringArray(R.array.encryption_mode_values)[vSettings().mEncryptionModeIndex]);
 
         startActivity(i);
     }
@@ -143,10 +143,10 @@ public class MainActivity extends BaseActivity {
         startActivity(i);
     }
 
-    public void onClickDoNetworkTest(View view) {
-        Intent i = new Intent(MainActivity.this, NetworkTestActivity.class);
-        startActivity(i);
-    }
+//    public void onClickDoNetworkTest(View view) {
+//        Intent i = new Intent(MainActivity.this, NetworkTestActivity.class);
+//        startActivity(i);
+//    }
 
     @Override
     public void permissionGranted() {

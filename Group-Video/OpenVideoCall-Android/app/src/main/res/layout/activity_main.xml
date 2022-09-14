@@ -39,53 +39,53 @@
             android:maxLines="1"
             android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="14dp"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="48dp"-->
+<!--            android:layout_marginTop="14dp"-->
+<!--            android:orientation="horizontal">-->
 
-            <EditText
-                android:id="@+id/encryption_key"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="2dp"
-                android:layout_marginRight="2dp"
-                android:layout_weight="20"
-                android:digits="@string/legal_channel_name_characters"
-                android:gravity="start|center_vertical"
-                android:hint="@string/label_encryption_key_hint"
-                android:inputType="text"
-                android:maxLines="1"
-                android:textSize="16sp" />
+<!--            <EditText-->
+<!--                android:id="@+id/encryption_key"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginLeft="16dp"-->
+<!--                android:layout_marginEnd="2dp"-->
+<!--                android:layout_marginRight="2dp"-->
+<!--                android:layout_weight="20"-->
+<!--                android:digits="@string/legal_channel_name_characters"-->
+<!--                android:gravity="start|center_vertical"-->
+<!--                android:hint="@string/label_encryption_key_hint"-->
+<!--                android:inputType="text"-->
+<!--                android:maxLines="1"-->
+<!--                android:textSize="16sp" />-->
 
-            <Spinner
-                android:id="@+id/encryption_mode"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginStart="2dp"
-                android:layout_marginLeft="2dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp" />
-        </LinearLayout>
+<!--            <Spinner-->
+<!--                android:id="@+id/encryption_mode"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginStart="2dp"-->
+<!--                android:layout_marginLeft="2dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:layout_marginRight="16dp" />-->
+<!--        </LinearLayout>-->
 
-        <Button
-            android:id="@+id/button_do_network_test"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:background="@android:color/white"
-            android:onClick="onClickDoNetworkTest"
-            android:text="@string/label_do_network_test"
-            android:textAllCaps="false"
-            android:textColor="@color/meta_blue" />
+<!--        <Button-->
+<!--            android:id="@+id/button_do_network_test"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="38dp"-->
+<!--            android:layout_gravity="center_horizontal"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:layout_marginTop="40dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            android:layout_marginRight="16dp"-->
+<!--            android:background="@android:color/white"-->
+<!--            android:onClick="onClickDoNetworkTest"-->
+<!--            android:text="@string/label_do_network_test"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:textColor="@color/meta_blue" />-->
 
         <Button
             android:id="@+id/button_join"
@@ -94,7 +94,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="58dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:background="@color/meta_blue"
