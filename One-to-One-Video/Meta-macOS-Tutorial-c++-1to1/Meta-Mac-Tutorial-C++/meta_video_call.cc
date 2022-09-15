@@ -11,8 +11,8 @@
 namespace meta {
 namespace rtc {
 
-const std::string KAppId = "123";
-const std::string KToken = "";
+const std::string KAppId = <# Your App ID #>;
+const std::string KToken = <# Your Token #>;
 
 DeviceInfo::DeviceInfo(){}
 DeviceInfo::~DeviceInfo(){}
