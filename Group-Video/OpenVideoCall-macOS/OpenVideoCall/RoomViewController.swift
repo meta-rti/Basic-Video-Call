@@ -411,6 +411,8 @@ private extension RoomViewController {
         // Step 3, please attention, stop preview after leave channel
         metaKit.stopPreview()
         
+        stopShareWindow();
+        
         // Step 4, remove all render views
         for session in videoSessions {
             session.hostingView.removeFromSuperview()

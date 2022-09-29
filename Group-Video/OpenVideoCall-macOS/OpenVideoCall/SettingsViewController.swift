@@ -166,10 +166,10 @@ private extension SettingsViewController {
             speakerDevices = localDevices
             localButton = speakerDevicePopUpButton
         case .camera(let id):
-//            wjType = .videoCapture
+            wjType = .videoCapture
             localId = id
-//            localDevices = metaKit.enumerateDevices(wjType)! as NSArray as? [MetaRtcDeviceInfo]
-//            cameraDevices = localDevices
+            localDevices = metaKit.enumerateDevices(wjType)! as NSArray as? [MetaRtcDeviceInfo]
+            cameraDevices = localDevices
             localButton = cameraPopUpButton
         }
         

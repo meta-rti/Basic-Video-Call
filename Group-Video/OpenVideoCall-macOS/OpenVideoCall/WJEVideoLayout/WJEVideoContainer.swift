@@ -139,6 +139,13 @@ class WJEVideoContainer: WJEView {
         addTapGesture()
     }
     #endif
+    
+    deinit {
+        dataSource =  nil;
+        delegate = nil;
+        eventsObserver.delegate = nil;
+        eventsObserver.dataSource = nil;
+    }
 }
 
 extension WJEVideoContainer {
