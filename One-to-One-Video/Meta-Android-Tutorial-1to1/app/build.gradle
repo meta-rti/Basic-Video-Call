@@ -37,6 +37,15 @@ android {
             dirs 'libs'
         }
     }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                outputFileName = "1v1_java-v${defaultConfig.versionName}-${variant.buildType.name}.apk"
+            }
+        }
+    }
 }
 
 dependencies {
