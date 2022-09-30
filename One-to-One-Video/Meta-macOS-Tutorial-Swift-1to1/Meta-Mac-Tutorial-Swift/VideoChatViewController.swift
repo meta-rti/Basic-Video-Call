@@ -91,7 +91,7 @@ class VideoChatViewController: NSViewController {
         // same channel successfully using the same app id.
         // 2. One token is only valid for the channel name that
         // you use to generate this token.
-        MetaKit.joinChannel(byToken: Token, channelId: "demoChannel1", info:nil, uid:0) { (sid, uid, elapsed) -> Void in
+        MetaKit.joinChannel(byToken: Token, channelId: "default_channel", info:nil, uid:0) { (sid, uid, elapsed) -> Void in
             // did join channel "demoChannel1"
         }
     }

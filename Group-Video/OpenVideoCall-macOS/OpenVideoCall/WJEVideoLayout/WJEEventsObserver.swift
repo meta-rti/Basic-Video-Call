@@ -30,7 +30,8 @@ class WJEEventsObserver: NSObject {
     
     #if os(macOS)
     deinit {
-        NSEvent.removeMonitor(self)
+        delegate = nil
+        dataSource = nil
     }
     #endif
 }

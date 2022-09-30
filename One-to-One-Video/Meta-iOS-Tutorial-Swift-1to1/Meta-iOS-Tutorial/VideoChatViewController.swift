@@ -92,7 +92,7 @@ class VideoChatViewController: UIViewController {
         // Set video configuration
         // Please go to this page for detailed explanation
         //MetaVideoDimension640x360
-        metaKit.setVideoEncoderConfiguration(MetaVideoEncoderConfiguration(size: CGSize(width: 1920, height: 1080),
+        metaKit.setVideoEncoderConfiguration(MetaVideoEncoderConfiguration(size: CGSize(width: 640, height: 480),
                                                                              frameRate: .fps15,
                                                                              bitrate: MetaVideoBitrateStandard,
                                                                              orientationMode: .adaptative))
@@ -124,7 +124,7 @@ class VideoChatViewController: UIViewController {
         // same channel successfully using the same app id.
         // 2. One token is only valid for the channel name that
         // you use to generate this token.
-        metaKit.joinChannel(byToken: Token, channelId: "demoChannel1", info: nil, uid: 0) { [unowned self] (channel, uid, elapsed) -> Void in
+        metaKit.joinChannel(byToken: Token, channelId: "default_channel", info: nil, uid: 0) { [unowned self] (channel, uid, elapsed) -> Void in
             // Did join channel "demoChannel1"
             self.isLocalVideoRender = true
             self.logVC?.log(type: .info, content: "did join channel")

@@ -49,7 +49,7 @@
     
     // Set up the configuration such as dimension, frame rate, bit rate and orientation
     MetaVideoEncoderConfiguration *encoderConfiguration =
-    [[MetaVideoEncoderConfiguration alloc] initWithSize:CGSizeMake(1920, 1080)
+    [[MetaVideoEncoderConfiguration alloc] initWithSize:CGSizeMake(640, 480)
                                                frameRate:MetaVideoFrameRateFps15
                                                  bitrate:MetaVideoBitrateStandard
                                          orientationMode:MetaVideoOutputOrientationModeAdaptative];
@@ -68,7 +68,7 @@
 }
 
 - (void)joinChannel {
-    [self.metaKit joinChannelByToken:token channelId:@"demoChannel1" info:nil uid:0 joinSuccess:^(NSString *channel, NSUInteger uid, NSInteger elapsed) {
+    [self.metaKit joinChannelByToken:token channelId:@"default_channel" info:nil uid:0 joinSuccess:^(NSString *channel, NSUInteger uid, NSInteger elapsed) {
         // Join channel "demoChannel1"
     }];
     // The UID database is maintained by your app to track which users joined which channels. If not assigned (or set to 0), the SDK will allocate one and returns it in joinSuccessBlock callback. The App needs to record and maintain the returned value as the SDK does not maintain it.
