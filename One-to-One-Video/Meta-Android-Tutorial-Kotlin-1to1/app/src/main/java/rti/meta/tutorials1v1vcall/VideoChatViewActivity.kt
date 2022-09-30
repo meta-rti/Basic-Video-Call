@@ -271,7 +271,7 @@ class VideoChatViewActivity : AppCompatActivity() {
         }
         mRtcEngine!!.joinChannel(
             token,
-            "123",
+            "default_channel",
             "Extra Optional Data",
             0
         ) // if you do not specify the uid, we will generate the uid for you

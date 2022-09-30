@@ -310,7 +310,7 @@ public class VideoChatViewActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(token) || TextUtils.equals(token, "#YOUR ACCESS TOKEN#")) {
             token = null; // default, no token
         }
-        mRtcEngine.joinChannel(token, "demoChannel1", "Extra Optional Data", 0);
+        mRtcEngine.joinChannel(token, "default_channel", "Extra Optional Data", 0);
     }
 
     @Override
