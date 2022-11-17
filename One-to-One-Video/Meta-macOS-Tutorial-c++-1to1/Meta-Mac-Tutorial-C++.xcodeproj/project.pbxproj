@@ -22,9 +22,9 @@
 		A30AC473258B69DA0071F9FD /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D3D240798AB00483870 /* libresolv.tbd */; };
 		A30AC474258B69E80071F9FD /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D41240798CD00483870 /* VideoToolbox.framework */; };
 		A365D677264A299700E2B4F2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D372407988500483870 /* Accelerate.framework */; };
+		BEA425072924F83A00968100 /* libMetaRTC.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDBC55C2796BB5200BE0021 /* libMetaRTC.dylib */; };
 		BEDBC5482796B24A00BE0021 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A2BC67D1D5A9C2100C9AD11 /* Info.plist */; };
 		BEDBC5492796B4CD00BE0021 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2BC6781D5A9C2100C9AD11 /* Assets.xcassets */; };
-		BEDBC55D2796BB5200BE0021 /* libMetaRTC.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDBC55C2796BB5200BE0021 /* libMetaRTC.dylib */; };
 		BEDBC5622796BEA000BE0021 /* libMetaRTC.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = BEDBC55C2796BB5200BE0021 /* libMetaRTC.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -65,15 +65,15 @@
 		A7733D3D240798AB00483870 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		A7733D3F240798C600483870 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A7733D41240798CD00483870 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		BEDBC54C2796B65B00BE0021 /* IMetaRtcChannel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMetaRtcChannel.h; sourceTree = "<group>"; };
-		BEDBC54D2796B65B00BE0021 /* MetaRtcCryptoCppLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetaRtcCryptoCppLoader.h; sourceTree = "<group>"; };
-		BEDBC54E2796B65B00BE0021 /* IMetaMediaEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMetaMediaEngine.h; sourceTree = "<group>"; };
-		BEDBC54F2796B65B00BE0021 /* IMetaRtcEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMetaRtcEngine.h; sourceTree = "<group>"; };
-		BEDBC5502796B65B00BE0021 /* IMetaService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMetaService.h; sourceTree = "<group>"; };
-		BEDBC5512796B65B00BE0021 /* MetaBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetaBase.h; sourceTree = "<group>"; };
-		BEDBC5522796B65B00BE0021 /* IMetaP2p.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMetaP2p.h; sourceTree = "<group>"; };
-		BEDBC5532796B65B00BE0021 /* IMetaRtmService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMetaRtmService.h; sourceTree = "<group>"; };
-		BEDBC5542796B65B00BE0021 /* IMetaRtmCallManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMetaRtmCallManager.h; sourceTree = "<group>"; };
+		BEA424842924F1F700968100 /* IMetaRtcChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMetaRtcChannel.h; sourceTree = "<group>"; };
+		BEA424852924F1F700968100 /* MetaRtcCryptoCppLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaRtcCryptoCppLoader.h; sourceTree = "<group>"; };
+		BEA424862924F1F700968100 /* IMetaMediaEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMetaMediaEngine.h; sourceTree = "<group>"; };
+		BEA424872924F1F700968100 /* IMetaRtcEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMetaRtcEngine.h; sourceTree = "<group>"; };
+		BEA424882924F1F700968100 /* MetaInternalEventHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaInternalEventHandler.h; sourceTree = "<group>"; };
+		BEA424892924F1F700968100 /* IMetaService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMetaService.h; sourceTree = "<group>"; };
+		BEA4248A2924F1F700968100 /* MetaBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaBase.h; sourceTree = "<group>"; };
+		BEA4248B2924F1F700968100 /* IMetaRtmService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMetaRtmService.h; sourceTree = "<group>"; };
+		BEA4248C2924F1F700968100 /* IMetaRtmCallManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMetaRtmCallManager.h; sourceTree = "<group>"; };
 		BEDBC55C2796BB5200BE0021 /* libMetaRTC.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMetaRTC.dylib; path = "../../Library/Mac/C++/libMetaRTC.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEDBC55D2796BB5200BE0021 /* libMetaRTC.dylib in Frameworks */,
 				A30AC474258B69E80071F9FD /* VideoToolbox.framework in Frameworks */,
 				A30AC46E258B69AD0071F9FD /* MetalKit.framework in Frameworks */,
 				A30AC472258B69D50071F9FD /* libc++.tbd in Frameworks */,
@@ -92,6 +91,7 @@
 				A365D677264A299700E2B4F2 /* Accelerate.framework in Frameworks */,
 				A30AC471258B69C40071F9FD /* SystemConfiguration.framework in Frameworks */,
 				A30AC473258B69DA0071F9FD /* libresolv.tbd in Frameworks */,
+				BEA425072924F83A00968100 /* libMetaRTC.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +118,7 @@
 		1A2BC66E1D5A9C2100C9AD11 /* Meta-Mac-Tutorial-C++ */ = {
 			isa = PBXGroup;
 			children = (
-				BEDBC54B2796B65B00BE0021 /* include */,
+				BEA424832924F1F700968100 /* include */,
 				1A2BC6751D5A9C2100C9AD11 /* VideoChatViewController.h */,
 				1A2BC6761D5A9C2100C9AD11 /* VideoChatViewController.mm */,
 				9F7A7829271E782800D8355C /* meta_video_call.cc */,
@@ -161,18 +161,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BEDBC54B2796B65B00BE0021 /* include */ = {
+		BEA424832924F1F700968100 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				BEDBC54C2796B65B00BE0021 /* IMetaRtcChannel.h */,
-				BEDBC54D2796B65B00BE0021 /* MetaRtcCryptoCppLoader.h */,
-				BEDBC54E2796B65B00BE0021 /* IMetaMediaEngine.h */,
-				BEDBC54F2796B65B00BE0021 /* IMetaRtcEngine.h */,
-				BEDBC5502796B65B00BE0021 /* IMetaService.h */,
-				BEDBC5512796B65B00BE0021 /* MetaBase.h */,
-				BEDBC5522796B65B00BE0021 /* IMetaP2p.h */,
-				BEDBC5532796B65B00BE0021 /* IMetaRtmService.h */,
-				BEDBC5542796B65B00BE0021 /* IMetaRtmCallManager.h */,
+				BEA424842924F1F700968100 /* IMetaRtcChannel.h */,
+				BEA424852924F1F700968100 /* MetaRtcCryptoCppLoader.h */,
+				BEA424862924F1F700968100 /* IMetaMediaEngine.h */,
+				BEA424872924F1F700968100 /* IMetaRtcEngine.h */,
+				BEA424882924F1F700968100 /* MetaInternalEventHandler.h */,
+				BEA424892924F1F700968100 /* IMetaService.h */,
+				BEA4248A2924F1F700968100 /* MetaBase.h */,
+				BEA4248B2924F1F700968100 /* IMetaRtmService.h */,
+				BEA4248C2924F1F700968100 /* IMetaRtmCallManager.h */,
 			);
 			name = include;
 			path = "../../../Library/Mac/C++/include";
@@ -325,6 +325,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -374,6 +375,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = macosx;
 			};
 			name = Release;

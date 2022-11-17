@@ -30,7 +30,6 @@
 		A39788A42588AEB10082FE15 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A397889525889FC30082FE15 /* MetalKit.framework */; };
 		A39788A62588AEB30082FE15 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FB4FB641FF1F979006C7AE3 /* SystemConfiguration.framework */; };
 		A39788A82588AEB40082FE15 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 076C59AF1DDDDE6900F813E2 /* VideoToolbox.framework */; };
-		A3E8CD9B26D88CA20052ADBB /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CD9A26D88CA20052ADBB /* MetaRTCFramework.framework */; };
 		A7327ECE1FC7B5E300882882 /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = A7327ECD1FC7B5E300882882 /* Encryption.m */; };
 		A7327ED41FC7C7DB00882882 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7327ED31FC7C7DB00882882 /* MessageCell.m */; };
 		A7327ED71FC7C7EE00882882 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A7327ED61FC7C7EE00882882 /* Message.m */; };
@@ -42,7 +41,22 @@
 		A7FB1B8922A8C9850027986E /* RoomOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FB1B8822A8C9850027986E /* RoomOptionsViewController.m */; };
 		A7FB1BD422AE448D0027986E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7FB1BD222AE448D0027986E /* Main.storyboard */; };
 		A7FB1BE422AFABF30027986E /* MediaInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FB1BE322AFABF30027986E /* MediaInfo.m */; };
+		BE7F80E228E6DD480030F6ED /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CD9A26D88CA20052ADBB /* MetaRTCFramework.framework */; };
+		BEA424822924EB0A00968100 /* MetaRTCFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3E8CD9A26D88CA20052ADBB /* MetaRTCFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BEA424812924EAFF00968100 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BEA424822924EB0A00968100 /* MetaRTCFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		076C59721DDDBC3500F813E2 /* OpenVideoCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenVideoCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7F80E228E6DD480030F6ED /* MetaRTCFramework.framework in Frameworks */,
 				A39788A22588AEB00082FE15 /* Metal.framework in Frameworks */,
 				A39788A42588AEB10082FE15 /* MetalKit.framework in Frameworks */,
 				A39788A82588AEB40082FE15 /* VideoToolbox.framework in Frameworks */,
@@ -122,7 +137,6 @@
 				A39788A62588AEB30082FE15 /* SystemConfiguration.framework in Frameworks */,
 				A31EA530264A2413003457E8 /* Accelerate.framework in Frameworks */,
 				A397889225889FA60082FE15 /* libresolv.tbd in Frameworks */,
-				A3E8CD9B26D88CA20052ADBB /* MetaRTCFramework.framework in Frameworks */,
 				A397888B25889EA10082FE15 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +278,7 @@
 				076C596E1DDDBC3500F813E2 /* Sources */,
 				076C596F1DDDBC3500F813E2 /* Frameworks */,
 				076C59701DDDBC3500F813E2 /* Resources */,
+				BEA424812924EAFF00968100 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -285,7 +300,7 @@
 				TargetAttributes = {
 					076C59711DDDBC3500F813E2 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = Q79KRGY3Q9;
+						DevelopmentTeam = QA24T62XL3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -491,7 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				DEVELOPMENT_TEAM = QA24T62XL3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -511,7 +526,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wuji.LiveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -524,7 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				DEVELOPMENT_TEAM = QA24T62XL3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -544,7 +559,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wuji.LiveDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

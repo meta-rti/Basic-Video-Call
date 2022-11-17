@@ -45,7 +45,21 @@
 		A7A3C65A228ACFB4005BB816 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7A3C659228ACFB4005BB816 /* Settings.swift */; };
 		A7FC1EF12295701500F850F2 /* RoomOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC1EF02295701500F850F2 /* RoomOptionsViewController.swift */; };
 		A7FC1EF522963CA200F850F2 /* LastmileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FC1EF422963CA200F850F2 /* LastmileViewController.swift */; };
+		BEA424802924EA7E00968100 /* MetaRTCFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3E8CD9C26D88E170052ADBB /* MetaRTCFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BEA4247F2924EA7400968100 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BEA424802924EA7E00968100 /* MetaRTCFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		070275CD1D66A9DC00ABBC23 /* MediaCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCharacter.swift; sourceTree = "<group>"; };
@@ -241,6 +255,7 @@
 				07F52EAD1D62F39D006DDCD4 /* Sources */,
 				07F52EAE1D62F39D006DDCD4 /* Frameworks */,
 				07F52EAF1D62F39D006DDCD4 /* Resources */,
+				BEA4247F2924EA7400968100 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -263,7 +278,7 @@
 				TargetAttributes = {
 					07F52EB01D62F39D006DDCD4 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = Q79KRGY3Q9;
+						DevelopmentTeam = QA24T62XL3;
 						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -480,7 +495,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				DEVELOPMENT_TEAM = QA24T62XL3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -514,7 +529,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				DEVELOPMENT_TEAM = QA24T62XL3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

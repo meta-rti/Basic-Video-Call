@@ -26,7 +26,21 @@
 		A391396D258B4C2F002474B4 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D242407952F00483870 /* VideoToolbox.framework */; };
 		A391396F258B4C45002474B4 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A391396E258B4C45002474B4 /* GLKit.framework */; };
 		A3E8CDA326D890DC0052ADBB /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E8CDA226D890DC0052ADBB /* MetaRTCFramework.framework */; };
+		BEA4247E2924E8DF00968100 /* MetaRTCFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3E8CDA226D890DC0052ADBB /* MetaRTCFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BEA4247D2924E8D000968100 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BEA4247E2924E8DF00968100 /* MetaRTCFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		38101C592386AA55005484F9 /* Meta-iOS-Tutorial-SwiftUI-1to1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meta-iOS-Tutorial-SwiftUI-1to1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +175,7 @@
 				38101C552386AA55005484F9 /* Sources */,
 				38101C562386AA55005484F9 /* Frameworks */,
 				38101C572386AA55005484F9 /* Resources */,
+				BEA4247D2924E8D000968100 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -369,7 +384,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Meta-iOS-Tutorial-SwiftUI-1to1/Preview Content\"";
-				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				DEVELOPMENT_TEAM = QA24T62XL3;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -384,7 +399,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS-4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -399,7 +414,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Meta-iOS-Tutorial-SwiftUI-1to1/Preview Content\"";
-				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				DEVELOPMENT_TEAM = QA24T62XL3;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -414,7 +429,7 @@
 					"@executable_path/Frameworks",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS-4";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

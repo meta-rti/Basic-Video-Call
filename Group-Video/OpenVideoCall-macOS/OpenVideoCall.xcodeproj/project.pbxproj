@@ -27,7 +27,6 @@
 		07C2CFF41D6C299400C84349 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CFF01D6C299400C84349 /* VideoView.swift */; };
 		07C2D0001D6C2DD900C84349 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C2CFFF1D6C2DD900C84349 /* Message.swift */; };
 		3832FA63227FCDCA00E50E69 /* FileCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3832FA62227FCDCA00E50E69 /* FileCenter.swift */; };
-		A31281B226D88B6B00E20DDC /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31281B126D88B6A00E20DDC /* MetaRTCFramework.framework */; };
 		A3211C9F258A0710004A59B5 /* WJEVideoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9A258A0710004A59B5 /* WJEVideoLayout.swift */; };
 		A3211CA0258A0710004A59B5 /* WJEEventsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9B258A0710004A59B5 /* WJEEventsObserver.swift */; };
 		A3211CA1258A0710004A59B5 /* WJEVideoConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3211C9C258A0710004A59B5 /* WJEVideoConstraints.swift */; };
@@ -36,7 +35,6 @@
 		A3211CA5258A073D004A59B5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211CA4258A073D004A59B5 /* CoreTelephony.framework */; };
 		A3211CA7258A074B004A59B5 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211CA6258A074B004A59B5 /* GLKit.framework */; };
 		A3211CA8258A075A004A59B5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99B321885C2500BFD852 /* libc++.tbd */; };
-		A3211CA9258A076B004A59B5 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D7424079CEC00483870 /* libresolv.tbd */; };
 		A3211CAB258A0778004A59B5 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3211CAA258A0778004A59B5 /* MetalKit.framework */; };
 		A3211CAC258A0785004A59B5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99B921885C4D00BFD852 /* SystemConfiguration.framework */; };
 		A3211CAD258A0790004A59B5 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389D99BB21885C5200BFD852 /* VideoToolbox.framework */; };
@@ -54,7 +52,22 @@
 		A7E4DBC6234C7E65001C20F7 /* WJEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4DBC3234C7E65001C20F7 /* WJEError.swift */; };
 		A7E4DBCC234CBAB2001C20F7 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4DBCB234CBAB2001C20F7 /* Settings.swift */; };
 		A7E4DBCE234CBD9B001C20F7 /* MetaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E4DBCD234CBD9B001C20F7 /* MetaExtension.swift */; };
+		BE7F80CC28E69AC80030F6ED /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7F80CB28E69AC80030F6ED /* MetaRTCFramework.framework */; };
+		BE7F80CD28E69ACE0030F6ED /* MetaRTCFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BE7F80CB28E69AC80030F6ED /* MetaRTCFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE99F2B0286C2C4A00852260 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE7F80CD28E69ACE0030F6ED /* MetaRTCFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		07C2CFB41D6C26F300C84349 /* OpenVideoCall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenVideoCall.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +98,6 @@
 		389D99B721885C4600BFD852 /* CoreWLAN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreWLAN.framework; path = System/Library/Frameworks/CoreWLAN.framework; sourceTree = SDKROOT; };
 		389D99B921885C4D00BFD852 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		389D99BB21885C5200BFD852 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		A31281B126D88B6A00E20DDC /* MetaRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetaRTCFramework.framework; path = ../../Library/Mac/MetaRTCFramework.framework; sourceTree = "<group>"; };
 		A3211C9A258A0710004A59B5 /* WJEVideoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoLayout.swift; sourceTree = "<group>"; };
 		A3211C9B258A0710004A59B5 /* WJEEventsObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEEventsObserver.swift; sourceTree = "<group>"; };
 		A3211C9C258A0710004A59B5 /* WJEVideoConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEVideoConstraints.swift; sourceTree = "<group>"; };
@@ -108,6 +120,8 @@
 		A7E4DBC3234C7E65001C20F7 /* WJEError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJEError.swift; sourceTree = "<group>"; };
 		A7E4DBCB234CBAB2001C20F7 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A7E4DBCD234CBD9B001C20F7 /* MetaExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MetaExtension.swift; sourceTree = "<group>"; };
+		BE7F80CB28E69AC80030F6ED /* MetaRTCFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetaRTCFramework.framework; path = ../../Library/Mac/MetaRTCFramework.framework; sourceTree = "<group>"; };
+		BE848085283F50580003A8E1 /* OpenVideoCall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenVideoCall.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,15 +129,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7F80CC28E69AC80030F6ED /* MetaRTCFramework.framework in Frameworks */,
 				A365D676264A269800E2B4F2 /* Accelerate.framework in Frameworks */,
-				A31281B226D88B6B00E20DDC /* MetaRTCFramework.framework in Frameworks */,
 				A3211CA8258A075A004A59B5 /* libc++.tbd in Frameworks */,
 				A3211CAD258A0790004A59B5 /* VideoToolbox.framework in Frameworks */,
 				A3211CA7258A074B004A59B5 /* GLKit.framework in Frameworks */,
 				A3211CA5258A073D004A59B5 /* CoreTelephony.framework in Frameworks */,
 				A3211CAB258A0778004A59B5 /* MetalKit.framework in Frameworks */,
 				A3211CAC258A0785004A59B5 /* SystemConfiguration.framework in Frameworks */,
-				A3211CA9258A076B004A59B5 /* libresolv.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +163,7 @@
 		07C2CFB61D6C26F300C84349 /* OpenVideoCall */ = {
 			isa = PBXGroup;
 			children = (
+				BE848085283F50580003A8E1 /* OpenVideoCall.entitlements */,
 				A3211C99258A0710004A59B5 /* WJEVideoLayout */,
 				07C2CFEC1D6C292400C84349 /* Controllers */,
 				07C2CFED1D6C294900C84349 /* Views */,
@@ -213,7 +227,7 @@
 		389D99B021885C1C00BFD852 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A31281B126D88B6A00E20DDC /* MetaRTCFramework.framework */,
+				BE7F80CB28E69AC80030F6ED /* MetaRTCFramework.framework */,
 				A3211CAA258A0778004A59B5 /* MetalKit.framework */,
 				A3211CA6258A074B004A59B5 /* GLKit.framework */,
 				A3211CA4258A073D004A59B5 /* CoreTelephony.framework */,
@@ -261,6 +275,7 @@
 				07C2CFB01D6C26F300C84349 /* Sources */,
 				07C2CFB11D6C26F300C84349 /* Frameworks */,
 				07C2CFB21D6C26F300C84349 /* Resources */,
+				BE99F2B0286C2C4A00852260 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -283,9 +298,9 @@
 				TargetAttributes = {
 					07C2CFB31D6C26F300C84349 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = Q79KRGY3Q9;
+						DevelopmentTeam = QA24T62XL3;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -487,12 +502,14 @@
 		07C2CFC41D6C26F300C84349 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = x86_64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OpenVideoCall/OpenVideoCall.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				DEVELOPMENT_TEAM = QA24T62XL3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenVideoCall",
@@ -506,7 +523,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com-wuji.OpenVideoCall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -519,12 +536,14 @@
 		07C2CFC51D6C26F300C84349 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = x86_64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OpenVideoCall/OpenVideoCall.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = Q79KRGY3Q9;
+				DEVELOPMENT_TEAM = QA24T62XL3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/OpenVideoCall",
@@ -538,7 +557,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.match.date.welo.PRTC-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com-wuji.OpenVideoCall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";

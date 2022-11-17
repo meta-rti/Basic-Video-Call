@@ -145,6 +145,7 @@ class RoomViewController: UIViewController {
         super.viewDidLoad()
         title = settings.roomName
         loadMetaKit()
+        containerView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -319,6 +320,7 @@ extension RoomViewController: MetaRtcEngineDelegate {
             deletedSession.canvas.view = nil
             
             metaKit.setupRemoteVideo(deletedSession.canvas)
+            updateBroadcastersView();
         }
     }
     
@@ -374,15 +376,15 @@ private extension RoomViewController {
                 rank = 1
                 row = 2
             } else {
-                rank = 2
-                row = Int(ceil(Double(videoSessions.count) / Double(rank)))
+                rank = 1
+                row = 2
             }
             
             let itemWidth = CGFloat(1.0) / CGFloat(rank)
             let itemHeight = CGFloat(1.0) / CGFloat(row)
             let itemSize = CGSize(width: itemWidth, height: itemHeight)
-            let layout = WJEVideoLayout(level: 0)
-                        .itemSize(.scale(itemSize))
+            let layout = WJEVideoLayout(level: 1)
+                .itemSize(.scale(itemSize)).scrollType(.scroll(.vertical))
             
             containerView
                 .listCount { [unowned self] (_) -> Int in

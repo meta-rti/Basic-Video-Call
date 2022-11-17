@@ -89,7 +89,7 @@
 }
 
 - (void)joinChannel {
-    std::string channelName = "openlive_001";
+    std::string channelName = "default_channel";
     video_call_->JoinChannel(channelName, 0);
 }
 

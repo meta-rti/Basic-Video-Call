@@ -24,7 +24,21 @@
 		A30AC474258B69E80071F9FD /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D41240798CD00483870 /* VideoToolbox.framework */; };
 		A31281AC26D7B7E800E20DDC /* MetaRTCFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31281AB26D7B7E800E20DDC /* MetaRTCFramework.framework */; };
 		A365D677264A299700E2B4F2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7733D372407988500483870 /* Accelerate.framework */; };
+		BE7F80E428E6DF360030F6ED /* MetaRTCFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A31281AB26D7B7E800E20DDC /* MetaRTCFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE7F80E328E6DF2C0030F6ED /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				BE7F80E428E6DF360030F6ED /* MetaRTCFramework.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1A2BC66C1D5A9C2100C9AD11 /* Meta-Mac-Tutorial-Objective-C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meta-Mac-Tutorial-Objective-C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +160,7 @@
 				1A2BC6681D5A9C2100C9AD11 /* Sources */,
 				1A2BC6691D5A9C2100C9AD11 /* Frameworks */,
 				1A2BC66A1D5A9C2100C9AD11 /* Resources */,
+				BE7F80E328E6DF2C0030F6ED /* CopyFiles */,
 			);
 			buildRules = (
 			);

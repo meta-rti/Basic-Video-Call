@@ -275,9 +275,9 @@ extension WJEVideoLayout {
     func isEqual(right: WJEVideoLayout) -> WJEVideoLayout.Equal {
         var reasons = [WJEVideoLayout.Equal.Reason]()
         
-        if self.lineSpacing != right.lineSpacing {
+//        if self.lineSpacing != right.lineSpacing {
             reasons.append(.lineSpacing)
-        }
+//        }
         
         if self.interitemSpacing != right.interitemSpacing {
             reasons.append(.interitemSpacing)
